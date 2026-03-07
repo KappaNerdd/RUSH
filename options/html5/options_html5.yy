@@ -10,7 +10,7 @@
   "option_html5_facebook_id":"",
   "option_html5_flurry_enable":false,
   "option_html5_flurry_id":"",
-  "option_html5_foldername":"html5ADRENALINE",
+  "option_html5_foldername":"html5ADRENALINE_RUSH",
   "option_html5_google_analytics_enable":false,
   "option_html5_google_tracking_id":"",
   "option_html5_icon":"${options_dir}/html5/fav.ico",
@@ -29,7 +29,7 @@
   "option_html5_usesplash":true,
   "option_html5_use_facebook":false,
   "option_html5_version":"0.3.0.0",
-  "option_html5_webgl":1,
+  "option_html5_webgl":2,
   "resourceType":"GMHtml5Options",
   "resourceVersion":"2.0",
 }
