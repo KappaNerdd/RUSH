@@ -148,7 +148,7 @@ if !jukeboxOut {
 				}
 			} else if extraPlay && !customJuke {
 				if array_length(global.NewJukes) > 0 {
-					var _musPath = working_directory + "custom_boombox";
+					var _musPath = working_directory + "custom_boombox" + "/" + string(filename_name(global.NewJukes[extraChoice]));
 					var _musDir = file_find_first(string(global.NewJukes[extraChoice]) + "/*", fa_directory);
 					
 					array_delete(global.CustomJukeboxPlaylist, 0, array_length(global.CustomJukeboxPlaylist));
@@ -162,6 +162,10 @@ if !jukeboxOut {
 					}
 					
 					file_find_close();
+					
+					if global.JukeboxShuffle {
+						global.CustomJukeShuffled = array_shuffle(global.CustomJukeboxPlaylist);
+					}
 				}
 			} else if customJuke {
 				var _bullArray = global.CustomJukeboxPlaylist;
@@ -198,7 +202,7 @@ if !jukeboxOut {
 	#endregion
 	
 	#region //Add Track
-		if pause_Key && customJuke {
+		if pause_Key {
 			/*obj_SFXManager.menuPop = true;
 			var _customMus = get_open_filename(".ogg Files|*.ogg", "");
 				
@@ -208,18 +212,26 @@ if !jukeboxOut {
 				obj_SFXManager.parry = true;
 			}*/
 			
-			var _musDir = file_find_first(string(global.NewJukes[extraPlay]) + "/*", fa_directory);
+			if customJuke {
+				var _musPath = working_directory + "custom_boombox" + "/" + string(filename_name(global.NewJukes[extraChoice]));
+				var _musDir = file_find_first(string(global.NewJukes[extraChoice]) + "/*", fa_directory);
 					
-			array_delete(global.CustomJukeboxPlaylist, 0, array_length(global.CustomJukeboxPlaylist));
-			array_delete(global.CustomJukeShuffled, 0, array_length(global.CustomJukeShuffled));
+				array_delete(global.CustomJukeboxPlaylist, 0, array_length(global.CustomJukeboxPlaylist));
+				array_delete(global.CustomJukeShuffled, 0, array_length(global.CustomJukeShuffled));
+				customJuke = true;
+				
+				obj_SFXManager.airDashSound = true;
 					
-			while (_musDir != "") {
-				array_push(global.CustomJukeboxPlaylist, _musDir);
-				_musDir = file_find_next();
+				while (_musDir != "") {
+					array_push(global.CustomJukeboxPlaylist, _musPath + "/" + _musDir);
+				   _musDir = file_find_next();
+				}
+					
+				file_find_close();
+			} else if extraPlay && !customJuke {
+				scr_LoadCustomMusic();
+				obj_SFXManager.airDashSound = true;
 			}
-					
-			file_find_close();
-			obj_SFXManager.menuPop = true;
 		}
 	#endregion
 	
@@ -243,7 +255,7 @@ if !jukeboxOut {
 	#region //Loop
 		if action3_Key {
 			global.JukeboxLoop = !global.JukeboxLoop;
-			obj_SFXManager.airDashSound = true;
+			obj_SFXManager.balloonPop = true;
 		}
 	#endregion
 	

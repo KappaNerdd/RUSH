@@ -284,17 +284,6 @@ function scr_BasicControlsSpeedStep1() {
 					
 					jump_Key = clamp(jump_Key, 0, 1);
 					_recorder.input[eKey.JumpPressed] = jump_Key;
-					
-					with(obj_SonicRushIntroCard) {
-						if other.jump_Key && kysTimer > 0 {
-							kysTimer = 0;
-							mainAlpha = 0;
-							otheralpha = 0;
-							whiteAlpha = 0;
-							other.can_MoveFULL = true;
-							other.can_Move = true;
-						}
-					}
 				}
 			}
 			

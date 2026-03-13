@@ -1776,10 +1776,10 @@ function scr_Landing(_type = "hard") {
 			scr_StompedVFX();
 		}
 		
-		instance_create_depth(x, y, depth, obj_SlideDustVFX);
-		instance_create_depth(x, y, depth, obj_SlideDustVFX);
-		instance_create_depth(x, y, depth, obj_SlideDustVFX);
-		instance_create_depth(x, y, depth, obj_SlideDustVFX);
+		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
+		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
+		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
+		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
 	}
 }
 

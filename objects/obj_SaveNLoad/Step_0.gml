@@ -26,6 +26,13 @@ if keyboard_check_pressed(ord("0")) {
 	load_game(3);
 }*/
 
+//Screenshot Function
+if keyboard_check_pressed(vk_f3) {
+	instance_create_depth(x, y, depth, obj_CameraFlash);
+	obj_SFXManager.funkinScreenshot = true;
+	screen_save(working_directory + "screenshots/Screen_SaveFile" + string(global.saveFile) + "_" + string(global.PlayerName) + "_M" + string(current_month) + "_D" + string(current_day) + "_Y" + string(current_year) + ".png");
+}
+
 //Global Timer
 global.PlayerTimeSeconds += 1 / 60;
 

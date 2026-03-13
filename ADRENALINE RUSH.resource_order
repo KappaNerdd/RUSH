@@ -692,6 +692,7 @@
     {"name":"obj_BorderV","order":1,"path":"objects/obj_BorderV/obj_BorderV.yy",},
     {"name":"obj_BreakableFloor","order":2,"path":"objects/obj_BreakableFloor/obj_BreakableFloor.yy",},
     {"name":"obj_C90CassetteText","order":1,"path":"objects/obj_C90CassetteText/obj_C90CassetteText.yy",},
+    {"name":"obj_CameraFlash","order":2,"path":"objects/obj_CameraFlash/obj_CameraFlash.yy",},
     {"name":"obj_CameraNormal","order":1,"path":"objects/obj_CameraNormal/obj_CameraNormal.yy",},
     {"name":"obj_CameraParent","order":1,"path":"objects/obj_CameraParent/obj_CameraParent.yy",},
     {"name":"obj_CharChecker","order":3,"path":"objects/obj_CharChecker/obj_CharChecker.yy",},

@@ -150,6 +150,10 @@
 	if !directory_exists("custom_boombox") {
 		directory_create("custom_boombox");
 	}
+	
+	if !directory_exists("screenshots") {
+		directory_create("screenshots");
+	}
 
 	global.Replay = false;
 

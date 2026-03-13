@@ -1,5 +1,13 @@
 getCharacterControls();
 
+if global.Replay {
+	var _recorder = instance_find(obj_InputRecorder, 0);
+
+	if _recorder != noone {
+		jump_Key = _recorder.input[eKey.JumpPressed];
+	}
+}
+
 if kysTimer > 0 {
 	if mainAlpha < 1 {
 		mainAlpha += 0.025;
@@ -18,6 +26,15 @@ if kysTimer > 0 {
 	if global.LevelForced {
 		obj_Player.can_Move = false;
 	} else {
+		if jump_Key {
+			kysTimer = 0;
+			mainAlpha = 0;
+			otheralpha = 0;
+			whiteAlpha = 0;
+			other.can_MoveFULL = true;
+			other.can_Move = true;
+		}
+		
 		obj_Player.can_MoveFULL = false;
 		
 		if obj_Player.leftFacer {

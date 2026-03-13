@@ -745,7 +745,6 @@
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"AR_TextLocale.csv","CopyToMask":-1,"filePath":"datafiles","name":"AR_TextLocale.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"Diminished (Akira Results Shit) (online-audio-converter.com).mp3","CopyToMask":-1,"filePath":"datafiles","name":"Diminished (Akira Results Shit) (online-audio-converter.com).mp3","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"mod_metadata.json","CopyToMask":-1,"filePath":"datafiles/mods/picomodtest","name":"mod_metadata.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"picoPixel.png","CopyToMask":-1,"filePath":"datafiles/mods/picomodtest","name":"picoPixel.png","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"characterselectdata.json","CopyToMask":-1,"filePath":"datafiles/mods/picomodtest/sprites/characterselect","name":"characterselectdata.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -802,6 +801,7 @@
     {"id":{"name":"obj_CameraAction","path":"objects/obj_CameraAction/obj_CameraAction.yy",},},
     {"id":{"name":"obj_CameraCutscene","path":"objects/obj_CameraCutscene/obj_CameraCutscene.yy",},},
     {"id":{"name":"obj_CameraExtended","path":"objects/obj_CameraExtended/obj_CameraExtended.yy",},},
+    {"id":{"name":"obj_CameraFlash","path":"objects/obj_CameraFlash/obj_CameraFlash.yy",},},
     {"id":{"name":"obj_CameraKnuckles","path":"objects/obj_CameraKnuckles/obj_CameraKnuckles.yy",},},
     {"id":{"name":"obj_CameraNormal","path":"objects/obj_CameraNormal/obj_CameraNormal.yy",},},
     {"id":{"name":"obj_CameraParent","path":"objects/obj_CameraParent/obj_CameraParent.yy",},},
