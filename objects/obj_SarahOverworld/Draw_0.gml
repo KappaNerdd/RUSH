@@ -7,10 +7,6 @@ scr_RushModeColorDraw();
 if backTrick or hover {
 	var _xscale = 1;
 	
-	if face_Left {
-		_xscale = -1;
-	}
-	
 	draw_sprite_ext(spr_SarahTwirlVFX, image_index, x, y - 16, _xscale, 1, drawAngle, c_white, 1);
 }
 

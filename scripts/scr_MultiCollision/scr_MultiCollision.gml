@@ -627,6 +627,7 @@ function scr_YCollision() {
 			
 			#region //Power-Ups
 				var _power = instance_place(x, y, obj_PowerOrb);
+				var _stomped = instance_find(obj_StompVFX, 0);
 				
 				if _power {
 					if _power.active {
@@ -636,6 +637,20 @@ function scr_YCollision() {
 	
 						if yspd > 0 && !ground && !stomping && !fallVel {
 							yspd = -4;
+						}
+					}
+				}
+				
+				if _stomped != noone {
+					with(_stomped) {
+						var _otherPower = instance_place(x, y, obj_PowerOrb);
+						
+						if _otherPower && image_index >= 2 {
+							if _otherPower.active {
+								with(_otherPower) {
+									event_user(0);
+								}
+							}
 						}
 					}
 				}
@@ -667,12 +682,12 @@ function scr_YCollision() {
 			#endregion
 			
 			#region //Launcher Ramp
-				var _ramp = instance_place(x, y + 3, obj_Ramp);
+				var _ramp = PlayerCollisionObjectMain(x, y + 5, obj_Ramp);
 				
 				if _ramp && !global.Death {
 					if !_ramp.launchConfirmed {
-						if ground {
-							if (PlayerCollisionLeftEdge(x - vel, y, 0) && !PlayerCollisionRightEdge(x + vel, y, 0) && vel > max_Speed) or (PlayerCollisionRightEdge(x + vel, y, 0) && !PlayerCollisionLeftEdge(x - vel, y, 0) && vel < -max_Speed) {
+						if ground && abs(vel) >= max_Speed {
+							if (PlayerCollisionLeftEdge(x - abs(vel), y, 0) && !PlayerCollisionRightEdge(x + abs(vel), y, 0)) or (!PlayerCollisionLeftEdge(x - abs(vel), y, 0) && PlayerCollisionRightEdge(x + abs(vel), y, 0)) {
 								#region //Actual Function
 									jumping = true;
 									PlayerSetGround(false);
@@ -688,8 +703,12 @@ function scr_YCollision() {
 									event_user(1);
 									event_user(2);
 									rampRing = true;
+									realJumping = false;
 							
 									rushTrickTimer = 0;
+									
+									sideLaunch = true;
+									upLaunch = false;
 		
 									if rushTrickFinish {
 										rushTrickFinish = false;
@@ -727,6 +746,68 @@ function scr_YCollision() {
 		
 									yspd = _ramp.launchYspd;
 								#endregion
+							} else
+							
+							if jump_Key {
+								#region //Actual Function
+									jumping = true;
+									PlayerSetGround(false);
+									angle = 0;
+									slowSkid = false;
+							
+									obj_SFXManager.jumpDash = true;
+									obj_SFXManager.trickPanel = true;
+									_ramp.launchConfirmed = true;
+	
+									scr_StopPlayerHurt();
+		
+									event_user(0);
+									event_user(1);
+									event_user(2);
+									rampRing = true;
+									realJumping = false;
+							
+									rushTrickTimer = 0;
+									
+									rainbowLaunch = true;
+		
+									if rushTrickFinish {
+										rushTrickFinish = false;
+										rushTrickCombo = 0;
+									}
+							
+									if _ramp.giveScore {
+										getScore = true;
+										_ramp.giveScore = false;
+										scr_BonusPoints(5000);
+									}
+		
+									if _ramp.launchVel > 0 {
+										if vel < _ramp.launchVel {
+											vel = _ramp.launchVel;
+										}
+									} else if _ramp.launchVel < 0 {
+										if vel > _ramp.launchVel {
+											vel = _ramp.launchVel;
+										}
+									}
+							
+									if _ramp.launchVel > 0 {
+										if leftFacer {
+											face_Left = false;
+										} else {
+											visXScale = 1;
+										}
+									} else if _ramp.launchVel < 0 {
+										if leftFacer {
+											face_Left = true;
+										} else {
+											visXScale = -1;
+										}
+									}
+		
+									yspd = _ramp.launchYspd - 2;
+								#endregion
 							}
 						}
 					}
@@ -740,20 +821,40 @@ function scr_YCollision() {
 					if !_launchRing.launchConfirmed {
 						_launchRing.launchConfirmed = true;
 						
+						if rushTrickFinish {
+							rushTrickCombo = 0;
+							rushTrickFinish = false;
+						}
+						
 						ground = false;
 						jumping = true;
+						realJumping = false;
 						PlayerSetGround(false);
 						angle = 0;
 						slowSkid = false;
 						
 						if !_launchRing.rainbow {
 							obj_SFXManager.dashPanel = true;
+							
+							if _launchRing.launchYspd == 0 {
+								sideLaunch = true;
+								upLaunch = false;
+							} else {
+								upLaunch = true;
+								sideLaunch = false;
+							}
+							
+							rainbowLaunch = false;
 						} else {
 							obj_SFXManager.trickPanel = true;
 							
 							if _launchRing.giveScore {
 								scr_BonusPoints(5000);
 							}
+							
+							sideLaunch = false;
+							upLaunch = false;
+							rainbowLaunch = true;
 						}
 	
 						x = _launchRing.x;
@@ -771,11 +872,6 @@ function scr_YCollision() {
 						event_user(2);
 						
 						rushTrickTimer = 0;
-		
-						if rushTrickFinish {
-							rushTrickFinish = false;
-							rushTrickCombo = 0;
-						}
 		
 						can_MoveFULL = true;
 						preTrickTimer = preTrickFrames;
@@ -814,6 +910,8 @@ function scr_YCollision() {
 					jumping = true;
 					rampRing = true;
 					trickWait = 2;
+					rainbowLaunch = true;
+					realJumping = false;
 					obj_SFXManager.trickPanel = true;
 					
 					rushTrickTimer = 0;
@@ -837,6 +935,7 @@ function scr_YCollision() {
 					ground = false;
 					PlayerSetGround(false);
 					jumping = true;
+					realJumping = false;
 					obj_SFXManager.bump = true;
 					
 					yspd = -4;
@@ -856,7 +955,8 @@ function scr_YCollision() {
 
 				if _boost && ground {
 					scr_ControllerRumble();
-					scr_StopCharShit();
+					stomping = false;
+					stomped = false;
 					slowSkid = false;
 					
 					noMoveTimer = 30;
@@ -916,12 +1016,18 @@ function scr_YCollision() {
 						_spring.active = true;
 						_spring.image_speed = 1;
 						angle = 0;
+		
+						if rushTrickFinish {
+							rushTrickCombo = 0;
+							rushTrickFinish = false;
+						}
 						
 						if _spring.hori {
 							noMoveTimer = 30;
 						}
 						
 						slowSkid = false;
+						realJumping = false;
 						
 						if _spring.giveScore {
 							getScore = true;
@@ -929,17 +1035,22 @@ function scr_YCollision() {
 						} else {
 							getScore = false;
 						}
-					
+						
+						if _spring.launchYspd == 0 {
+							sideLaunch = true;
+							upLaunch = false;
+						} else {
+							upLaunch = true;
+							sideLaunch = false;
+						}
+						
+						rainbowLaunch = false;
+						
 						event_user(0);
 						event_user(1);
 						event_user(2);
-		
+						
 						rushTrickTimer = 0;
-		
-						if rushTrickFinish {
-							rushTrickFinish = false;
-							rushTrickCombo = 0;
-						}
 					
 						can_MoveFULL = true;
 						preTrickTimer = preTrickFrames;
@@ -1004,13 +1115,23 @@ function scr_YCollision() {
 						angle = 0;
 						slowSkid = false;
 						
+						if rushTrickFinish {
+							rushTrickCombo = 0;
+							rushTrickFinish = false;
+						}
+						
 						if _tramp.giveScore {
 							getScore = true;
 							_tramp.giveScore = false;
 						} else {
 							getScore = false;
 						}
-					
+						
+						upLaunch = true;
+						sideLaunch = false;
+						rainbowLaunch = false;
+						realJumping = false;
+						
 						event_user(0);
 						event_user(1);
 						event_user(2);
@@ -1018,11 +1139,6 @@ function scr_YCollision() {
 						rampRing = true;
 		
 						rushTrickTimer = 0;
-		
-						if rushTrickFinish {
-							rushTrickFinish = false;
-							rushTrickCombo = 0;
-						}
 					
 						can_MoveFULL = true;
 						preTrickTimer = preTrickFrames;
@@ -1065,10 +1181,16 @@ function scr_YCollision() {
 						angle = 0;
 					
 						if _balloon.cluster {
+							if rushTrickFinish {
+								rushTrickCombo = 0;
+								rushTrickFinish = false;
+							}
+							
 							event_user(0);
 							event_user(1);
 							event_user(2);
 							rampRing = true;
+							realJumping = false;
 							
 							if _balloon.giveScore {
 								_balloon.giveScore = false;
@@ -1079,12 +1201,9 @@ function scr_YCollision() {
 							}
 		
 							rushTrickTimer = 0;
-		
-							if rushTrickFinish {
-								rushTrickFinish = false;
-								rushTrickCombo = 0;
-							}
-					
+							
+							rainbowLaunch = true;
+							
 							can_MoveFULL = true;
 							preTrickTimer = preTrickFrames;
 							
@@ -1112,6 +1231,11 @@ function scr_YCollision() {
 					scr_StopPlayerHurt();
 					angle = 0;
 					
+					if rushTrickFinish {
+						rushTrickCombo = 0;
+						rushTrickFinish = false;
+					}
+					
 					if _geyser.giveScore {
 						_geyser.giveScore = false;
 						getScore = true;
@@ -1131,17 +1255,17 @@ function scr_YCollision() {
 					PlayerSetGround(false);
 					jumping = true;
 					rampRing = true;
+					realJumping = false;
+					
+					rainbowLaunch = true;
+					sideLaunch = false;
+					upLaunch = false;
 					
 					event_user(0);
 					event_user(1);
 					event_user(2);
 		
 					rushTrickTimer = 0;
-		
-					if rushTrickFinish {
-						rushTrickFinish = false;
-						rushTrickCombo = 0;
-					}
 					
 					can_MoveFULL = true;
 					preTrickTimer = preTrickFrames;
@@ -1153,11 +1277,17 @@ function scr_YCollision() {
 
 				if _pully {
 					if !_pully.pulledDone {
+						if rushTrickFinish {
+							rushTrickCombo = 0;
+							rushTrickFinish = false;
+						}
+						
 						event_user(0);
 						event_user(1);
 						event_user(2);
 						PlayerSetGround(false);
 						jumping = true;
+						realJumping = false;
 						yspd = 0;
 						vel = 0;
 						groundSpeed = 0;
@@ -1169,11 +1299,6 @@ function scr_YCollision() {
 						array_push(_pully.pulledChars, id);
 		
 						rushTrickTimer = 0;
-		
-						if rushTrickFinish {
-							rushTrickFinish = false;
-							rushTrickCombo = 0;
-						}
 			
 						preTrickTimer = preTrickFrames;
 						
@@ -1185,114 +1310,34 @@ function scr_YCollision() {
 			#endregion
 			
 			#region //Spikes
-				var _spikeLeft = instance_place(x - 1, y, obj_Spikes);
+				var _spikeDown = instance_place(x, y + 2, obj_Spikes);
+				var _spikeUp = instance_place(x, y - 2, obj_Spikes);
+				var _spikeLeft = instance_place(x - 4, y, obj_Spikes);
 				var _spikeRight = instance_place(x + 2, y, obj_Spikes);
-				var _spikeUp = instance_place(x, y - 1, obj_Spikes);
-				var _spikeDown = instance_place(x, y + 1, obj_Spikes);
 				
-				#region //Down
-					if _spikeDown {
-						if !boost && !invincible && !playerHurt && _spikeDown.image_angle == 0 {
-							scr_HurtPlayer(200000, 5, 1, -7);
-							obj_SFXManager.playerHurt = true;
-							obj_SFXManager.spikeHurt = true;
-							
-							PlayerSetGround(false);
-
-							scr_StopCharControls();
-	
-							event_user(0);
-							event_user(1);
-							event_user(3);
-		
-							if rushTrickFinish {
-								rushTrickFinish = false;
-								rushTrickCombo = 0;
-							}
-			
-							can_MoveFULL = true;
-							preTrickTimer = preTrickFrames;
-						}
+				if _spikeDown {
+					if _spikeDown.image_angle == 0 && PlayerCollisionObjectBottom(x, y + 1, angle, maskMid, obj_Spikes) {
+						scr_SpikeHurt();
 					}
-				#endregion
+				}
 				
-				#region //Right
-					if _spikeRight {
-						if !boost && !invincible && !playerHurt && _spikeRight.image_angle == 90 {
-							scr_HurtPlayer(200000, 5, 1, -7);
-							obj_SFXManager.playerHurt = true;
-							obj_SFXManager.spikeHurt = true;
-							
-							PlayerSetGround(false);
-
-							scr_StopCharControls();
-	
-							event_user(0);
-							event_user(1);
-							event_user(3);
-		
-							if rushTrickFinish {
-								rushTrickFinish = false;
-								rushTrickCombo = 0;
-							}
-			
-							can_MoveFULL = true;
-							preTrickTimer = preTrickFrames;
-						}
+				if _spikeUp {
+					if _spikeUp.image_angle == 180 && PlayerCollisionObjectTop(x, y - sensorTopDistance - 60, angle, maskBig, obj_Spikes) && yspd < 0 {
+						scr_SpikeHurt();
 					}
-				#endregion
+				}
 				
-				#region //Up
-					if _spikeUp {
-						if !boost && !invincible && !playerHurt && _spikeUp.image_angle == 180 {
-							scr_HurtPlayer(200000, 5, 1, -7);
-							obj_SFXManager.playerHurt = true;
-							obj_SFXManager.spikeHurt = true;
-							
-							PlayerSetGround(false);
-
-							scr_StopCharControls();
-	
-							event_user(0);
-							event_user(1);
-							event_user(3);
-		
-							if rushTrickFinish {
-								rushTrickFinish = false;
-								rushTrickCombo = 0;
-							}
-			
-							can_MoveFULL = true;
-							preTrickTimer = preTrickFrames;
-						}
+				if _spikeLeft {
+					if _spikeLeft.image_angle == 270 && PlayerCollisionObjectLeft(x - 3, y, angle, maskMid, obj_Spikes) && vel <= 0 {
+						scr_SpikeHurt();
 					}
-				#endregion
+				}
 				
-				#region //Left
-					if _spikeLeft {
-						if !boost && !invincible && !playerHurt && _spikeLeft.image_angle == 270 {
-							scr_HurtPlayer(200000, 5, 1, -7);
-							obj_SFXManager.playerHurt = true;
-							obj_SFXManager.spikeHurt = true;
-							
-							PlayerSetGround(false);
-
-							scr_StopCharControls();
-	
-							event_user(0);
-							event_user(1);
-							event_user(3);
-		
-							if rushTrickFinish {
-								rushTrickFinish = false;
-								rushTrickCombo = 0;
-							}
-			
-							can_MoveFULL = true;
-							preTrickTimer = preTrickFrames;
-						}
+				if _spikeRight {
+					if _spikeRight.image_angle == 90 && PlayerCollisionObjectRight(x + 2, y, angle, maskMid, obj_Spikes) && vel >= 0 {
+						scr_SpikeHurt();
 					}
-				#endregion
+				}
 			#endregion
 			
 			#region //Checkpoint
@@ -1673,12 +1718,12 @@ function scr_YCollision() {
 							if edgeCollision {
 								PlayerSetAngle(PlayerGetAngle(x, y, angle));
 								PlayerCollisionCache();
+								scr_Landing();
 							}
     
 							vel -= angleSin * yspd;
 							yspd = 0;
 							PlayerSetGround(true);
-							scr_Landing();
 						}
     
 						//Check if we're in the air but we collided with the ceiling
@@ -1712,28 +1757,33 @@ function scr_YCollision() {
 					//Stop when meet a wall/slide pass and isnt sliding
 					if vel > 0 && PlayerCollisionRight(x, y - 1, angle, maskBig) {
 						vel = 0;
-						pushingWall = true;
 					} else if vel < 0 && PlayerCollisionLeft(x, y - 1, angle, maskBig) {
 						vel = 0;
-						pushingWall = true;
 					}
 					
 					if object_index != obj_IvyOverworld {
 						if angle == 0 && !sliding && !railGrind {
-							if vel > 0 && PlayerCollisionRight(x, y - sensorTopDistance + 4, 0, maskBig) {
+							if vel > 0 && PlayerCollisionRight(x - 1, y - sensorTopDistance + 4, 0, maskBig) {
 								vel = 0;
 								x -= acc;
-								pushingWall = true;
-							} else if vel < 0 && PlayerCollisionLeft(x, y - sensorTopDistance + 4, 0, maskBig) {
+							} else if vel < 0 && PlayerCollisionLeft(x + 1, y - sensorTopDistance + 4, 0, maskBig) {
 								vel = 0;
 								x += acc;
-								pushingWall = true;
-							} else {
-								pushingWall = false;
 							}
 						}
 					}
-
+					
+					//Pushing
+					if ground && !ducking && !look_up && !railGrind && angle == 0 {
+						if PlayerCollisionRight(x + 1, y - 20, 0, maskBig) && right_Key {
+							pushingWall = true;
+						} else if PlayerCollisionLeft(x - 1, y - 20, 0, maskBig) && left_Key {
+							pushingWall = true;
+						} else {
+							pushingWall = false;
+						}
+					}
+					
 					//Decrease gravity freeze timer
 					if gravTimer > 0 {
 						gravTimer--;
@@ -1769,6 +1819,10 @@ function scr_Landing(_type = "hard") {
 	
 	if playerHurt {
 		playerHurt = false;
+	}
+	
+	if angleHolder == 0 {
+		drawAngle = 0;
 	}
 	
 	if global.Particles {
@@ -2065,3 +2119,27 @@ function scr_CeilingDetect() {
 	}
 }
 
+
+//Spike Shit
+function scr_SpikeHurt() {
+	if !boost && !invincible && !playerHurt {
+		scr_HurtPlayer(200000, 5, 1, -7);
+		obj_SFXManager.playerHurt = true;
+		obj_SFXManager.spikeHurt = true;
+							
+		PlayerSetGround(false);
+		scr_StopCharControls();
+	
+		event_user(0);
+		event_user(1);
+		event_user(3);
+		
+		if rushTrickFinish {
+			rushTrickFinish = false;
+			rushTrickCombo = 0;
+		}
+			
+		can_MoveFULL = true;
+		preTrickTimer = preTrickFrames;
+	}
+}

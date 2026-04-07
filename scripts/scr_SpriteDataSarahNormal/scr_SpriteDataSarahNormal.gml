@@ -3,128 +3,159 @@ function scr_SpriteDataSarahNormal() {
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump
-	sarah_Idle_Mask = spr_SarahIdleMask;
+	idle_Mask = spr_SarahIdleMask;
 
 	//Crouch
-	sarah_Crouch_Mask = spr_SarahCrouchMask;
+	crouch_Mask = spr_SarahCrouchMask;
 
 	//Slide
-	sarah_Slide_Mask = spr_SarahSlideMask;
+	slide_Mask = spr_SarahSlideMask;
 
 
 
 	///-----Animations-----///
 
 	//Idle Right
-	sarah_IdleRight = spr_SarahIdleRight;
-	sarah_Special_Idle = spr_SarahSpecialIdle;
-	sarah_Prepare = spr_SarahPrepare;
-	sarah_Goal = spr_SarahGoal;
+	sprIdleRight = spr_SarahIdleRight;
+	sprSpecialIdleRight = spr_SarahSpecialIdleRight;
+	sprPrepare = spr_SarahPrepare;
 	
 	//Idle Left
-	sarah_IdleLeft = spr_SarahIdleLeft;
+	sprIdleLeft = spr_SarahIdleLeft;
+	sprSpecialIdleLeft = spr_SarahSpecialIdleLeft;
 	
-
-
 	//Movement Right
-	sarah_WalkingRight = spr_SarahWalkRight;
-	sarah_RunningRight = spr_SarahRunRight;
-	sarah_FullSpeedRight = spr_SarahFullSpeedRight;
-	sarah_SkidRight = spr_SarahSkidRight;
+	sprWalkRight = spr_SarahWalkRight;
+	sprRunRight = spr_SarahRunRight;
+	sprFullSpeedRunRight = spr_SarahFullSpeedRight;
+	sprSkidRight = spr_SarahSkidRight;
 	
 	//Movement Left
-	sarah_WalkingLeft = spr_SarahWalkLeft;
-	sarah_RunningLeft = spr_SarahRunLeft;
-	sarah_FullSpeedLeft = spr_SarahFullSpeedLeft;
-	sarah_SkidLeft = spr_SarahSkidLeft;
+	sprWalkLeft = spr_SarahWalkLeft;
+	sprRunLeft = spr_SarahRunLeft;
+	sprFullSpeedRunLeft = spr_SarahFullSpeedLeft;
+	sprSkidLeft = spr_SarahSkidLeft;
 	
 
 
 	//Jumping Right
-	sarah_jumpingRight = spr_SarahJumpRight;
-	sarah_DJumping = spr_SarahDoubleJump;
+	sprJumpRight = spr_SarahJumpRight;
+	sprDJumpRight = spr_SarahDoubleJumpRight;
 	
 	//Jumping Left
-	sarah_jumpingLeft = spr_SarahJumpLeft;
+	sprJumpLeft = spr_SarahJumpLeft;
+	sprDJumpLeft = spr_SarahDJumpLeft;
 	
 	//Hover
-	sarah_Hover = spr_SarahDoubleJump;
-
+	sprHoverRight = spr_SarahDJumpRight;
+	sprHoverLeft = spr_SarahDJumpLeft;
 
 
 	//Falling Right
-	sarah_FallingRight = spr_SarahFallRight;
-	sarah_Falling_LoopRight = spr_SarahFallingRight;
-	sarah_WallSlideRight = spr_SarahWallClingRight;
-	sarah_OmegaFallRight = spr_SarahHurtRight;
+	sprFallRight = spr_SarahFallRight;
+	sprFallingRight = spr_SarahFallingRight;
+	sprWallSlideRight = spr_SarahWallClingRight;
 	
 	//Falling Left
-	sarah_FallingLeft = spr_SarahFallLeft;
-	sarah_Falling_LoopLeft = spr_SarahFallingLeft;
-	sarah_WallSlideLeft = spr_SarahWallClingLeft;
-	sarah_OmegaFallLeft = spr_SarahHurtLeft;
-
-
-
+	sprFallLeft = spr_SarahFallLeft;
+	sprFallingLeft = spr_SarahFallingLeft;
+	sprWallSlideLeft = spr_SarahWallClingLeft;
+	
+	
 	//Look Up & Crouching Right
-	sarah_DuckingRight = spr_SarahCrouchRight;
-	sarah_Look_UpRight = spr_SarahLookUpRight;
+	sprCrouchRight = spr_SarahCrouchRight;
+	sprLook_upRight = spr_SarahLookUpRight;
 	
 	//Look Up & Crouching Left
-	sarah_DuckingLeft = spr_SarahCrouchLeft;
-	sarah_Look_UpLeft = spr_SarahLookUpLeft;
+	sprCrouchLeft = spr_SarahCrouchLeft;
+	sprLook_upLeft = spr_SarahLookUpLeft;
 
 
 
 	//Actions Right
-	sarah_SlidingRight = spr_SarahSlideRight;
-	sarah_RailGrindRight = spr_SarahRailGrindRight;
-	sarah_RailGrindCrouchRight = spr_SarahRailGrindCrouchRight;
-	sarah_WallJumpRight = spr_SarahWallJumpRight;
+	sprSlideRight = spr_SarahSlideRight;
+	sprWallJumpRight = spr_SarahWallJumpRight;
 	
 	//Actions Left
-	sarah_SlidingLeft = spr_SarahSlideLeft;
-	sarah_RailGrindLeft = spr_SarahRailGrindLeft;
-	sarah_RailGrindCrouchLeft = spr_SarahRailGrindCrouchLeft;
-	sarah_WallJumpLeft = spr_SarahWallJumpLeft;
+	sprSlideLeft = spr_SarahSlideLeft;
+	sprWallJumpLeft = spr_SarahWallJumpLeft;
 	
 	
 	
 	//Other Actions
-	sarah_Stomping = spr_SarahStomping;
-	sarah_OmegaStomping = spr_SarahOmegaStomping;
-	sarah_Stomp = spr_SarahStomped;
+	sprStomping = spr_SarahStomping;
+	sprOmegaStomping = spr_SarahOmegaStomping;
+	sprStomp = spr_SarahStomped;
 
 	
+	//Rail-Grind
+	sprRailGrindRight = spr_SarahRailGrindRight;
+	sprRailTrick1Right = spr_SarahRailTrick1Right;
+	sprRailTrick2Right = spr_SarahRailTrick2Right;
+	sprRailTrick3Right = spr_SarahRailTrick3Right;
+	
+	sprRailGrindLeft = spr_SarahRailGrindLeft;
+	sprRailTrick1Left = spr_SarahRailTrick1Left;
+	sprRailTrick2Left = spr_SarahRailTrick2Left;
+	sprRailTrick3Left = spr_SarahRailTrick3Left;
+	
 	//Tricks
-	sarah_RailJump = spr_SarahDoubleJump;
+	sprUpLaunchRight = spr_SarahLauncherUpRight;
+	sprSideLaunchRight = spr_SarahLauncherRight;
 	
-	sarah_TrickUpPreRight = spr_SarahTrickUpPreRight;
-	sarah_TrickUpRight = spr_SarahTrickUpRight;
+	sprUpLaunchLeft = spr_SarahLauncherUpLeft;
+	sprSideLaunchLeft = spr_SarahLauncherLeft;
 	
-	sarah_TrickUpPreLeft = spr_SarahTrickUpPreLeft;
-	sarah_TrickUpLeft = spr_SarahTrickUpLeft;
 	
-	sarah_TrickRightPre = spr_SarahTrickRightPre;
-	sarah_TrickRight = spr_SarahTrickRight;
+	sprRailJumpRight = spr_SarahDJumpRight;
+	sprRailJumpLeft = spr_SarahDJumpLeft;
 	
-	sarah_TrickLeftPre = spr_SarahTrickLeftPre;
-	sarah_TrickLeft = spr_SarahTrickLeft;
+	sprTrickUpPreRight = spr_SarahTrickUpPreRight;
+	sprTrickUpRight = spr_SarahTrickUpRight;
 	
-	sarah_Trick1Right = spr_SarahTrick1Right;
-	sarah_Trick2Right = spr_SarahTrick2Right;
-	sarah_Trick3Right = spr_SarahTrick3FinRight;
-	sarah_TrickFinishRight = spr_SarahTrick3FinRight;
+	sprTrickUpPreLeft = spr_SarahTrickUpPreLeft;
+	sprTrickUpLeft = spr_SarahTrickUpLeft;
 	
-	sarah_Trick1Left = spr_SarahTrick1Left;
-	sarah_Trick2Left = spr_SarahTrick2Left;
-	sarah_Trick3Left = spr_SarahTrick3FinLeft;
-	sarah_TrickFinishLeft = spr_SarahTrick3FinLeft;
+	sprTrickRightPre = spr_SarahTrickRightPre;
+	sprTrickRight = spr_SarahTrickRight;
 	
-	//Death
-	sarah_Death = spr_SarahDeath;
+	sprTrickLeftPre = spr_SarahTrickLeftPre;
+	sprTrickLeft = spr_SarahTrickLeft;
+	
+	sprTrick1Right = spr_SarahTrick1Right;
+	sprTrick2Right = spr_SarahTrick2Right;
+	sprTrick3Right = spr_SarahTrick3Right;
+	sprTrick3FinRight = spr_SarahTrick3FinRight;
+	
+	sprTrick1Left = spr_SarahTrick1Left;
+	sprTrick2Left = spr_SarahTrick2Left;
+	sprTrick3Left = spr_SarahTrick3Left;
+	sprTrick3FinLeft = spr_SarahTrick3FinLeft;
+	
+	//Hurt
+	sprOmegaFallRight = spr_SarahHurtRight;
+	sprOmegaFallLeft = spr_SarahHurtLeft;
+	
+	sprSpiralRight = spr_SarahSpiralRight;
+	sprSpiralLeft = spr_SarahSpiralLeft;
+	
+	sprDeath = spr_SarahDeath;
+	
+	//Push
+	sprPushRight = spr_SarahPushRight;
+	sprPushLeft = spr_SarahPushLeft;
+	
+	//Balance
+	sprBalanceForRight = spr_SarahBalanceForRight;
+	sprBalanceBackRight = spr_SarahBalanceBackRight;
+	sprBalanceForLeft = spr_SarahBalanceForLeft;
+	sprBalanceBackLeft = spr_SarahBalanceBackLeft;
 	
 	//Special
-	sarah_PullyRight = spr_SarahPullyRight;
-	sarah_PullyLeft = spr_SarahPullyLeft;
+	sprPullyRight = spr_SarahPullyRight;
+	sprPullyLeft = spr_SarahPullyLeft;
+	
+	//Victory
+	sprVictory = spr_SarahVictory;
+	
 }

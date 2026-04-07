@@ -59,6 +59,7 @@ allOpts = [
 	["opt_Visual"],
 	["opt_Misc"],
 	["opt_Pref"],
+	["opt_Display"],
 	["opt_Online"],
 	["opt_ConGen"],
 	["opt_ConSpeed1"],
@@ -78,25 +79,29 @@ audio = [
 ]
 
 visual = [
+	["opt_ExtCam", "desc_ExtCam"],
+	["opt_ScrShk", "desc_ScrShk"],
 	["opt_SimpVFX", "desc_SimpVFX"],
 	["opt_Part", "desc_Part"],
-	["opt_ScrShk", "desc_ScrShk"],
 	["opt_Outline", "desc_Outline"],
 	["opt_Squash", "desc_Squash"],
 	["opt_ConDis", "desc_ConDis"],
-	["opt_TextSpd", "desc_TextSpd"],
-	["opt_Lang", "desc_Lang"],
-	["opt_VSync", "desc_VSync"],
 ]
 
 misc = [
-	["opt_Fullscr", "desc_Fullscr"],
+	["opt_Lang", "desc_Lang"],
+	["opt_TextSpd", "desc_TextSpd"],
 	["opt_MusTag", "desc_MusTag"],
 	["opt_ConType", "desc_ConType"],
 	["opt_ConRum", "desc_ConRum"],
-	["opt_ExtCam", "desc_ExtCam"],
 	["opt_Speedrun", "desc_Speedrun"],
 	["opt_FPS", "desc_FPS"],
+]
+
+display = [
+	["opt_Fullscr", "desc_Fullscr"],
+	["opt_WindowSize", "desc_WindowSize"],
+	["opt_VSync", "desc_VSync"],
 ]
 
 pref = [
@@ -106,7 +111,6 @@ pref = [
 ]
 
 online = [
-	["opt_Discord", "desc_Discord"],
 	["opt_Ghost", "desc_Ghost"],
 ]
 

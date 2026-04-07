@@ -181,7 +181,7 @@ if !confirm {
 					var _chooseSpeed = global.speedStageData[chosenSpeed];
 			
 					if _chooseSpeed.complete {
-						global.Jukebox = !global.Jukebox;
+						jukeCheck = !jukeCheck;
 						obj_SFXManager.homingLockOn = true;
 					} else {
 						obj_SFXManager.menuCancel = true;
@@ -306,6 +306,8 @@ if !confirm {
 	
 		if confirmTimer <= 0 {
 			if !instance_exists(obj_RoomTransParent) {
+				global.Jukebox = jukeCheck;
+				
 				with(instance_create_depth(-100000, 0, depth, obj_RushTransition)) {
 					if !global.speedStageData[global.SpeedSelected].levelForced {
 						global.LevelForced = false;
@@ -327,7 +329,7 @@ if !confirm {
 			
 			if changeCharTimer <= 0 {
 				if !instance_exists(obj_RoomTransParent) {
-					with(instance_create_depth(-100000, 0, depth, obj_RushTransition)) {
+					with(instance_create_depth(-100000, 0, depth, obj_RoomTransitionSEGAMenu)) {
 						target_rm = rm_CharSelectNew;
 					}
 				}
@@ -346,6 +348,11 @@ if !confirm {
 
 
 #region //Extra Bullshit
+	if !global.speedStageData[global.SpeedSelected].complete {
+		global.Jukebox = false;
+		jukeCheck = false;
+	}
+
 	global.SpeedSelected = chosenSpeed;
 	global.ActionSelected = chosenAction;
 

@@ -10,7 +10,7 @@
   "compression":2,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.7647165,
+  "duration":2.2765987,
   "exportDir":"",
   "name":"snd_RushSonicTrick",
   "parent":{

@@ -1,12 +1,5 @@
 getCharacterControls();
 
-if global.Replay {
-	var _recorder = instance_find(obj_InputRecorder, 0);
-
-	if _recorder != noone {
-		jump_Key = _recorder.input[eKey.JumpPressed];
-	}
-}
 
 if kysTimer > 0 {
 	if mainAlpha < 1 {
@@ -25,6 +18,7 @@ if kysTimer > 0 {
 	
 	if global.LevelForced {
 		obj_Player.can_Move = false;
+		obj_Player.noMoveTimer = 30;
 	} else {
 		if jump_Key {
 			kysTimer = 0;
@@ -73,24 +67,26 @@ if kysTimer > 0 {
 		
 		global.countUp = true;
 		
-		if global.LevelForced {
-			obj_Player.can_Move = true;
-		} else {
-			if !finishedCreate {
+		if !finishedCreate {
+			if !instance_exists(obj_InputRecorder) {
+				if global.Replay {
+					with(instance_create_depth(x, y, depth, obj_InputRecorder)) {
+						isPlaying = true;
+					}
+				} else {
+					with(instance_create_depth(x, y, depth, obj_InputRecorder)) {
+						isRecording = true;
+					}
+				}
+			}
+			
+			if global.LevelForced {
+				obj_Player.can_Move = true;
+			} else {
 				obj_Player.can_MoveFULL = true;
 				obj_Player.can_Move = true;
 				obj_Player.vel = obj_Player.full_Speed - 1;
 				obj_Player.noMoveTimer = 30;
-			}
-		}
-		
-		if !finishedCreate {
-			if instance_exists(obj_InputRecorder) {
-				if global.Replay {
-					obj_InputRecorder.isPlaying = true;
-				} else {
-					obj_InputRecorder.isRecording = true;
-				}
 			}
 		
 			if instance_exists(obj_GhostRecorder) {

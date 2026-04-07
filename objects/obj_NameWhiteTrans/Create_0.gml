@@ -1,11 +1,7 @@
-depth = -999999;
+depth = -100;
 
-image_alpha = 0.001;
+image_alpha = 0;
 
 nextRoom = false;
 
 set_song_ingame(noone, 8 * 60, 0);
-
-if instance_exists(obj_TitleCursor) {
-	instance_destroy(obj_TitleCursor);
-}

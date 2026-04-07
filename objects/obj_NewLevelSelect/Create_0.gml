@@ -128,3 +128,5 @@ if global.MIND or global.PlayerChar == 0 {
 rankFrames = 0;
 
 custMusFile = "";
+
+jukeCheck = false;

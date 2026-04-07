@@ -2,25 +2,29 @@
   "$GMSprite":"v2",
   "%Name":"spr_KappaAirDashHead",
   "bboxMode":0,
-  "bbox_bottom":63,
-  "bbox_left":33,
-  "bbox_right":69,
-  "bbox_top":20,
+  "bbox_bottom":67,
+  "bbox_left":30,
+  "bbox_right":67,
+  "bbox_top":11,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"2ba93276-12d2-4b44-ab85-dd80168fee77","name":"2ba93276-12d2-4b44-ab85-dd80168fee77","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"d314288f-3041-4c7c-bd9b-eaeaf5a0579c","name":"d314288f-3041-4c7c-bd9b-eaeaf5a0579c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"e5504d4c-16f3-4ff9-b99f-02e71ce44212","name":"e5504d4c-16f3-4ff9-b99f-02e71ce44212","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"6a718306-9a63-49a0-9c32-cd6947e5eb9e","name":"6a718306-9a63-49a0-9c32-cd6947e5eb9e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"5fe13ce0-72e9-48a1-861c-9252d2aadd5b","name":"5fe13ce0-72e9-48a1-861c-9252d2aadd5b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"216ef6e1-5277-4803-91bb-474d91c1a2c7","name":"216ef6e1-5277-4803-91bb-474d91c1a2c7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"d270722e-5870-49d7-bcfd-7b0b6cdd5fd7","name":"d270722e-5870-49d7-bcfd-7b0b6cdd5fd7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"5c1fbb73-bcf5-4e9a-81db-87e1322e8180","name":"5c1fbb73-bcf5-4e9a-81db-87e1322e8180","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":80,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"10332f5f-2f4e-444b-91d2-dcc8b81584fd","blendMode":0,"displayName":"default","isLocked":false,"name":"10332f5f-2f4e-444b-91d2-dcc8b81584fd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"4dc25e0b-22ce-4df6-be04-af2972f13718","blendMode":0,"displayName":"default","isLocked":false,"name":"4dc25e0b-22ce-4df6-be04-af2972f13718","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_KappaAirDashHead",
   "nineSlice":null,
@@ -50,7 +54,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":2.0,
+    "length":6.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -70,11 +74,23 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2ba93276-12d2-4b44-ab85-dd80168fee77","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"b275b664-ec53-4d46-ba19-9b1ed21418c9","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e5504d4c-16f3-4ff9-b99f-02e71ce44212","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"980da98e-2ddf-4f87-b5eb-f6446a534ea0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d314288f-3041-4c7c-bd9b-eaeaf5a0579c","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c9a169c9-fe28-408d-8c39-ca781e073198","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6a718306-9a63-49a0-9c32-cd6947e5eb9e","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"77d6f68c-7e09-461c-b31b-04cb570c2ab1","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5fe13ce0-72e9-48a1-861c-9252d2aadd5b","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"aea3aa87-186a-4d6e-83d0-a2341c43052a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"216ef6e1-5277-4803-91bb-474d91c1a2c7","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"408617d1-66f4-4628-85d1-3f0721e066b3","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d270722e-5870-49d7-bcfd-7b0b6cdd5fd7","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"ba3353d7-bdb7-4522-986c-01fc52f67bef","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5c1fbb73-bcf5-4e9a-81db-87e1322e8180","path":"sprites/spr_KappaAirDashHead/spr_KappaAirDashHead.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"8c95a343-8142-4261-9d6b-c57b27d00d2f","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -169,11 +169,7 @@ function scr_GetCharBoostIcon() {
 function scr_GetCharRushBoostIcon() {
 	var _spr = global.PlayerSelection[global.PlayerChar][16][0];
 	
-	if is_string(_spr) {
-		_charCheck3 = sprite_add(_spr, 0, false, false, 0, 0);
-	} else {
-		_charCheck3 = global.PlayerSelection[global.PlayerChar][16][0];
-	}
+	_charCheck3 = global.PlayerSelection[global.PlayerChar][16][0];
 	
 	_liveSprite3 = _charCheck3;
 }

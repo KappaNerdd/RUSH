@@ -45,18 +45,18 @@ fileName = string(global.speedStageData[global.SpeedSelected].record_File) + "Re
 
 //Check if currently recording or playing
 if !global.Replay {
-	isRecording = true;
+	isRecording = false;
 	isPlaying = false;
 } else {
 	scr_ReadInputRecording(fileName);
 	
 	isRecording = false;
-	isPlaying = true;
+	isPlaying = false;
 }
 
 confirmPlay = false;
 
-// Variables to keep track of the frames
+//Variables to keep track of the frames
 frame = 0;
 index = 0;
 

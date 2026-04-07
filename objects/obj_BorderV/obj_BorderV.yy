@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Borders",
-    "path":"folders/Objects/Title/Head/Borders.yy",
+    "path":"folders/Objects/Title/Head/Old/Borders.yy",
   },
   "parentObjectId":null,
   "persistent":false,

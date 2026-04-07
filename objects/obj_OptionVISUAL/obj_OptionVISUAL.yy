@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Visual",
-    "path":"folders/Objects/Title/Head/Menu/Options/Visual.yy",
+    "path":"folders/Objects/Title/Head/Old/Menu/Options/Visual.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleMenuParent",

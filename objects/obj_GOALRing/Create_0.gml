@@ -1,6 +1,8 @@
 goal = false;
 goalTimer = 60;
 
+victory = false;
+
 createRingTimer = 0;
 createRingFrames = 10;
 
@@ -27,3 +29,7 @@ mindFrames = 0;
 iconSprite = global.PlayerSelection[global.PlayerChar][28][1];
 
 slowSound = false;
+
+markiplier = 1;
+markiplierTimer = 60;
+markArray = [];

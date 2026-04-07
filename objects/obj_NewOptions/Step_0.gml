@@ -101,16 +101,18 @@ if !done {
 				} else if opt == 3 {
 					_optArray = pref;
 				} else if opt == 4 {
-					_optArray = online;
+					_optArray = display;
 				} else if opt == 5 {
-					_optArray = conGeneral;
+					_optArray = online;
 				} else if opt == 6 {
-					_optArray = conSpeed1;
+					_optArray = conGeneral;
 				} else if opt == 7 {
-					_optArray = conSpeed2;
+					_optArray = conSpeed1;
 				} else if opt == 8 {
-					_optArray = conAct1;
+					_optArray = conSpeed2;
 				} else if opt == 9 {
+					_optArray = conAct1;
+				} else if opt == 10 {
 					_optArray = conAct2;
 				}
 			
@@ -202,30 +204,46 @@ if !done {
 		#region //Visual
 			if opt == 1 {
 				if choice == 0 {
-					global.SimplifyVFX = !global.SimplifyVFX;
+					global.ExtendCamera = !global.ExtendCamera;
 				}
 				
 				if choice == 1 {
-					global.Particles = !global.Particles;
-				}
-				
-				if choice == 2 {
 					global.ScreenShake = !global.ScreenShake;
 				}
 				
+				if choice == 2 {
+					global.SimplifyVFX = !global.SimplifyVFX;
+				}
+				
 				if choice == 3 {
-					global.Outline = !global.Outline;
+					global.Particles = !global.Particles;
 				}
 				
 				if choice == 4 {
-					global.Squash = !global.Squash;
+					global.Outline = !global.Outline;
 				}
 				
 				if choice == 5 {
-					global.ConDisplay = !global.ConDisplay;
+					global.Squash = !global.Squash;
 				}
 				
 				if choice == 6 {
+					global.ConDisplay = !global.ConDisplay;
+				}
+			}
+		#endregion
+		
+		#region //Misc
+			if opt == 2 {
+				if choice == 0 {
+					if global.Language == 1 {
+						global.Language = 2;
+					} else {
+						global.Language = 1;
+					}
+				}
+				
+				if choice == 1 {
 					if global.TextSpd == 0.5 {
 						global.TextSpd = 1
 					} else if global.TextSpd == 1 {
@@ -237,37 +255,11 @@ if !done {
 					}
 				}
 				
-				if choice == 7 {
-					if global.Language == 1 {
-						global.Language = 2;
-					} else {
-						global.Language = 1;
-					}
-				}
-				
-				if choice == 8 {
-					global.VSync = !global.VSync;
-					
-					if global.VSync {
-						display_reset(0, false);
-					} else {
-						display_reset(0, true);
-					}
-				}
-			}
-		#endregion
-		
-		#region //Misc
-			if opt == 2 {
-				if choice == 0 {
-					global.FullScreen = !global.FullScreen;
-				}
-				
-				if choice == 1 {
+				if choice == 2 {
 					global.SongTag = !global.SongTag;
 				}
 				
-				if choice == 2 {
+				if choice == 3 {
 					if global.ConType < 2 {
 						global.ConType++;
 					} else {
@@ -275,12 +267,8 @@ if !done {
 					}
 				}
 				
-				if choice == 3 {
-					global.ConRumble = !global.ConRumble;
-				}
-				
 				if choice == 4 {
-					global.ExtendCamera = !global.ExtendCamera;
+					global.ConRumble = !global.ConRumble;
 				}
 				
 				if choice == 5 {
@@ -315,20 +303,48 @@ if !done {
 			}
 		#endregion
 		
-		#region //Online
+		#region //Display
 			if opt == 4 {
 				if choice == 0 {
-					global.DiscordRich = !global.DiscordRich;
+					global.FullScreen = !global.FullScreen;
 				}
-			
+				
 				if choice == 1 {
+					if global.WindowSize == 0.5 {
+						global.WindowSize = 0.75;
+					} else if global.WindowSize == 0.75 {
+						global.WindowSize = 1;
+					} else if global.WindowSize == 1 {
+						global.WindowSize = 1.25;
+					} else if global.WindowSize == 1.25 {
+						global.WindowSize = 1.5;
+					} else if global.WindowSize == 1.5 {
+						global.WindowSize = 1.75;
+					} else if global.WindowSize == 1.75 {
+						global.WindowSize = 0.5;
+					}
+					
+					window_set_size(1280 * global.WindowSize, 720 * global.WindowSize);
+					window_center();
+				}
+				
+				if choice == 2 {
+					global.VSync = !global.VSync;
+					display_reset(0, global.VSync);
+				}
+			}
+		#endregion
+		
+		#region //Online
+			if opt == 5 {
+				if choice == 0 {
 					global.ShowGhost = !global.ShowGhost;
 				}
 			}
 		#endregion
 		
 		#region //Con General
-			if opt == 5 {
+			if opt == 6 {
 				if choice == 0 or choice == 1 {
 					changeBind = true;
 				}
@@ -352,13 +368,13 @@ if !done {
 		#endregion
 		
 		#region //Con Speed
-			if opt == 6 or opt == 7 { //Don't
+			if opt == 7 or opt == 8 { //Don't
 				changeBind = true;
 			}
 		#endregion
 		
 		#region //Con Action
-			if opt == 8 or opt == 9 {
+			if opt == 9 or opt == 10 {
 				changeBind = true;
 			}
 		#endregion
@@ -378,35 +394,45 @@ if !done {
 			global.Footstep = true;
 
 			//Visual
-			global.SimplifyVFX = false;
 			global.ScreenShake = true;
+			global.ExtendCamera = true;
+			global.SimplifyVFX = false;
 			global.Particles = true;
+			global.ConDisplay = false;
 			global.Outline = true;
 			global.Squash = true;
-			global.ConDisplay = false;
-			global.TextSpd = 1;
 
 			//Misc
-			global.FullScreen = false;
+			global.Language = 1;
+			global.TextSpd = 1;
 			global.SongTag = true;
 			global.ConRumble = true
 			global.ConType = 0;
-			global.ExtendCamera = true;
 			global.FPSOn = true;
 			global.Speedrun = false;
-			
+	
+			//Display
+			global.WindowSize = 1;
+			window_set_size(1280, 720);
+			window_center();
+			global.FullScreen = false;
+			global.VSync = false;
+			display_reset(0, false);
+	
 			//Preferences
+			global.FocusLoss = false;
 			global.ColorCode = true;
 			global.ChangeColor = 0;
-			global.FocusLoss = false;
-			
+	
 			//Online
 			global.DiscordRich = true;
 			global.ShowGhost = true;
-			
+
 			//Controls
 			global.ConDeadZone = 0.5;
 			global.TrigDeadZone = 0.5;
+			global.ControllerOnly = false;
+			global.KeyboardP1 = false;
 		#endregion
 
 		#region ///-----Speed & Menu Controls-----///

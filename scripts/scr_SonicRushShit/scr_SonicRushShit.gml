@@ -153,6 +153,7 @@ function scr_BoostingStep() {
 			airBoost = true;
 			gravTimer = 7;
 			event_user(4);
+			image_index = 0;
 			
 			if !rushMode {
 				boostEnergy -= 25;
@@ -309,12 +310,18 @@ function scr_BoostingStep() {
 
 //Air Tricks
 function scr_AirTricksCreate() {
+	scr_RailTricksCreate();
+	
+	upLaunch = false;
+	sideLaunch = false;
+	rainbowLaunch = false;
+	
 	rampRing = false;
 
 	beforeTrick = false;
 	
 	preTrickTimer = 0;
-	preTrickFrames = 5;
+	preTrickFrames = 3;
 
 	trick = false;
 	altTrick = false;
@@ -357,6 +364,8 @@ function scr_AirTricksCreate() {
 }
 
 function scr_AirTricksStep() {
+	scr_RailTricksStep();
+	
 	if trickWait > 0 {
 		trickWait -= 1;
 	}
@@ -381,10 +390,18 @@ function scr_AirTricksStep() {
 		rushTrickFinishFrames = 1;
 	
 		rushTrickCombo = 0;
+		
+		upLaunch = false;
+		sideLaunch = false;
+		rainbowLaunch = false;
 	}
 	
 	if !leftFacer {
 		if rushTrick && !rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
 			if randomTrick == 0 {
 				sprite_index = sprTrick1;
 			} else if randomTrick == 1 {
@@ -392,13 +409,33 @@ function scr_AirTricksStep() {
 			} else if randomTrick == 2 {
 				sprite_index = sprTrick3;
 			}
+			
+			image_speed = 2;
 		} else if rushTrick && rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
 			sprite_index = sprTrick3Fin;
+			
+			image_speed = 2;
 		} else if rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
 			sprite_index = sprTrick3Fin;
+			
+			image_speed = 2;
 		}
 	} else {
 		if rushTrick && !rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
+			image_speed = 2;
+			
 			if randomTrick == 0 {
 				if !face_Left {
 					sprite_index = sprTrick1Right;
@@ -419,12 +456,24 @@ function scr_AirTricksStep() {
 				}
 			}
 		} else if rushTrick && rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
+			image_speed = 2;
+			
 			if !face_Left {
 				sprite_index = sprTrick3FinRight;
 			} else {
 				sprite_index = sprTrick3FinLeft;
 			}
 		} else if rushTrickFinish {
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
+			image_speed = 2;
+			
 			if !face_Left {
 				sprite_index = sprTrick3FinRight;
 			} else {
@@ -435,7 +484,9 @@ function scr_AirTricksStep() {
 	
 	if rampRing or afterRailJump {
 		if jump_Key {
-			rushTrickBufferTimer = rushTrickTime;
+			if !place_meeting(x, y, obj_RailTrickColl) && !place_meeting(x, y + 10, obj_Ramp) {
+				rushTrickBufferTimer = rushTrickTime;
+			}
 		}
 	
 		if rushTrickBufferTimer > 0 {
@@ -463,8 +514,12 @@ function scr_AirTricksStep() {
 		rushTrickFinaleBufferTimer = 0;
 	}
 	
+	if !afterRailJump && !rampRing {
+		randomTrick = -1;
+	}
+	
 	if afterRailJump or rampRing {
-		if rushTrickBuffered && rushTrickTimer == 0 && !rushTrickFinish {
+		if rushTrickBuffered && rushTrickTimer == 0 && !rushTrickFinish && !place_meeting(x, y, obj_RailTrickColl) {
 			boostEnergy += 10;
 			rushTrick = true;
 			scr_ControllerRumble();
@@ -492,7 +547,7 @@ function scr_AirTricksStep() {
 			
 			if rushTrickCombo < 1 {
 				instance_create_depth(-1000000, 0, 0, obj_TrickCombo);
-				rushTrickCombo += 1;
+				rushTrickCombo = 1;
 			} else {
 				rushTrickCombo += 1;
 			}
@@ -511,7 +566,11 @@ function scr_AirTricksStep() {
 			backTrick = false;
 			altFinish = false;
 			
-			randomTrick = round(random_range(0, 2));
+			if randomTrick < 2 {
+				randomTrick++;
+			} else {
+				randomTrick = 0;
+			}
 			
 			image_index = 0;
 			
@@ -554,6 +613,7 @@ function scr_AirTricksStep() {
 				upTrick = false;
 				backTrick = false;
 				scr_ControllerRumble(0.25);
+				image_index = 0;
 				
 				if rushTrickCombo > 0 {
 					rushTrickCombo += 1;
@@ -949,6 +1009,125 @@ function scr_AirTricksStep() {
 	}
 }
 
+
+//Rail-Tricks
+function scr_RailTricksCreate() {
+	railTrickUno = false;
+	railTrickDos = false;
+	railTrickTres = false;
+	
+	railTrickBuffered = false;
+	railTrickBufferTimer = 0;
+	railTrickBufferFrames = 20;
+	
+	railTrickTimer = 0;
+	railTrickFrames = 25;
+}
+
+function scr_RailTricksStep() {
+	if railTrickTimer > 0 {
+		railTrickTimer--;
+	}
+	
+	if railGrind {
+		if action2_Key {
+			railTrickBufferTimer = railTrickBufferFrames;
+		}
+		
+		if railTrickBufferTimer > 0 {
+			railTrickBufferTimer--;
+			railTrickBuffered = true;
+		} else {
+			railTrickBuffered = false;
+		}
+		
+		if railTrickBuffered && railTrickTimer == 0 && !railTrickTres {
+			railTrickTimer = railTrickFrames;
+			image_index = 0;
+			
+			if rushMode {
+				rushModeTimer = rushModeFrames;
+				obj_SFXManager.rushModeTrick = true;
+			}
+			
+			obj_TrickScore.comboY = obj_TrickScore.comboYStart;
+			obj_TrickScore.comboTimer = obj_TrickScore.comboFrames;
+			
+			if global.Particles {
+				var _particles = ceil(random(5));
+				
+				repeat(5 + _particles) {
+					instance_create_depth(x, y, depth, obj_TrickParticles);
+				}
+				
+				repeat(10 + _particles) {
+					instance_create_depth(-100000, 0, 0, obj_TrickConfetti);
+				}
+			}
+			
+			if !railTrickUno && !railTrickDos {
+				railTrickUno = true;
+				obj_SFXManager.crowd = true;
+				
+				boostEnergy += 10;
+				
+				vel += 1 * sign(vel);
+				
+				rushTrickScore += 100;
+				scr_GivePoints(100);
+				
+				if sonicRush {
+					obj_SFXManager.railTrickSonic1 = true;
+				} else if blazeRush {
+					obj_SFXManager.railTrickBlaze1 = true;
+				}
+			} else if railTrickUno && !railTrickDos {
+				railTrickUno = false;
+				railTrickDos = true;
+				obj_SFXManager.crowd = true;
+				
+				boostEnergy += 20;
+				
+				vel += 2 * sign(vel);
+				
+				rushTrickScore += 200;
+				scr_GivePoints(200);
+				
+				if sonicRush {
+					obj_SFXManager.railTrickSonic2 = true;
+				} else if blazeRush {
+					obj_SFXManager.railTrickBlaze2 = true;
+				}
+			} else if railTrickDos {
+				railTrickDos = false;
+				railTrickTres = true;
+				obj_SFXManager.crowdComplete = true;
+				
+				boostEnergy += 30;
+				
+				vel += 3 * sign(vel);
+				
+				rushTrickScore += 800;
+				scr_GivePoints(800);
+				
+				if sonicRush {
+					obj_SFXManager.railTrickSonic3 = true;
+				} else if blazeRush {
+					obj_SFXManager.railTrickBlaze3 = true;
+				}
+			}
+		}
+	} else {
+		railTrickUno = false;
+		railTrickDos = false;
+		railTrickTres = false;
+		
+		railTrickBuffered = false;
+		railTrickBufferTimer = 0;
+		
+		railtrickTimer = 0;
+	}
+}
 
 
 //Rush Mode

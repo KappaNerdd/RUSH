@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"mus_HyperRush2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":109.71429,
+  "exportDir":"",
+  "name":"mus_HyperRush2",
+  "parent":{
+    "name":"Lucifer",
+    "path":"folders/Sounds/Music/Character Specific/Lucifer.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_HyperRush2.ogg",
+  "volume":1.0,
+}

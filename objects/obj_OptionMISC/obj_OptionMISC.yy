@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Misc",
-    "path":"folders/Objects/Title/Head/Menu/Options/Misc.yy",
+    "path":"folders/Objects/Title/Head/Old/Menu/Options/Misc.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleMenuParent",

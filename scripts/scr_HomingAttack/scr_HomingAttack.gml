@@ -5,13 +5,14 @@ function scr_HomingAttackCreate() {
 	homing_Speed = 20;
 	homing_Active = false;
 	homingAttacked = false;
+	homingAttackable = false;
 	homingTimer = 0;
 	homingFrames = 180;
+	airDash = false;
 	target = noone;
 }
 
 function scr_HomingAttackStep() {
-
 	if !homing_Active && instance_exists(obj_HomingDotDebug) && !playerHurt && !global.Death {
 		var _closestDist = homing_Range;
 	    var _closestEnemy = undefined;
@@ -40,14 +41,14 @@ function scr_HomingAttackStep() {
 			instance_destroy(obj_HomingReticle);
 		}
 
-	    if _closestEnemy != undefined && action2_Key && !homing_Active && !afterRailJump && !rampRing && !preStomp && !stomping && !spindash && !superPeelout && !dropdash && !ground {
+	    if _closestEnemy != undefined && action2_Key && !airDash && !homing_Active && !afterRailJump && !rampRing && !preStomp && !stomping && !spindash && !superPeelout && !dropdash && !ground {
 	        homing_Target = _closestEnemy;
 	        homing_Active = true;
+			homingAttacked = false;
 			obj_SFXManager.homingAttack = true;
 			scr_ControllerRumble();
 			airBoost = false;
 			dJumping = false;
-			realJumping = false;
 			scr_StopCamMove();
 			
 			if x < homing_Target.x {
@@ -69,7 +70,7 @@ function scr_HomingAttackStep() {
 	
 	if homing_Active && homing_Target != undefined {
 	    var _targetX = homing_Target.x;
-	    var _targetY = homing_Target.y;
+	    var _targetY = homing_Target.y + 16;
 	    var _dir = point_direction(x, y, _targetX, _targetY);
 		
 		x += lengthdir_x(homing_Speed, _dir);
@@ -83,8 +84,14 @@ function scr_HomingAttackStep() {
 		if place_meeting(x, y, homing_Target) && homing_Active {
 		    homing_Active = false;
 		    homing_Target = undefined;
+			homingAttacked = true;
+			airDash = false;
 			
-			yspd = -normalJspd;
+			yspd = -(normalJspd + 1);
 		}
+	}
+	
+	if homingAttacked && yspd > 0 {
+		homingAttacked = false;
 	}
 }

@@ -1,1 +1,1 @@
-changeY -= 1;
+changeY -= extraY;

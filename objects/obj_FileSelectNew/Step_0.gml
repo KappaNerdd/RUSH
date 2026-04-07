@@ -330,12 +330,12 @@ if !fileChosen {
 		var _trans = obj_RushTransition;
 		
 		if !file_exists(_filename) {
-			_room = rm_TitleHead;
+			_room = rm_NameMakerNew;
 			_trans = obj_RoomTransitionBasic;
 		}
 		
 		if !instance_exists(obj_RoomTransParent) {
-			with(instance_create_depth(-100000, 0, depth, obj_RoomTransitionSEGAMenu)) {
+			with(instance_create_depth(-100000, 0, depth, _trans)) {
 				target_rm = _room;
 			}
 		}

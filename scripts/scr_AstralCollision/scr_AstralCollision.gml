@@ -306,7 +306,7 @@ function PlayerCollisionLeftEdge(argument0, argument1, argument2) {
 				railGrind = false;
 	        }
 			
-			collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_RailParentB, 1, 0) {
+			if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_RailParentB, 1, 0) {
 				return true;
 				railGrind = true;
 			}
@@ -473,6 +473,9 @@ function PlayerCollisionCache() {
 	// Cache collisions
 	edgeCollision = PlayerCollisionLeftEdge(_x, _y, angle) && PlayerCollisionRightEdge(_x, _y, angle);
 	bottomCollision = PlayerCollisionBottom(_x, _y, angle, maskBig);
+	
+	leftEdge = PlayerCollisionLeftEdge(_x, _y, angle);
+	rightEdge = PlayerCollisionRightEdge(_x, _y, angle);
 }
 
 /// @description  PlayerGetAngle(x, y, angle)
@@ -495,7 +498,7 @@ function PlayerGetAngle(_x, _y, _angle) {
 	// Set the starting position of the sensors based on the angle
 	var _pointLeftX, _pointLeftY, _pointRightX, _pointRightY;
 	
-	_pointLeftX = floor(_x - _angleCOS * 7);
+	_pointLeftX = floor(_x - _angleCOS * 6);
 	_pointLeftY = floor(_y + _angleSIN * 7);
 
 	_pointRightX = floor(_x + _angleCOS * 6);

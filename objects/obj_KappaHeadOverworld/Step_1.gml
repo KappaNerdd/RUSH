@@ -1,5 +1,5 @@
 #region //Attack based on moves
-	if ((jumping) or stomping or backTrick or rightTrick or leftTrick or upTrick) {
+	if ((realJumping) or stomping or backTrick or rightTrick or leftTrick or homing_Active) && !airDash {
 		attacking = true;
 	} else {
 		attacking = false;
@@ -116,7 +116,7 @@ if can_MoveFULL {
 			#endregion
 			
 			#region //Double Jumping
-				if dJumping {
+				if dJumping && !homing_Active && !homingAttacked {
 					sprite_index = sprDJump;
 					image_speed = 2;
 					mask_index = idle_Mask;
@@ -124,34 +124,23 @@ if can_MoveFULL {
 			#endregion 
 
 			#region //Falling
-				if (jumping) && !dJumping && !rampRing && !playerHurt && !wallJump && !afterRailJump && !railGrind && !trick && yspd > 0 && yspd < 3 {
-					if !leftFacer {
-						sprite_index = sprFall;
-					} else {
-						if face_Left {
-							sprite_index = sprFallLeft;
-						} else {
-							sprite_index = sprFallRight;
-						}
+				if !ground && !homing_Active && !airDash && !homingAttacked && jumping && !dJumping && !playerHurt && !rampRing && !wallJump && !afterRailJump && !trick {
+					sprite_index = sprJump;
+					mask_index = idle_Mask;
+					
+					if floor(image_index) == image_number - 1 {
+						image_index = image_number - 3;
 					}
 					
-					image_speed = 1;
-					mask_index = idle_Mask;
-				}
-			
-				if !ground && !dJumping && yspd > 3 && !playerHurt && !rampRing && !wallJump && !afterRailJump && !trick {
-					if !leftFacer {
-						sprite_index = sprFalling;
-					} else {
-						if face_Left {
-							sprite_index = sprFallingLeft;
-						} else {
-							sprite_index = sprFallingRight;
+					if !realJumping {
+						if floor(image_index) < image_number - 3 {
+							image_index = image_number - 3;
 						}
+						
+						image_speed = 1;
+					} else {
+						image_speed = 1.5;
 					}
-				
-					image_speed = 1;
-					mask_index = idle_Mask;
 				}
 			#endregion
 
@@ -184,6 +173,10 @@ if can_MoveFULL {
 					sprite_index = sprAirDash;
 					image_speed = 1;
 					mask_index = idle_Mask;
+					
+					if floor(image_index) >= image_number - 1 {
+						image_index = image_number - 3;
+					}
 				}
 			#endregion
 
@@ -208,6 +201,36 @@ if can_MoveFULL {
 						mask_index = idle_Mask;
 					}
 				}
+			#endregion
+			
+			#region //Homing-Attack
+				if homing_Active {
+					sprite_index = sprHoming;
+					image_speed = 1;
+					mask_index = idle_Mask;
+				}
+				
+				if homingAttacked {
+					sprite_index = sprTrickUp;
+					image_speed = 1;
+					mask_index = idle_Mask;
+					
+					if floor(image_index) >= image_number - 1 {
+						image_index = image_number - 2;
+					}
+				}
+			#endregion
+			
+			#region //Air-Boost
+				/*if airBoost && boost && !ground && !stomping {
+					sprite_index = sprSideLaunch;
+					image_speed = 1;
+					mask_index = idle_Mask;
+					
+					if floor(image_index) >= image_number - 1 {
+						image_index = image_number - 3;
+					}
+				}*/
 			#endregion
 		}
 	#endregion
@@ -248,14 +271,17 @@ if can_MoveFULL {
 			realJumping = true;
 			dJumping = true;
 			airDash = false;
+			homingAttacked = false;
 	
 			//Sound Effect
-			obj_SFXManager.sonicJump = true;
+			obj_SFXManager.doubleJumpSound = true;
 		}
 	#endregion
 
-	#region //Variable Jumping	
-		scr_VariableJumping();
+	#region //Variable Jumping
+		if !homingAttacked {
+			scr_VariableJumping();
+		}
 	#endregion
 
 	#region //Fail-Safe for infinite double jumping from ceiling
@@ -279,6 +305,12 @@ if can_MoveFULL {
 			afterWallJump = false;
 			afterRailJump = false;
 			rampRing = false;
+			homingAttacked = false;
+			
+			angle = 0;
+			drawAngle = 0;
+			angleHolder = 0;
+			winningAngle = 0;
 			
 			leftTrick = false;
 			rightTrick = false;
@@ -305,6 +337,8 @@ if can_MoveFULL {
 				stomped = true;
 				stompedTimer = stompedFrames;
 			}
+			
+			yspd = 0;
 			
 			stomping = false;
 			obj_SFXManager.stompSound = true;
@@ -350,10 +384,13 @@ if can_MoveFULL {
 	#endregion
 
 	#region //Air-Dash
-		if !ground && !airDash && !playerHurt && !rampRing && !afterRailJump && !trick && !stomping && !global.Death && action2_Key {
+		if !ground && !instance_exists(obj_HomingReticle) && !airDash && !playerHurt && !rampRing && !afterRailJump && !trick && !stomping && !global.Death && action2_Key {
+			image_index = 0;
 			airDash = true;
+			homingAttacked = false;
 			wallJump = false;
 			yspd = 0;
+			noMoveTimer = 10;
 			gravTimer = 10;
 			scr_ControllerRumble();
 			
@@ -434,6 +471,10 @@ if can_MoveFULL {
 			afterWallJump = false;
 			onWall = false;
 		}
+	#endregion
+	
+	#region //Homing-Attack
+		scr_HomingAttackStep();
 	#endregion
 }
 

@@ -284,7 +284,7 @@ if !done {
 		}
 		
 		#region //Choices
-			if jump_Key {
+			if (jump_Key or pause_Key) && !instance_exists(obj_RoomTransParent) {
 				obj_SFXManager.menuPop = true;
 				
 				if confirmChoice == 0 {

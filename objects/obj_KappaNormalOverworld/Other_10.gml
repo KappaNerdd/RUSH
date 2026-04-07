@@ -13,3 +13,6 @@ slowSkid = false;
 
 wallJump = false;
 afterWallJump = false;
+
+homingAttacked = false;
+homing_Active = false;

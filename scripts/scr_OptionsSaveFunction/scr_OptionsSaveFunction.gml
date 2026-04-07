@@ -9,30 +9,32 @@ function save_options() {
 	global.optionsData[0].uniquePause = global.UniquePauseTheme;
 	global.optionsData[0].footStep = global.Footstep;
 	
+	global.optionsData[1].extCam = global.ExtendCamera;
 	global.optionsData[1].simpVFX = global.SimplifyVFX;
 	global.optionsData[1].screenShake = global.ScreenShake;
 	global.optionsData[1].part = global.Particles;
 	global.optionsData[1].conDis = global.ConDisplay;
 	global.optionsData[1].outline = global.Outline;
 	global.optionsData[1].squash = global.Squash;
-	global.optionsData[1].textSpd = global.TextSpd;
-	global.optionsData[1].lang = global.Language;
-	global.optionsData[1].vsync = global.VSync;
 	
+	global.optionsData[2].textSpd = global.TextSpd;
+	global.optionsData[2].lang = global.Language;
 	global.optionsData[2].conRum = global.ConRumble;
 	global.optionsData[2].conType = global.ConType;
-	global.optionsData[2].fullscrn = global.FullScreen;
 	global.optionsData[2].musTag = global.SongTag;
-	global.optionsData[2].extCam = global.ExtendCamera;
 	global.optionsData[2].speedrun = global.Speedrun;
 	global.optionsData[2].FPS = global.FPSOn;
 	
-	global.optionsData[3].colorCode = global.ColorCode;
-	global.optionsData[3].changeColor = global.ChangeColor;
-	global.optionsData[3].focusLoss = global.FocusLoss;
+	global.optionsData[3].fullscrn = global.FullScreen;
+	global.optionsData[3].windowSize = global.WindowSize;
+	global.optionsData[3].vsync = global.VSync;
 	
-	global.optionsData[4].discord = global.DiscordRich;
-	global.optionsData[4].ghost = global.ShowGhost;
+	global.optionsData[4].colorCode = global.ColorCode;
+	global.optionsData[4].changeColor = global.ChangeColor;
+	global.optionsData[4].focusLoss = global.FocusLoss;
+	
+	global.optionsData[5].discord = global.DiscordRich;
+	global.optionsData[5].ghost = global.ShowGhost;
 
 	//Actual Saving
 	var _dir = working_directory + "/options/";
@@ -80,41 +82,45 @@ function load_options() {
 		}
 	}
 		
-		global.loadedArray = _loadArray;
+	global.loadedArray = _loadArray;
 		
-		global.MASTER_VOL = global.optionsData[0].master;
-		global.MUSIC_VOL = global.optionsData[0].music;
-		global.SFX_VOL = global.optionsData[0].sfx;
-		global.TEXT_VOL = global.optionsData[0].txt;
-		global.AMBIENCE_VOL = global.optionsData[0].ambience;
-		global.UniquePauseTheme = global.optionsData[0].uniquePause;
-		global.Footstep = global.optionsData[0].footStep;
+	global.MASTER_VOL = global.optionsData[0].master;
+	global.MUSIC_VOL = global.optionsData[0].music;
+	global.SFX_VOL = global.optionsData[0].sfx;
+	global.TEXT_VOL = global.optionsData[0].txt;
+	global.AMBIENCE_VOL = global.optionsData[0].ambience;
+	global.UniquePauseTheme = global.optionsData[0].uniquePause;
+	global.Footstep = global.optionsData[0].footStep;
 		
-		global.SimplifyVFX = global.optionsData[1].simpVFX;
-		global.ScreenShake = global.optionsData[1].screenShake;
-		global.Particles = global.optionsData[1].part;
-		global.ConDisplay = global.optionsData[1].conDis;
-		global.Outline = global.optionsData[1].outline;
-		global.Squash = global.optionsData[1].squash;
-		global.TextSpd = global.optionsData[1].textSpd;
-		global.Language = global.optionsData[1].lang;
-		global.VSync = global.optionsData[1].vsync;
-		display_reset(0, global.optionsData[1].vsync);
+	global.ExtendCamera = global.optionsData[1].extCam;
+	global.SimplifyVFX = global.optionsData[1].simpVFX;
+	global.ScreenShake = global.optionsData[1].screenShake;
+	global.Particles = global.optionsData[1].part;
+	global.ConDisplay = global.optionsData[1].conDis;
+	global.Outline = global.optionsData[1].outline;
+	global.Squash = global.optionsData[1].squash;
 		
-		global.ConRumble = global.optionsData[2].conRum;
-		global.ConType = global.optionsData[2].conType;
-		global.FullScreen = global.optionsData[2].fullscrn;
-		global.SongTag = global.optionsData[2].musTag;
-		global.ExtendCamera = global.optionsData[2].extCam;
-		global.Speedrun = global.optionsData[2].speedrun;
-		global.FPSOn = global.optionsData[2].FPS;
+	global.TextSpd = global.optionsData[2].textSpd;
+	global.Language = global.optionsData[2].lang;
+	global.ConRumble = global.optionsData[2].conRum;
+	global.ConType = global.optionsData[2].conType;
+	global.SongTag = global.optionsData[2].musTag;
+	global.Speedrun = global.optionsData[2].speedrun;
+	global.FPSOn = global.optionsData[2].FPS;
 		
-		global.ColorCode = global.optionsData[3].colorCode;
-		global.ChangeColor = global.optionsData[3].changeColor;
-		global.FocusLoss = global.optionsData[3].focusLoss;
+	global.FullScreen = global.optionsData[3].fullscrn;
+	global.WindowSize = global.optionsData[3].windowSize;
+	window_set_size(1280 * global.optionsData[3].windowSize, 720 * global.optionsData[3].windowSize);
+	window_center();
+	global.VSync = global.optionsData[3].vsync;
+	display_reset(0, global.optionsData[3].vsync);
+	
+	global.ColorCode = global.optionsData[4].colorCode;
+	global.ChangeColor = global.optionsData[4].changeColor;
+	global.FocusLoss = global.optionsData[4].focusLoss;
 		
-		global.DiscordRich = global.optionsData[4].discord;
-		global.ShowGhost = global.optionsData[4].ghost;
+	global.DiscordRich = global.optionsData[5].discord;
+	global.ShowGhost = global.optionsData[5].ghost;
 }
 
 

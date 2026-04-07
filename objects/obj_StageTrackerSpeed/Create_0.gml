@@ -42,10 +42,10 @@ if !global.LevelForced {
 	instance_create_depth(-10000000, 0, 0, obj_SonicRushIntroCard);
 }
 
-/*if instance_exists(obj_InputRecorder) {
+if instance_exists(obj_InputRecorder) {
 	obj_InputRecorder.index = 0;
 	obj_InputRecorder.frame = 0;
-}*/
+}
 	
 if instance_exists(obj_GhostRecorder) {
 	obj_GhostRecorder.ghostRecordFrames = 0;

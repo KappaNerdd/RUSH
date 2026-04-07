@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Audio",
-    "path":"folders/Objects/Title/Head/Menu/Options/Audio.yy",
+    "path":"folders/Objects/Title/Head/Old/Menu/Options/Audio.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleMenuParent",

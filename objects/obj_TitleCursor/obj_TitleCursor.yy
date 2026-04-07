@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Cursor",
-    "path":"folders/Objects/Title/Head/Cursor.yy",
+    "path":"folders/Objects/Title/Head/Old/Cursor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

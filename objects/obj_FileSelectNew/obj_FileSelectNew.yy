@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"File Select",
-    "path":"folders/Objects/File Select.yy",
+    "path":"folders/Objects/Menu System/File Select.yy",
   },
   "parentObjectId":null,
   "persistent":false,

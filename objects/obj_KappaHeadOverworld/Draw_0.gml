@@ -5,9 +5,9 @@ var _camY = camera_get_view_y(view_camera[0]);
 scr_RushModeColorDraw();
 
 if leftTrick or rightTrick or backTrick {
-	var _xscale = image_xscale;
+	var _xscale = visXScale;
 	
-	draw_sprite_ext(spr_HeadHummingVFX, image_index, x, y, _xscale, 1, 0, c_white, 1);
+	draw_sprite_ext(spr_HeadHummingVFX, image_index, x, y - 16, _xscale, 1, 0, c_white, 1);
 }
 
 if global.DEBUG == true && instance_exists(self) {

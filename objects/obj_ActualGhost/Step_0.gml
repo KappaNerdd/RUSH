@@ -12,6 +12,10 @@ if instance_exists(obj_StageTrackerSpeed) {
 	
 		frame++;
 	}
+	
+	if x > obj_GOALRing.x {
+		instance_destroy();
+	}
 }
 
 if !global.SimplifyVFX {
@@ -20,3 +24,4 @@ if !global.SimplifyVFX {
 	visible = true;
 	image_blend = global.fullRGB;
 }
+

@@ -12,7 +12,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Jukebox",
-    "path":"folders/Objects/Jukebox.yy",
+    "path":"folders/Objects/Menu System/Jukebox.yy",
   },
   "parentObjectId":null,
   "persistent":false,

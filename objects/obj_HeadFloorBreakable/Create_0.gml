@@ -1,5 +1,3 @@
-depth = 0;
-
 active = true;
 wallJumpable = true;
 floorAngle = 0;

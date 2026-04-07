@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Controls",
-    "path":"folders/Objects/Title/Head/Menu/Options/Controls.yy",
+    "path":"folders/Objects/Title/Head/Old/Menu/Options/Controls.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleMenuParent",

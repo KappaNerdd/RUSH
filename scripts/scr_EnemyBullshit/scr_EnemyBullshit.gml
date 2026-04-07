@@ -131,7 +131,7 @@ function scr_PlayerToEnemyShit() {
 		with(_stompedVFX) {			
 			var _toji2 = instance_place(x, y, obj_EnemyParent);
 		
-			if _toji2 {
+			if _toji2 && image_index >= 2 {
 				if !_toji2.launched {
 					_toji2.charKiller = other.id;
 				
@@ -238,18 +238,30 @@ function scr_HurtPlayer(_damage, _knockback, _imageXscale, _yKnockback) {
 		scr_LoseTrinkets();
 		scr_StopCharControls();
 		
-		scr_BonusPoints(-5000 * (_damage / 100000));
+		scr_BonusPoints(-10000 * (_damage / 100000));
 	
 		var _basedX = _imageXscale;
-
-		if leftFacer {
-			if !face_Left {
-				vel = -_knockback;
+		
+		if abs(vel) < max_Speed {
+			if leftFacer {
+				if !face_Left {
+					vel = -_knockback;
+				} else {
+					vel = _knockback;
+				}
 			} else {
-				vel = _knockback;
+				vel = -_knockback * visXScale;
 			}
 		} else {
-			vel = -_knockback * visXScale;
+			if !leftFacer {
+				visXScale = -sign(vel);
+			} else {
+				if vel > 0 {
+					face_Left = true;
+				} else {
+					face_Left = false;
+				}
+			}
 		}
 		
 		ground = false;

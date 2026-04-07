@@ -1,4 +1,4 @@
-if nextRoom == false {
+if !nextRoom {
 	if image_alpha < 1 {
 		image_alpha += 0.002;
 	}
@@ -11,9 +11,9 @@ if nextRoom == false {
 
 if image_alpha >= 1 {
 	nextRoom = true;
-	room_goto(rm_HeadOverworld1);
+	room_goto(rm_HeadOverworld2);
 }
 
-if image_alpha <= 0 {
+if image_alpha <= 0 && nextRoom {
 	instance_destroy();
 }

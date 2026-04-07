@@ -1,11 +1,11 @@
 #region //Attacking	
-	if (jumping or backTrick or stomping) {
+	if (realJumping or backTrick or stomping or hover) {
 		attacking = true;
 	} else {
 		attacking = false;
 	}
 	
-	if boost or sliding or hover {
+	if boost or sliding {
 		megaAttacking = true;
 	} else {
 		megaAttacking = false;
@@ -100,57 +100,72 @@ if can_MoveFULL {
 			
 			#region //Special Idle
 				if specialIdle {
-					face_Left = false;
-					sprite_index = sprSpecialIdle;
+					if !face_Left {
+						sprite_index = sprSpecialIdleRight;
+					} else {
+						sprite_index = sprSpecialIdleLeft;
+					}
+					
 					mask_index = idle_Mask;
 					image_speed = 1;
 					
-					if image_index >= 17.8 {
-						image_index = 10;
+					if floor(image_index) >= image_number - 1 {
+						image_index = image_number - 8;
 					}
 				}
 			#endregion
 
 			#region //Double Jumping
 				if dJumping && yspd < 0 && !wallJump && !afterWallJump {
-					sprite_index = sprDJump;
+					if !face_Left {
+						sprite_index = sprDJumpRight;
+					} else {
+						sprite_index = sprDJumpLeft;
+					}
+					
 					image_speed = 3;
 					mask_index = idle_Mask;
 				} else if dJumping && yspd > 0 && !wallJump && !afterWallJump {
-					sprite_index = sprDJump;
+					if !face_Left {
+						sprite_index = sprDJumpRight;
+					} else {
+						sprite_index = sprDJumpLeft;
+					}
+					
 					image_speed = 0.5;
 					mask_index = idle_Mask;
 				}
 			#endregion
 
 			#region //Falling
-				if (jumping && !dJumping) && !hover && !rampRing && !playerHurt && !wallJump && !afterRailJump && !railGrind && !trick && yspd > 0 && yspd < 3 {
-					if !leftFacer {
-						sprite_index = sprFall;
-					} else {
+				if !ground && !hover && jumping && !stomping && !dJumping && !playerHurt && !rampRing && !wallJump && !afterRailJump && !trick {
+					if !realJumping {
 						if face_Left {
-							sprite_index = sprFallLeft;
+							sprite_index = sprJumpLeft;
 						} else {
-							sprite_index = sprFallRight;
+							sprite_index = sprJumpRight;
 						}
-					}
-					
-					image_speed = 1;
-					mask_index = idle_Mask;
-				}
-			
-				if !ground && yspd > 3 && !dJumping && !hover && !playerHurt && !rampRing && !wallJump && !afterRailJump && !trick {
-					if !leftFacer {
-						sprite_index = sprFalling;
+							
+						if floor(image_index) == image_number - 1 {
+							image_index = image_number - 3;
+						} else if floor(image_index) < image_number - 3 {
+							image_index = image_number - 3;
+						}
+						
+						image_speed = 1;
 					} else {
 						if face_Left {
-							sprite_index = sprFallingLeft;
+							sprite_index = sprJumpLeft;
 						} else {
-							sprite_index = sprFallingRight;
+							sprite_index = sprJumpRight;
+						}
+							
+						if floor(image_index) == image_number - 1 {
+							image_index = image_number - 3;
 						}
 					}
 				
-					image_speed = 1;
+					image_speed = 1.5;
 					mask_index = idle_Mask;
 				}
 			#endregion
@@ -178,14 +193,15 @@ if can_MoveFULL {
 
 			#region //Hover
 				if hover && !stomping && !wallJump {
-					sprite_index = sprDJump;
+					if !face_Left {
+						sprite_index = sprDJumpRight;
+					} else {
+						sprite_index = sprDJumpLeft;
+					}
+					
 					mask_index = idle_Mask;
 					
-					if face_Left {
-						image_speed = -5;
-					} else {
-						image_speed = 5;
-					}
+					image_speed = 5;
 				}
 			#endregion
 
@@ -241,7 +257,12 @@ if can_MoveFULL {
 							image_speed = -1;
 						}
 						
-						sprite_index = sprRailJump;
+						if !face_Left {
+							sprite_index = sprRailJumpRight;
+						} else {
+							sprite_index = sprRailJumpLeft;
+						}
+						
 						mask_index = idle_Mask;
 					}
 				}
@@ -312,6 +333,7 @@ if can_MoveFULL {
 			afterWallJump = false;
 			afterRailJump = false;
 			sideWallJump = false;
+			image_index = 0;
 			
 			angle = 0;
 			drawAngle = 0;

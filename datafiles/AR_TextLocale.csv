@@ -421,3 +421,5 @@ level_Ready,READY?,¿PREPARADOS?
 level_Set,SET!,¡LISTOS!
 level_Go,GO!,¡YA!
 level_Rush,RUSH!,¡RUSH!
+,,
+game_Whoops,"Whoops, sorry about that.",

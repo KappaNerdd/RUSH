@@ -26,6 +26,6 @@ var _relY = _playY - _camY;
 
 gpu_set_fog(true, _mainCol2, 0, 1);
 	if instance_exists(obj_SonicRushIntroCard) {
-		draw_sprite_ext(obj_Player.sprite_index, obj_Player.image_index, charX + _relX, _relY, obj_Player.image_xscale * obj_SonicRushIntroCard.charScale, obj_Player.image_yscale * obj_SonicRushIntroCard.charScale, obj_Player.drawAngle, c_black, obj_SonicRushIntroCard.mainAlpha);
+		draw_sprite_ext(obj_Player.sprite_index, obj_Player.image_index, charX + _relX, _relY, obj_Player.visXScale * obj_SonicRushIntroCard.charScale, obj_Player.image_yscale * obj_SonicRushIntroCard.charScale, obj_Player.drawAngle, c_black, obj_SonicRushIntroCard.mainAlpha);
 	}
 gpu_set_fog(false, c_black, 0, 1);

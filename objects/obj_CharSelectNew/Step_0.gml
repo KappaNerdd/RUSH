@@ -373,10 +373,8 @@ if !finished {
 
 #region //BPM Animations
 	if global.RealBPM > 0 {
-		global.RealBPM -= 1 / 60;
-	}
-	
-	if global.RealBPM <= 0 {
+		global.RealBPM -= delta_time / 1000000;
+	} else {
 		if !global.SimplifyVFX {
 			nameScale = 1;
 			arrowScale = 1.75;

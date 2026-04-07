@@ -1,4 +1,6 @@
-comboY = lerp(comboY, 0, 0.25);
+visible = false;
+
+/*comboY = lerp(comboY, 0, 0.25);
 
 if obj_Player.rushTrickScore > extraScore {
 	extraScore = obj_Player.rushTrickScore;
@@ -12,7 +14,7 @@ if comboTimer > 0 {
 	comboTimer -= 1;
 }
 
-if obj_Player.rushTrickCombo > 0 {
+if (obj_Player.rushTrickCombo > 0 or obj_Player.railTrickUno or obj_Player.railTrickDos or obj_Player.railTrickTres) && flashingTimer > 0 {
 	visible = true;
 }
 

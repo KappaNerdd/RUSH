@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Main Title",
-    "path":"folders/Objects/Title/Head/Menu/Main Title.yy",
+    "path":"folders/Objects/Title/Head/Old/Menu/Main Title.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleMenuParent",

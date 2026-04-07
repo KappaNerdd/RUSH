@@ -42,7 +42,7 @@ if !global.SongTag {
 		songCredits = "Kappa Nerd";
 	}
 	
-	if audio_is_playing(mus_SOUL) {
+	if audio_is_playing(mus_MindnBody) {
 		songName = scr_LocalText("mus_SOUL");
 		songCredits = "Kappa Nerd";
 	}

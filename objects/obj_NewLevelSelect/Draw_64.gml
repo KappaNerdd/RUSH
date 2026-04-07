@@ -457,7 +457,7 @@ display_set_gui_size(768, 432);
 				var _custCol = c_grey;
 				var _custText = "freeplay_JukeOff";
 				
-				if global.Jukebox {
+				if jukeCheck {
 					_custText = "freeplay_JukeOn";
 				}
 				

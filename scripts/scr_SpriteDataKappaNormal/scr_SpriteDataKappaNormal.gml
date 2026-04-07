@@ -2,77 +2,99 @@ function scr_SpriteDataKappaNormal() {
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump
-	kappa_Idle_Mask = spr_KappaIdleMask;
+	idle_Mask = spr_KappaIdleMask;
 
 	//Crouch
-	kappa_Crouch_Mask = spr_KappaCrouchMask;
+	crouch_Mask = spr_KappaCrouchMask;
 
 	//Slide
-	kappa_Slide_Mask = spr_KappaSlideMask;
+	slide_Mask = spr_KappaSlideMask;
 
 
 
 	///-----Animations-----///
 
 	//Idle
-	kappa_Idle = spr_KappaIdle;
-	kappa_Special_Idle = spr_KappaSpecialIdle;
-	kappa_Prepare = spr_KappaPrepareSolo;
+	sprIdle = spr_KappaIdle;
+	sprSpecialIdle = spr_KappaSpecialIdle;
+	sprPrepare = spr_KappaPrepareSolo;
 
 
 	//Movement
-	kappa_Walking = spr_KappaWalk;
-	kappa_Running = spr_KappaRun;
-	kappa_FullSpeed = spr_KappaFullSpeedRun;
-	kappa_Skid = spr_KappaSkid;
+	sprWalk = spr_KappaWalk;
+	sprRun = spr_KappaRun;
+	sprFullSpeedRun = spr_KappaFullSpeedRun;
+	sprSkid = spr_KappaSkid;
 
 
 	//Jumping
-	kappa_jumping = spr_KappaJump;
-	kappa_DJumping = spr_KappaDoubleJump;
+	sprJump = spr_KappaJump;
+	sprDJump = spr_KappaDJump;
 
 
 	//Falling
-	kappa_Falling = spr_KappaFall;
-	kappa_Falling_Loop = spr_KappaFalling;
-	kappa_WallSlide = spr_KappaWallCling;
-	kappa_OmegaFall = spr_KappaHurt;
+	sprFall = spr_KappaFall;
+	sprFalling = spr_KappaFalling;
+	sprWallSlide = spr_KappaWallCling;
 
 
 	//Look Up & Crouching
-	kappa_Ducking = spr_KappaCrouch;
-	kappa_Look_Up = spr_KappaLookUp;
+	sprCrouch = spr_KappaCrouch;
+	sprLook_up = spr_KappaLookUp;
 
 
 	//Actions
-	kappa_Guarding = spr_KappaGuard;
+	sprGuard = spr_KappaGuard;
+	sprSlide = spr_KappaSlide;
+	sprAirDash = spr_KappaAirDash;
 
-	kappa_Sliding = spr_KappaSlide;
+	sprStomping = spr_KappaStomping;
+	sprStomp = spr_KappaStomp;
 
-	kappa_AirDash = spr_KappaAirDash;
-
-	kappa_Stomping = spr_KappaStomping;
-	kappa_Stomp = spr_KappaStomp;
-
-	kappa_RailGrind = spr_KappaRailGrind;
-	kappa_RailGrindCrouch = spr_KappaRailGrindCrouch;
-	kappa_RailJump = spr_KappaRailJump;
+	sprRailGrind = spr_KappaRailGrind;
+	sprRailGrindCrouch = spr_KappaRailGrindCrouch;
+	
+	
+	//Launches
+	sprRailJump = spr_KappaRailJump;
+	sprUpLaunch = spr_KappaLauncherUp;
+	sprSideLaunch = spr_KappaLauncher;
 	
 	
 	//Tricking
-	kappa_TrickUpPre = spr_KappaTrickUpPre;
-	kappa_TrickUp = spr_KappaTrickUp;
+	sprTrickUpPre = spr_KappaTrickUpPre;
+	sprTrickUp = spr_KappaTrickUp;
 	
-	kappa_TrickSidePre = spr_KappaTrickRightPre;
-	kappa_TrickSide = spr_KappaTrickRight;
+	sprTrickSidePre = spr_KappaTrickRightPre;
+	sprTrickSide = spr_KappaTrickRight;
 	
-	kappa_Trick1 = spr_KappaTrick1;
-	kappa_Trick2 = spr_KappaTrick2;
-	kappa_Trick3 = spr_KappaTrick3Fin;
-	kappa_TrickFinish = spr_KappaTrick3Fin;
+	sprTrick1 = spr_KappaTrick1;
+	sprTrick2 = spr_KappaTrick2;
+	sprTrick3 = spr_KappaTrick3;
+	sprTrick3Fin = spr_KappaTrickFin;
 	
-	kappa_Death = spr_KappaDeath;
+	sprRailTrick1 = spr_KappaRailTrick1;
+	sprRailTrick2 = spr_KappaRailTrick2;
+	sprRailTrick3 = spr_KappaRailTrick3;
 
 	//Special
-	kappa_Pully = spr_KappaPully;
+	sprPully = spr_KappaPully;
+	sprHoming = spr_KappaHoming;
+	
+	
+	//Hurting
+	sprDeath = spr_KappaDeath;
+	sprOmegaFall = spr_KappaHurt;
+	sprSpiral = spr_KappaSpiral;
+	
+	
+	//Victory
+	sprVictory = spr_KappaVictory;
+	
+	//Balance
+	sprBalanceFor = spr_KappaBalanceForward;
+	sprBalanceBack = spr_KappaBalanceBackward;
+	
+	//Pushing
+	sprPush = spr_KappaPush;
 }

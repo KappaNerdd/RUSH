@@ -189,6 +189,8 @@ function scr_BasicVariablesSpeedCreate() {
 	#endregion
 	
 	#region //Astral Checks
+		landing = false;
+	
 		xDirection = 1;
 		xMinSpeedToFall = 4;
 		wallJumpTimer = 0;
@@ -227,6 +229,14 @@ function scr_BasicVariablesSpeedCreate() {
 
 		bottomCollision = false;
 		edgeCollision = false;
+		
+		leftEdge = false;
+		rightEdge = false;
+	#endregion
+	
+	#region //Whoops, sorry about that.
+		whoopsTimer = 150;
+		whoopsFrames = 150;
 	#endregion
 }
 
@@ -391,6 +401,21 @@ function scr_BasicControlsSpeedStep1() {
 			instance_create_depth(x + angleSin * 10, y + angleCos * 10, depth + 1, obj_BoostParticles);
 		}
 	#endregion
+	
+	#region //Whoops, sorry about that.
+		if (x < 0 or x > room_width or y > room_height) && !global.Death && can_Move && can_MoveFULL {
+			if whoopsTimer > 0 {
+				whoopsTimer--;
+			} else {
+				whoopsTimer = whoopsFrames;
+				x = global.RespawnX;
+				y = global.RespawnY;
+				instance_create_depth(x, y, depth, obj_Whoops);
+			}
+		} else {
+			whoopsTimer = whoopsFrames;
+		}
+	#endregion
 }
 
 function scr_BasicControlsSpeedStep2() {
@@ -419,6 +444,10 @@ function scr_BasicControlsSpeedStep2() {
 	
 	#region //Looking up
 		if ground && !prepare && !railGrind && abs(vel) < acc && !stomped && !ducking && up_Key {
+			if !look_up {
+				image_index = 0;
+			}
+			
 			look_up = true;
 			vel = 0;
 		} else {
@@ -445,7 +474,7 @@ function scr_BasicControlsSpeedStep3() {
 	#endregion
 		
 	#region //Special Idle
-		if ground && abs(vel) < acc && !railGrind && !stomped && !look_up && !ducking && !prepare && can_Move && can_MoveFULL {
+		if ground && !pushingWall && leftEdge && rightEdge && !railGrind && abs(vel) < acc && !railGrind && !stomped && !look_up && !ducking && !prepare && can_Move && can_MoveFULL {
 			if specialIdleTimer > 0 {
 				specialIdleTimer -= 1;
 			}
@@ -645,7 +674,6 @@ function scr_StartSlideSpeed() {
 	}
 }
 	
-	
 function scr_FootSteps(_type = "hard") {
 	if global.Footstep {
 		if ground && vel != 0 && !sliding && !railGrind {
@@ -716,7 +744,55 @@ function scr_GeneralAnimationsSpeed() {
 		
 	#region //Rail-Grind
 		if railGrind {
-			if !railGrindCrouch {
+			if railTrickUno {
+				if !leftFacer {
+					sprite_index = sprRailTrick1;
+				} else {
+					if face_Left {
+						sprite_index = sprRailTrick1Left;
+					} else {
+						sprite_index = sprRailTrick1Right;
+					}
+				}
+				
+				image_speed = 1.5;
+				
+				if floor(image_index) >= image_number - 1 {
+					image_index = image_number - 3;
+				}
+			} else if railTrickDos {
+				if !leftFacer {
+					sprite_index = sprRailTrick2;
+				} else {
+					if face_Left {
+						sprite_index = sprRailTrick2Left;
+					} else {
+						sprite_index = sprRailTrick2Right;
+					}
+				}
+				
+				image_speed = 1.5;
+				
+				if floor(image_index) >= image_number - 1 {
+					image_index = image_number - 3;
+				}
+			} else if railTrickTres {
+				if !leftFacer {
+					sprite_index = sprRailTrick3;
+				} else {
+					if face_Left {
+						sprite_index = sprRailTrick3Left;
+					} else {
+						sprite_index = sprRailTrick3Right;
+					}
+				}
+				
+				image_speed = 1.75;
+				
+				if floor(image_index) >= image_number - 1 {
+					railTrickTres = false;
+				}
+			} else {
 				if !leftFacer {
 					sprite_index = sprRailGrind;
 				} else {
@@ -726,38 +802,82 @@ function scr_GeneralAnimationsSpeed() {
 						sprite_index = sprRailGrindRight;
 					}
 				}
-					
+				
 				image_speed = 1;
-				mask_index = idle_Mask;
-			} else {
-				if !leftFacer {
-					sprite_index = sprRailGrindCrouch;
-				} else {
-					if face_Left {
-						sprite_index = sprRailGrindCrouchLeft;
-					} else {
-						sprite_index = sprRailGrindCrouchRight;
-					}
-				}
-					
-				image_speed = 1;
-				mask_index = slide_Mask;
 			}
+					
+			mask_index = idle_Mask;
 		}
 	#endregion
 		
 	#region //Tricking
 		if (afterRailJump or rampRing) && !rushTrick && !rushTrickFinish && !trick && !upTrick && !rightTrick && !leftTrick && !backTrick && !altTrick {
-			sprite_index = sprRailJump;
-					
-			if !leftFacer {
-				image_speed = 1.5;
-			} else {
-				if face_Left {
-					image_speed = -1.5;
+			if rainbowLaunch {
+				if !leftFacer {
+					sprite_index = sprRailJump;
 				} else {
-					image_speed = 1.5;
+					if !face_Left {
+						sprite_index = sprRailJumpRight;
+					} else {
+						sprite_index = sprRailJumpLeft;
+					}
 				}
+					
+				if !leftFacer {
+					image_speed = 1.5;
+				} else {
+					if face_Left {
+						image_speed = -1.5;
+					} else {
+						image_speed = 1.5;
+					}
+				}
+			} else {
+				if upLaunch {
+					if !leftFacer {
+						sprite_index = sprUpLaunch;
+					} else {
+						if face_Left {
+							sprite_index = sprUpLaunchLeft;
+						} else {
+							sprite_index = sprUpLaunchRight;
+						}
+					}
+					
+					if yspd < 0 {
+						if floor(image_index) >= 2 {
+							image_index = 0;
+						}
+					} else {
+						if floor(image_index) == image_number - 1 {
+							image_index = image_number - 3;
+						}
+					}
+				}
+				
+				if sideLaunch {
+					if !leftFacer {
+						sprite_index = sprSideLaunch;
+					} else {
+						if face_Left {
+							sprite_index = sprSideLaunchLeft;
+						} else {
+							sprite_index = sprSideLaunchRight;
+						}
+					}
+					
+					if yspd <= 0 {
+						if floor(image_index) >= 2 {
+							image_index = 0;
+						}
+					} else {
+						if floor(image_index) == image_number - 1 {
+							image_index = image_number - 3;
+						}
+					}
+				}
+				
+				image_speed = 1;
 			}
 					
 			mask_index = idle_Mask;
@@ -767,13 +887,25 @@ function scr_GeneralAnimationsSpeed() {
 	#region //Player Hurt/Death	
 		if playerHurt {
 			if !global.Death {
-				if !leftFacer {
-					sprite_index = sprOmegaFall;
-				} else {
-					if face_Left {
-						sprite_index = sprOmegaFallLeft;
+				if abs(vel) < max_Speed / 1.25 {
+					if !leftFacer {
+						sprite_index = sprOmegaFall;
 					} else {
-						sprite_index = sprOmegaFallRight;
+						if face_Left {
+							sprite_index = sprOmegaFallLeft;
+						} else {
+							sprite_index = sprOmegaFallRight;
+						}
+					}
+				} else {
+					if !leftFacer {
+						sprite_index = sprSpiral;
+					} else {
+						if face_Left {
+							sprite_index = sprSpiralLeft;
+						} else {
+							sprite_index = sprSpiralRight;
+						}
 					}
 				}
 					
@@ -793,6 +925,61 @@ function scr_GeneralAnimationsSpeed() {
 		}
 	#endregion
 	
+	#region //Pushing
+		if ground && pushingWall && !railGrind && !sliding && (left_Key or right_Key) {
+			if !leftFacer {
+				sprite_index = sprPush;
+			} else {
+				if face_Left {
+					sprite_index = sprPushLeft;
+				} else {
+					sprite_index = sprPushRight;
+				}
+			}
+			
+			image_speed = 1;
+			mask_index = idle_Mask;
+		}
+	#endregion
+	
+	#region //Balancing
+		if ground && vel == 0 && !look_up && !ducking && !railGrind && !stomped {
+			if !leftEdge {
+				if !leftFacer {
+					if visXScale == 1 {
+						sprite_index = sprBalanceBack;
+					} else if visXScale == -1 {
+						sprite_index = sprBalanceFor;
+					}
+				} else {
+					if !face_Left {
+						sprite_index = sprBalanceBackLeft;
+					} else {
+						sprite_index = sprBalanceForLeft;
+					}
+				}
+			}
+			
+			if !rightEdge {
+				if !leftFacer {
+					if visXScale == 1 {
+						sprite_index = sprBalanceFor;
+					} else if visXScale == -1 {
+						sprite_index = sprBalanceBack;
+					}
+				} else {
+					if !face_Left {
+						sprite_index = sprBalanceForRight;
+					} else {
+						sprite_index = sprBalanceBackRight;
+					}
+				}
+			}
+			
+			image_speed = 1;
+			mask_index = idle_Mask
+		}
+	#endregion
 }
 	
 function scr_GroundAnimationSpeed() {
@@ -927,6 +1114,12 @@ function scr_OtherAnimationsSpeed() {
 					sprite_index = sprLook_upRight;
 				}
 			}
+			
+			if floor(image_index) >= image_number - 1 {
+				image_index = image_number - 1;
+			}
+			
+			image_speed = 2;
 					
 			mask_index = idle_Mask;
 		}
@@ -1236,7 +1429,6 @@ function scr_AngleShitCreate() {
 	ceilingMode = false;
 	leftwallMode = false;
 }
-
 
 function scr_AngleShitBeginStep() {
 	if !sliding {

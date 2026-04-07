@@ -61,7 +61,39 @@ if goal {
 		event_user(2);
 		event_user(3);
 		
-		right_Key = true;
+		if other.goalTimer <= 0 {
+			if x > other.x + 65 {
+				right_Key = false;
+				left_Key = true;
+			} else if x < other.x + 60 {
+				right_Key = true;
+				left_Key = false;
+			} else {
+				if !other.victory {
+					other.victory = true;
+					can_MoveFULL = false;
+					sprite_index = sprVictory;
+					image_index = 0;
+					image_speed = 1;
+					vel = 0;
+				}
+				
+				if floor(image_index) >= image_number - 1 {
+					image_index = image_number - 1;
+				}
+				
+				if leftFacer {
+					face_Left = false;
+				} else {
+					visXScale = 1;
+				}
+			}
+		} else {
+			if x > other.x + 80 {
+				right_Key = false;
+				left_Key = true;
+			} 
+		}
 	}
 } else {
 	if createRingTimer > 0 {
@@ -233,6 +265,17 @@ if goalTimer <= 0 {
 		}
 	}
 }
+
+/*if obj_Player.can_Move {
+	if markiplierTimer > 0 {
+		markiplierTimer--;
+	} else {
+		array_push(markArray, obj_Player.vel);
+		markiplierTimer = 60;
+	}
+}*/
+
+
 
 if global.MIND or global.PlayerChar == 0 {
 	mindFrames += mindAnim;

@@ -26,7 +26,7 @@
   ],
   "name":"spr_HeadStompingVFX",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"VFX",
     "path":"folders/Sprites/Characters/Players/Head/VFX.yy",
@@ -88,7 +88,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":29,
-    "yorigin":18,
+    "yorigin":34,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

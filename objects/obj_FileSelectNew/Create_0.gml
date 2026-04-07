@@ -63,7 +63,7 @@ if file_exists(_dir + string(global.PastMindDataFile) + ".sav") {
 	srBlock = spr_CharSelectTopHead;
 	srBall = spr_CharSelectRushBossBallHead;
 	sprite_index = spr_SonicRushBGHead;
-	set_song_ingame(mus_SOUL);
+	set_song_ingame(mus_MindnBody);
 }
 
 srSpikeFrames = 0;

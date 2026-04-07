@@ -21,33 +21,36 @@
 	global.Footstep = true;
 
 	//Visual
-	global.SimplifyVFX = false;
 	global.ScreenShake = true;
+	global.ExtendCamera = true;
+	global.SimplifyVFX = false;
 	global.Particles = true;
 	global.ConDisplay = false;
 	global.Outline = true;
 	global.Squash = true;
-	global.TextSpd = 1;
-	global.Language = 1;
-	global.VSync = false;
 
 	//Misc
-	global.FullScreen = false;
+	global.Language = 1;
+	global.TextSpd = 1;
 	global.SongTag = true;
 	global.ConRumble = true
 	global.ConType = 0;
-	global.ExtendCamera = true;
 	global.FPSOn = true;
 	global.Speedrun = false;
 	
-	//Online
-	global.DiscordRich = true;
-	global.ShowGhost = true;
+	//Display
+	global.WindowSize = 1;
+	global.FullScreen = false;
+	global.VSync = false;
 	
 	//Preferences
 	global.FocusLoss = false;
 	global.ColorCode = true;
 	global.ChangeColor = 0;
+	
+	//Online
+	global.DiscordRich = true;
+	global.ShowGhost = true;
 
 	//Controls
 	global.ConDeadZone = 0.5;
@@ -250,7 +253,7 @@
 			[spr_BoostEmblemKappaHead, 1], //Trick Particles/Boost Emblem (Optional (Animated): Sprite Strip)
 			[spr_BoostEmblemKappaHeadRush, 1], //RUSH MODE Version of Boost Emblem (Optional (Animated): Sprite Strip)
 			[spr_LifeKappaHead, spr_LifeKappaHead, spr_StageCharKappaHead, spr_LifeKappaHead, 1], //Extra Life Icon/STAGE Char Icon (Optional (Costumes): Sprite Strip)
-			[spr_KappaHeadBoost, spr_KappaHeadBoostSimple, spr_HeadStompingVFX, spr_HeadStompedVFX, spr_KappaSpeedBreakVFX, 1],
+			[spr_KappaHeadBoost, spr_KappaHeadBoostSimple, spr_HeadStompingVFX, spr_HeadStompedVFX, spr_HeadSpeedBreakVFX, 1],
 			[spr_KappaHeadTrickFinishVFX, 1],
 		
 			mus_FreeplayKMvt, //Freeplay Theme (Recommend 160 BPM, for consistancy with base tracks)
@@ -1130,25 +1133,29 @@
 		},
 	
 		{ //Visual Options
-			simpVFX: false, //Simplify VFX
+			extCam: true, //Extended Camera
 			screenShake: true, //Screen Shake
+			simpVFX: false, //Simplify VFX
 			part: true, //Particles
 			conDis: false, //Controller Display
 			outline: true, //Character Outline
 			squash: true, //Squash 'n' Stretch
-			textSpd: 1, //Text Speed
-			lang: 0, //Language
-			vsync: false, //VSync
 		},
 	
 		{ //Misc Options
-			fullscrn: 0, //Fullscreen
+			textSpd: 1, //Text Speed
+			lang: 1, //Language
 			musTag: true, //Music Tag
 			conRum: true, //Controller Rumble
 			conType: 0, //Controller Type
-			extCam: true, //Extended Camera
 			speedrun: false, //Speedrun Timer
 			FPS: true, //FPS
+		},
+		
+		{ //Display
+			fullscrn: 0, //Fullscreen
+			windowSize: 1, //Window Size
+			vsync: false, //VSync
 		},
 		
 		{ //Preferences Options

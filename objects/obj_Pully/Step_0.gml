@@ -9,6 +9,7 @@ if pulled {
 			
 				_chars.yspd = yspd / 1.45;
 				_chars.rampRing = true;
+				_chars.upLaunch = true;
 				_chars.can_Move = true;
 				_chars.can_MoveFULL = true;
 				
