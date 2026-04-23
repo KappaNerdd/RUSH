@@ -41,12 +41,12 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 - [Nerd](https://bsky.app/profile/kappanerd.bsky.social) - Yo. I do everything lol. Call me an amalgamation the way I have everything. (Except hand-drawn animation and 3d modeling.)
 - Saiyan - My first cat that kept me in this world and gave me motivation
 
-## LOCALIZATION
+## THE CREW
 - [Huisti](https://bsky.app/profile/kappanerd.bsky.social) - Spanish (Español) Translation
 
-## GUESTS
+## SPECIAL GUESTS
 - [CrystalsDreaming](https://bsky.app/profile/crystalsdreaming.bsky.social) - Creator of Ivy
-- [kira_nk](https://x.com/notokaay19) - Creator of Akira
+- [kira_nk](https://x.com/notokaay19) - Creator of Akira, Taylor, & Ayana
 
 ## PERSONAL PLAYTESTERS
 - [kira_nk](https://x.com/notokaay19)
@@ -66,10 +66,11 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 - [Vtuber Hikiyami Moriko](https://www.youtube.com/channel/UCEqEk-Ti4p0vI3s8ufInJgA) - The first to make a video during the game's first protoype
 - [Sonic Retro](https://info.sonicretro.org/Sonic_Physics_Guide) - Sonic Physics Guide
 - [DFelipeh](https://sonicfangameshq.com/forums/members/dfelipeh.5901/) - Sonic Astral Engine Physics
-
-## SPECIAL THANKS
 - [Peyton Burnham](https://www.youtube.com/@peytonburnham4316) - Many GameMaker YouTube Tutorials
 - [WreckingPrograms](https://www.youtube.com/@WreckingPrograms) - General Sonic-like Movement YouTube Tutorials
+- [Blobfish](https://www.youtube.com/@blobfishdev) - Localization Tutorial
+
+## SPECIAL THANKS 
 - [Sara Spalding](https://www.youtube.com/@SaraSpalding) - After-Images & Ghost Replay YouTube Tutorials
 - [Aerion](https://www.youtube.com/@aeriongames) - Rain YouTube Tutorial
 - [GravityShift Games](https://www.youtube.com/@SlasherXGAMES) - Stopwatch Timer YouTube Tutorial
