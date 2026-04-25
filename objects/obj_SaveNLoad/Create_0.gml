@@ -19,6 +19,7 @@
 	global.AMBIENCE_VOL = 1;
 	global.UniquePauseTheme = false;
 	global.Footstep = true;
+	global.Invincible = 0;
 
 	//Visual
 	global.ScreenShake = true;
@@ -35,7 +36,7 @@
 	global.SongTag = true;
 	global.ConRumble = true
 	global.ConType = 0;
-	global.FPSOn = true;
+	global.FPSOn = false;
 	global.Speedrun = false;
 	
 	//Display
@@ -1077,6 +1078,9 @@
 #endregion
 
 #region //Bruh
+	x = -10000;
+	depth = -1000;
+	image_speed = 0.5;
 	global.ForceLine = 0;
 	langCheck = 0;
 	//show_debug_overlay(true);
@@ -1089,6 +1093,8 @@
 
 #region ///-----Jukebox-----///
 	global.Jukebox = false;
+	global.JukeCheck = false;
+	
 	global.JukeboxLoop = false;
 	global.JukeboxShuffle = false;
 	global.JukeBoxChoice = 0;
@@ -1130,6 +1136,7 @@
 			ambience: 1, //Ambience Volume
 			uniquePause: false, //Unique Pause Theme
 			footStep: true, //Character Foot Steps
+			invincible: 0,
 		},
 	
 		{ //Visual Options
@@ -1149,7 +1156,7 @@
 			conRum: true, //Controller Rumble
 			conType: 0, //Controller Type
 			speedrun: false, //Speedrun Timer
-			FPS: true, //FPS
+			FPS: false, //FPS
 		},
 		
 		{ //Display

@@ -75,7 +75,8 @@ audio = [
 	["opt_Text", "desc_Text"],
 	["opt_Ambiance", "desc_Ambiance"],
 	["opt_Pause", "desc_Pause"],
-	["opt_Footstep", "desc_Footstep"]
+	["opt_Footstep", "desc_Footstep"],
+	["opt_Invincible", "desc_Invincible"]
 ]
 
 visual = [

@@ -9,8 +9,8 @@
   "name":"obj_PlayerHurtJump",
   "overriddenProperties":[],
   "parent":{
-    "name":"Ceiling Detect",
-    "path":"folders/Objects/Characters/Players/Ceiling Detect.yy",
+    "name":"Player Hurt Jump",
+    "path":"folders/Objects/Characters/Players/Player Hurt Jump.yy",
   },
   "parentObjectId":null,
   "persistent":false,

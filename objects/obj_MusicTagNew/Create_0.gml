@@ -1,6 +1,6 @@
 x = -100000;
 
-moveX = -400;
+moveX = -450;
 moved = false;
 movedTimer = 240;
 

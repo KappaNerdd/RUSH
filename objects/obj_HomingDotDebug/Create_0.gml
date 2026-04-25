@@ -1,1 +1,2 @@
 homingAttackable = true;
+bounce = true;

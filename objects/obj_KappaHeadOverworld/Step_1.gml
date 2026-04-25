@@ -473,9 +473,6 @@ if can_MoveFULL {
 		}
 	#endregion
 	
-	#region //Homing-Attack
-		scr_HomingAttackStep();
-	#endregion
 }
 
 scr_BasicControlsSpeedStep4();

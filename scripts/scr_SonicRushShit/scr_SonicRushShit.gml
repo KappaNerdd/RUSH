@@ -148,6 +148,20 @@ function scr_BoostingStep() {
 			sliding = true;
 		}
 		
+		if right_Key {
+			if !leftFacer {
+				visXScale = 1;
+			} else {
+				face_Left = false;
+			}
+		} else if left_Key {
+			if !leftFacer {
+				visXScale = -1;
+			} else {
+				face_Left = true;
+			}
+		}
+		
 		if !ground && !airBoost {
 			yspd = 0;
 			airBoost = true;
@@ -1043,6 +1057,7 @@ function scr_RailTricksStep() {
 		
 		if railTrickBuffered && railTrickTimer == 0 && !railTrickTres {
 			railTrickTimer = railTrickFrames;
+			scr_ControllerRumble();
 			image_index = 0;
 			
 			if rushMode {
@@ -1178,16 +1193,10 @@ function scr_RushModeColorCreate() {
 	
 	anims = 1 / 2;
 	
-	boostingSprite = global.PlayerSelection[global.PlayerChar][18][0];
-	boostingSpriteSimple = global.PlayerSelection[global.PlayerChar][18][1];
 	boostingFrames = 0;
 	
-	stompingSprite = global.PlayerSelection[global.PlayerChar][18][2];
 	stompingSprFrames = 0;
 	
-	stompedSprite = global.PlayerSelection[global.PlayerChar][18][3];
-	
-	speedBreakSprite = global.PlayerSelection[global.PlayerChar][18][4];
 	speedBreakSprTimer = 0;
 	speedBreakSprFrames = 10;
 	
@@ -1282,9 +1291,9 @@ function scr_RushModeColorDraw() {
 	
 	draw_sprite_ext(sprite_index, image_index, round(x), round(y), visXScale * extraXscale, image_yscale, drawAngle, image_blend, image_alpha);
 	
-	if rushMode {
+	if rushMode && !global.SimplifyVFX {
 		gpu_set_fog(true, rushColor, 0, 1);
-			draw_sprite_ext(sprite_index, image_index, round(x), round(y), visXScale * extraXscale, image_yscale, drawAngle, rushColor, rushModeAlpha);
+			draw_sprite_ext(sprite_index, image_index, round(x), round(y), visXScale * extraXscale, image_yscale, drawAngle, rushColor, rushModeAlpha * image_alpha);
 		gpu_set_fog(false, c_black, 0, 1);
 	}
 	
@@ -1333,7 +1342,9 @@ function scr_RushModeColorDraw() {
 			boostingFrames = 0;
 		}
 		
-		draw_sprite_ext(_boosting, boostingFrames, x - angleSin * 16, floor(y - angleCos * 16), _boostXscale, 1, _boostAngle, c_white, 0.5);
+		if global.Particles {
+			draw_sprite_ext(_boosting, boostingFrames, x - angleSin * 16, floor(y - angleCos * 16), _boostXscale, 1, _boostAngle, c_white, 0.5);
+		}
 	} else {
 		boostingFrames = 0;
 	}
@@ -1364,7 +1375,9 @@ function scr_RushModeColorDraw() {
 			stompingSprFrames = 0;
 		}
 		
-		draw_sprite_ext(_stompingSprite, stompingSprFrames, x + _extraX, floor(y - 5 + _extraY), 1, 1, _stompingAngle + 90, c_white, 1);
+		if global.Particles {
+			draw_sprite_ext(_stompingSprite, stompingSprFrames, x + _extraX, floor(y - 5 + _extraY), 1, 1, _stompingAngle + 90, c_white, 1);
+		}
 	}
 	
 	
@@ -1378,7 +1391,9 @@ function scr_RushModeColorDraw() {
 			stompingSprFrames = 0;
 		}
 		
-		draw_sprite_ext(_stompingSprite, stompingSprFrames, x, y + 20, 1, 1, 0, c_white, 1);
+		if global.Particles {
+			draw_sprite_ext(_stompingSprite, stompingSprFrames, x, y + 20, 1, 1, 0, c_white, 1);
+		}
 	}
 	
 	if global.DEBUG {

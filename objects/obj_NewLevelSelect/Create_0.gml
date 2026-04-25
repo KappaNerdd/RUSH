@@ -129,4 +129,4 @@ rankFrames = 0;
 
 custMusFile = "";
 
-jukeCheck = false;
+jukeCheck = global.JukeCheck;

@@ -176,6 +176,8 @@ if !completed {
 					completed = true;
 					retry = true;
 					obj_SFXManager.menuPop = true;
+					
+					global.Jukebox = global.JukeCheck;
 				}
 				
 				if instance_exists(obj_InputRecorder) {

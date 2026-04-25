@@ -51,6 +51,7 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 		var _choice5 = "opt_Ambiance";
 		var _choice6 = "opt_Pause";
 		var _choice7 = "opt_Footstep"
+		var _choice8 = "opt_Invincible";
 		var _drawX = setX + _gapX - 3;
 	
 		if choice == a {
@@ -96,6 +97,9 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 				_choice = _choice7;
 				draw_sprite_ext(spr_OptionCheckbox, global.Footstep, setX + _gapX + string_width(scr_LocalText(_choice7)) + 17, setY + 61 + (_gapY * a), 1, 1, 0, c_black, 1);
 				draw_sprite_ext(spr_OptionCheckbox, global.Footstep, setX + _gapX + string_width(scr_LocalText(_choice7)) + 20, setY + 58 + (_gapY * a), 1, 1, 0, _chosenCol2, 1);
+			} else if a == 7 {
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice2)) + 14, setY + 67 + (_gapY * a), "x" + string(global.TextSpd), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice2)) + 17, setY + 64 + (_gapY * a), "x" + string(global.TextSpd), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
 			}
 		
 			draw_text_transformed_color(setX + _gapX - 3, setY + 67 + (_gapY * a), scr_LocalText(_choice), 1, 1, 0, c_black, c_black, c_black, c_black, 1);

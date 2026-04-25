@@ -3,7 +3,7 @@ locale = [
 ]
 
 localeDialog = [
-	"AR_DialogLocale",
+	"AR_DialogueLocale",
 ]
 
 langFlags = [
@@ -12,6 +12,7 @@ langFlags = [
 ]
 
 scr_InitLocalization(locale[0]);
+scr_InitLocalizationDialog(localeDialog[0]);
 
 function scr_InitLocalization(_lang) {
 	global.LocData = load_csv(string(_lang) + ".csv");

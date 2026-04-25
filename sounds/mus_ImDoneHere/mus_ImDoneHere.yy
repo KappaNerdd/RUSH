@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":11.260998,
+  "duration":11.337959,
   "exportDir":"",
   "name":"mus_ImDoneHere",
   "parent":{

@@ -61,8 +61,8 @@
   ],
   "name":"rm_TitleNormal",
   "parent":{
-    "name":"Title Normal",
-    "path":"folders/Rooms/Title Rooms/Title Normal.yy",
+    "name":"Old",
+    "path":"folders/Rooms/Title Rooms/Title Normal/Old.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

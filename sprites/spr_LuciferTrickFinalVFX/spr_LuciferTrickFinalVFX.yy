@@ -81,8 +81,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Lucifer",
+    "path":"texturegroups/Lucifer",
   },
   "type":0,
   "VTile":false,

@@ -513,8 +513,8 @@
   ],
   "name":"rm_HeadOverworld6",
   "parent":{
-    "name":"Overworld",
-    "path":"folders/Rooms/Head Rooms/Overworld.yy",
+    "name":"Old",
+    "path":"folders/Rooms/Head Rooms/Overworld/Old.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

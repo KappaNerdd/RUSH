@@ -24,6 +24,17 @@ if !global.SongTag {
 
 
 #region /////--------Title--------/////
+	///-----MINDWAVE-----///
+	if audio_is_playing(mus_MINDWAVE) {
+		songName = scr_LocalText("mus_MINDWAVE");
+		songCredits = "Kappa Nerd";
+	}
+	
+	if audio_is_playing(mus_MINDWAVE_A) {
+		songName = scr_LocalText("mus_MINDWAVE2");
+		songCredits = "Kappa Nerd";
+	}
+
 	///-----Solemn-----///
 	if audio_is_playing(mus_Solemn) {
 		songName = scr_LocalText("mus_Solemn");
@@ -43,7 +54,7 @@ if !global.SongTag {
 	}
 	
 	if audio_is_playing(mus_MindnBody) {
-		songName = scr_LocalText("mus_SOUL");
+		songName = scr_LocalText("mus_MindBody");
 		songCredits = "Kappa Nerd";
 	}
 #endregion

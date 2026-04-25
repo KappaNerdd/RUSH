@@ -1,6 +1,9 @@
 I might swerve-,ENGLISH,ESPAÑOL
 wind_Title,ADRENALINE RUSH,ADRENALINE RUSH
 ,,
+opt_ChooseLang,CHOOSE A LANGUAGE,
+opt_AskOnce,(This'll only appear once and never again. You can change the language again any time in the Options menu.),
+,,
 fs_FileSelect,FILE SELECT,ELIGE UN ARCHIVO
 fs_Select,SELECT,SELECCIONAR
 fs_Copy,COPY,COPIAR
@@ -34,6 +37,7 @@ opt_Text,TEXT,TEXTO
 opt_Ambiance,AMBIANCE,AMBIENTE
 opt_Pause,UNIQUE PAUSE THEME,TEMA DE PAUSA ÚNICO
 opt_Footstep,FOOTSTEPS,PASOS
+opt_Invincible,INVINCIBILITY THEME,
 ,,
 opt_Visual,VISUAL,VISUALES
 opt_SimpVFX,SIMPLIFY VFX,SIMPLIFICAR EFECTOS
@@ -63,6 +67,9 @@ opt_ChangeColor,CHANGE BASE COLOR,CAMBIAR COLOR BASE
 opt_Online,ONLINE,EN LÍNEA
 opt_Discord,DISCORD RICH PRESCENCE,PRESENCIA DE DISCORD
 opt_Ghost,SHOW GHOST,MOSTRAR FANTASMA
+,,
+opt_Display,DISPLAY,
+opt_WindowSize,WINDOW SCALE,
 ,,
 opt_ConGen,CONTROLS (GENERAL),CONTROL (GENERAL)
 opt_ConSpeed1,CONTROLS (SPEED/MENU) 1,CONTROL (VELOCIDAD/MENU) 1
@@ -153,8 +160,8 @@ menu_QRestart,QUICK-RESTART,REINICIO-RÁPIDO
 menu_HUB,HUB,HUB
 menu_MainMenu,MAIN MENU,MENÚ PRINCIPAL
 menu_NameAsk,What is YOUR name?,¿Cuál es TU nombre?
-menu_ConLetter,CONFIRM LETTER,COLOCAR LETRA
-menu_ReLetter,REMOVE LETTER,QUITAR LETRA
+menu_ConLetter,CONFIRM,COLOCAR
+menu_ReLetter,REMOVE,QUITAR
 menu_AddSpace,ADD SPACE,AÑADIR ESPACIO
 ,,
 move_Acc,ACCELERATE,ACELERAR
@@ -187,7 +194,7 @@ name_Sarah,SARAH SUKI,SARAH SUKI
 name_Sar,SARAH,SARAH
 name_Alone,LONE SUKI,LONE SUKI
 name_Lone,LONE,LONE
-name_Brock,"BROCK ""KONG"" SANCHEZ","BROCK ""KONG"" SANCHEZ"
+name_Brock,"BROCK ""MASHIBA"" SANCHEZ","BROCK ""MASHIBA"" SANCHEZ"
 name_Bro,BROCK,BROCK
 name_Neegi,NEEGI BUTCHER,NEEGI BUTCHER
 name_Nee,NEEGI,NEEGI
@@ -219,21 +226,24 @@ mus_Accept,It Takes a Lot to Accept Reality,Es Difícil Aceptar La Realidad
 mus_Solemn,Solemn,Solemne
 mus_Wakey,Wakey-Wakey,A Levantarse
 mus_Cest,C'est La Vie,C'est La Vie
+mus_MindBody,MIND 'N' BODY,
+mus_MINDWAVE,MINDWAVE,
+mus_MINDWAVE2,MINDWAVE (Allegro),
 ,,
-mus_FKap,Waitin' (Freeplay Kappa Mvt.),Waitin' (Freeplay Kappa Mvt.)
-mus_FSar,No Rush (Freeplay Sarah Mvt.),No Rush (Freeplay Sarah Mvt.)
-mus_FLon,Arpeggio (Freeplay Lone Mvt.),Arpeggio (Freeplay Lone Mvt.)
-mus_FBro,(Empty for now. I'm not proud of his freeplay track),                 Okay bro
-mus_FNee,Euro-Step (Freeplay Neegi Mvt.),Euro-Step (Freeplay Neegi Mvt.)
-mus_FClo,Star-Bright (Freeplay Cloee Mvt.),Star-Bright (Freeplay Cloee Mvt.)
-mus_FAki,Flamerunner (Freeplay Akira Mvt.),Flamerunner (Freeplay Akira Mvt.)
-mus_FTay,Knuckleblaster (Freeplay Taylor Mvt.),Knuckleblaster (Freeplay Taylor Mvt.)
-mus_FAya,Sharpshooter (Freeplay Ayana Mvt.),Sharpshooter (Freeplay Ayana Mvt.)
-mus_FRus,Hurry Up (Freeplay Rush Mvt.),Hurry Up (Freeplay Rush Mvt.)
-mus_FEdg,Black Arms (Freeplay Edge Mvt.),Black Arms (Freeplay Edge Mvt.)
-mus_FRox,Perra-Culo (Freeplay Roxxane Mvt.),Bitch-Ass (Freeplay Roxxane Mvt.)
-mus_FLuc,Waiting (Freeplay Lucifer Mvt.),Waiting (Freeplay Lucifer Mvt.)
-mus_FIvy,Holster (Freeplay Ivy Mvt.),Holster (Freeplay Ivy Mvt.)
+mus_FKap,Waitin',Waitin'
+mus_FSar,No Rush,No Rush
+mus_FLon,Arpeggio,Arpeggio
+mus_FBro,Fighting Glove,Fighting Glove
+mus_FNee,Euro-Step,Euro-Step
+mus_FClo,Star-Bright,Star-Bright
+mus_FAki,Flamerunner,Flamerunner
+mus_FTay,Knuckleblaster,Knuckleblaster
+mus_FAya,Sharpshooter,Sharpshooter
+mus_FRus,Hurry Up,Hurry Up
+mus_FEdg,Black Arms,Black Arms
+mus_FRox,Perra-Culo,Bitch-Ass
+mus_FLuc,Waiting,Waiting
+mus_FIvy,Holster,Holster
 ,,
 mus_Funk,Funk 'n' Rush,Funk 'n' Rush
 ,,
@@ -323,6 +333,7 @@ desc_Text,Change the game's textbox type-writer volume. (Decreases by 10% per pr
 desc_Ambiance,Change the game's world ambiance volume. (Decreases by 10% per press.),Cambia el volumen del ambiente. (Disminuye 10% al presionar)
 desc_Pause,Have a BGM track play based on the character you're playing as while the game is paused.,Un tema de pausa se reproduce dependiendo del personaje que estes usando.
 desc_Footstep,Have footstep and landing sounds play based on certain situations during gameplay.,Sonido de pasos y aterrizaje se reproducen durante el gameplay.
+desc_Invincible,Change the invincibility BGM track.,
 ,,
 desc_SimpVFX,"Reduce, stop, or get rid of things that could be eye-straining. (I.E., flashing lights, textbox animations, 'n' some moving assets.)","Reduce, detiene o elimina los elementos que cansen la vista. (Ejemplo: luces, animaciones y algunos movimientos)."
 desc_Part,Have tiny sprites and effects appear or not.,Hace que pequeños sprites y efectos aparezcan o no.
@@ -341,13 +352,15 @@ desc_FocusLoss,Have the game automatically pause if it's no longer focused.,Hace
 desc_Discord,Have the game pop up on your Discord profile.,Haz que el juego aparezca en tu perfil de Discord.
 desc_Ghost,Have your saved ghost appear during gameplay. (SPEED Stages only.),Haz que tua fantasma guardado aparezca durante el gameplay (Solo niveles de Velocidad)
 , ,
-desc_Fullscr,Have the game display at your machine's full resolution.,Pone el juego en la resolución completa de tu pantalla.
-desc_MusTag,"Have the current BGM track's name, composer, and length display at the top-right at certain points.","El nombre del tema de fondo, compositor y duración aparezca en ciertos puntos."
+desc_Fullscr,Have the game display at your monitor's full resolution.,Pone el juego en la resolución completa de tu pantalla.
+desc_MusTag,Have the current BGM track's name & composer display at certain points.,El nombre del tema de fondo y compositor aparezca en ciertos puntos.
 desc_ConType,Change the controls' input display based on a console. (Controller only.),Cambia el tipo de botón que se muestra. (Solo Control)
 desc_ConRum,Have your controller shake during certain events and actions. (Controller only.),Vibración durante ciertos eventos y acciones. (Solo Control)
 desc_ExtCam,Have the camera move ahead of you based on your speed and how fast you're falling. (OVERWORLD & SPEED Stages only.),La cámara se adelanta basado en tu velocidad al correr y caer. (Solo Overworld y Etapas de Velocidad)
 desc_FPS,"Have the game's framerate, real framerate, 'n' version display at the top-right and bottom-right of the screen.","Muestra los FPS, FPS Reales y versión del juego arriba a la izquierda y abajo a la derecha."
 desc_Speedrun,"Display a speedrun timer that stops during cutscenes, transitions, and the game being paused.","Muestra un temporizador de speedrun que se detiene en cinemáticas, transiciones y pausa."
+,,
+desc_WindowSize,Change the scale of the game window while not in Fullscreen.,
 ,,
 desc_Control,Change this input bind.,Cambia el botón de esta acción.
 desc_JoyDead,Change how far you need to move your controller's joystick. (Controller only.) (Decreases by 10% per press.),Cambia lo rápido que tienes que mover la palanca. (Solo Control) (Disminuye 10% al presionar)
@@ -388,6 +401,7 @@ freeplay_NormJuke,NORMAL PLAYLIST,PLAYLIST NORMAL
 freeplay_CustJuke,CUSTOM PLAYLIST,PLAYLIST PERSONALIZADA
 freeplay_JukeOn,BOOMBOX ON,BOOMBOX ENCENDIDA
 freeplay_JukeOff,BOOMBOX OFF,BOOMBOX APAGADA
+freeplay_MTJuke,No Playlist Selected,
 ,,
 results_Cont,CONTINUE,CONTINUAR
 results_Retry,RETRY LEVEL,REINTENTAR
@@ -421,5 +435,32 @@ level_Ready,READY?,¿PREPARADOS?
 level_Set,SET!,¡LISTOS!
 level_Go,GO!,¡YA!
 level_Rush,RUSH!,¡RUSH!
+level_Run,RUN!,
 ,,
 game_Whoops,"Whoops, sorry about that.",
+game_ToSkip,TO SKIP,
+,,
+check_Name,Is this name correct?,
+check_Kappa,Not happenin'.,
+check_Sarah,Hiiii!! :D We can share!,
+check_Lone,I don't mind.,
+check_Brock,More than happy to share!,
+check_Neegi,Yeah... no.,
+check_Cloee,"Eh, sure, why not.",
+check_Akira,Nope. Choose a different name.,
+check_Taylor,Sorry. Gotta pick another name.,
+check_Ayana,Nah! Get your own damn name!,
+check_Roxxane,HAH! You misspelled your name. Pendejo.,
+check_Lucifer,"Sorry, but no.",
+check_Rush,Count me out.,
+check_Edge,Choose a different name before I beat your ass.,
+check_Ivy,A child of JUSTICE.,
+,,
+check_Nerd,Still not happenin'.,
+check_Kira,,
+check_Frisk,WARNING: This name will not make your life hell.,
+check_Chara,The untrue name.,
+check_Sonic,The legend who started it.,
+check_Blaze,The legend who continued it.,
+check_OnTheNose,"That's pretty on-the-nose, don't you think?",
+check_AAAAAA,"Not very creative, huh?",

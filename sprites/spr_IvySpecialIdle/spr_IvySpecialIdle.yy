@@ -629,8 +629,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Ivy",
+    "path":"texturegroups/Ivy",
   },
   "type":0,
   "VTile":false,

@@ -693,6 +693,17 @@ function scr_YCollision() {
 									PlayerSetGround(false);
 									angle = 0;
 									slowSkid = false;
+									
+									if rushTrickFinish {
+										rushTrickFinish = false;
+										rushTrickCombo = 0;
+									}
+									
+									if trick or altTrick {
+										rushTrickCombo = 0;
+										trick = false;
+										altTrick = false;
+									}
 							
 									obj_SFXManager.jumpDash = true;
 									_ramp.launchConfirmed = true;
@@ -709,11 +720,6 @@ function scr_YCollision() {
 									
 									sideLaunch = true;
 									upLaunch = false;
-		
-									if rushTrickFinish {
-										rushTrickFinish = false;
-										rushTrickCombo = 0;
-									}
 							
 									if _ramp.giveScore {
 										getScore = true;
@@ -754,6 +760,17 @@ function scr_YCollision() {
 									PlayerSetGround(false);
 									angle = 0;
 									slowSkid = false;
+									
+									if rushTrickFinish {
+										rushTrickFinish = false;
+										rushTrickCombo = 0;
+									}
+									
+									if trick or altTrick {
+										rushTrickCombo = 0;
+										trick = false;
+										altTrick = false;
+									}
 							
 									obj_SFXManager.jumpDash = true;
 									obj_SFXManager.trickPanel = true;
@@ -770,11 +787,6 @@ function scr_YCollision() {
 									rushTrickTimer = 0;
 									
 									rainbowLaunch = true;
-		
-									if rushTrickFinish {
-										rushTrickFinish = false;
-										rushTrickCombo = 0;
-									}
 							
 									if _ramp.giveScore {
 										getScore = true;
@@ -822,8 +834,14 @@ function scr_YCollision() {
 						_launchRing.launchConfirmed = true;
 						
 						if rushTrickFinish {
-							rushTrickCombo = 0;
 							rushTrickFinish = false;
+							rushTrickCombo = 0;
+						}
+									
+						if trick or altTrick {
+							rushTrickCombo = 0;
+							trick = false;
+							altTrick = false;
 						}
 						
 						ground = false;
@@ -1018,8 +1036,14 @@ function scr_YCollision() {
 						angle = 0;
 		
 						if rushTrickFinish {
-							rushTrickCombo = 0;
 							rushTrickFinish = false;
+							rushTrickCombo = 0;
+						}
+									
+						if trick or altTrick {
+							rushTrickCombo = 0;
+							trick = false;
+							altTrick = false;
 						}
 						
 						if _spring.hori {
@@ -1116,8 +1140,14 @@ function scr_YCollision() {
 						slowSkid = false;
 						
 						if rushTrickFinish {
-							rushTrickCombo = 0;
 							rushTrickFinish = false;
+							rushTrickCombo = 0;
+						}
+									
+						if trick or altTrick {
+							rushTrickCombo = 0;
+							trick = false;
+							altTrick = false;
 						}
 						
 						if _tramp.giveScore {
@@ -1182,8 +1212,14 @@ function scr_YCollision() {
 					
 						if _balloon.cluster {
 							if rushTrickFinish {
-								rushTrickCombo = 0;
 								rushTrickFinish = false;
+								rushTrickCombo = 0;
+							}
+									
+							if trick or altTrick {
+								rushTrickCombo = 0;
+								trick = false;
+								altTrick = false;
 							}
 							
 							event_user(0);
@@ -1232,8 +1268,14 @@ function scr_YCollision() {
 					angle = 0;
 					
 					if rushTrickFinish {
-						rushTrickCombo = 0;
 						rushTrickFinish = false;
+						rushTrickCombo = 0;
+					}
+									
+					if trick or altTrick {
+						rushTrickCombo = 0;
+						trick = false;
+						altTrick = false;
 					}
 					
 					if _geyser.giveScore {
@@ -1278,8 +1320,14 @@ function scr_YCollision() {
 				if _pully {
 					if !_pully.pulledDone {
 						if rushTrickFinish {
-							rushTrickCombo = 0;
 							rushTrickFinish = false;
+							rushTrickCombo = 0;
+						}
+									
+						if trick or altTrick {
+							rushTrickCombo = 0;
+							trick = false;
+							altTrick = false;
 						}
 						
 						event_user(0);
@@ -1328,13 +1376,13 @@ function scr_YCollision() {
 				}
 				
 				if _spikeLeft {
-					if _spikeLeft.image_angle == 270 && PlayerCollisionObjectLeft(x - 3, y, angle, maskMid, obj_Spikes) && vel <= 0 {
+					if _spikeLeft.image_angle == 270 && (PlayerCollisionObjectLeft(x - 3, y, angle, maskMid, obj_Spikes) or PlayerCollisionObjectLeft(x - 3, y - sensorTopDistance, angle, maskMid, obj_Spikes)) && vel <= 0 {
 						scr_SpikeHurt();
 					}
 				}
 				
 				if _spikeRight {
-					if _spikeRight.image_angle == 90 && PlayerCollisionObjectRight(x + 2, y, angle, maskMid, obj_Spikes) && vel >= 0 {
+					if _spikeRight.image_angle == 90 && (PlayerCollisionObjectRight(x + 2, y, angle, maskMid, obj_Spikes) or PlayerCollisionObjectRight(x + 2, y - sensorTopDistance, angle, maskMid, obj_Spikes)) && vel >= 0 {
 						scr_SpikeHurt();
 					}
 				}
@@ -1588,6 +1636,22 @@ function scr_YCollision() {
 							y -= angleSin;
 						}
 					}
+					
+					if drawAngle == 0 && !sliding && !railGrind && !smallChar {
+						if vel > 0 {
+							while (PlayerCollisionRight(x, y - sensorTopDistance, angle, maskMid)) {
+								x -= angleCos;
+								y += angleSin;
+							}
+						}
+
+						if vel < 0 {
+							while (PlayerCollisionLeft(x, y - sensorTopDistance, angle, maskMid)) {
+								x += angleCos;
+								y -= angleSin;
+							}
+						}
+					}
 
 					//Cache collision
 					PlayerCollisionCache();
@@ -1675,7 +1739,7 @@ function scr_YCollision() {
 							if PlayerCollisionLeftEdge(x, y - sensorTopDistance - 5, 180) && PlayerCollisionRightEdge(x, y - sensorTopDistance - 5, 180) {
 								PlayerSetAngle(PlayerGetAngle(x, y, 180));
                                         
-								if angle < 140 || angle > 220 {
+								if angle < 140 or angle > 220 {
 									vel = -angleSin * (yspd * 1.5);
 									yspd = 0;     
 									PlayerSetGround(true);
@@ -1706,6 +1770,18 @@ function scr_YCollision() {
 							y -= angleSin;
 						}
 						
+						if drawAngle == 0 && !sliding && !railGrind && !smallChar {
+							while (PlayerCollisionRight(x, y - sensorTopDistance, angle, maskMid)) {
+								x -= angleCos;
+								y += angleSin;
+							}
+
+							while (PlayerCollisionLeft(x, y - sensorTopDistance, angle, maskMid)) {
+								x += angleCos;
+								y -= angleSin;
+							}
+						}
+						
 						//Add gravity
 						if gravTimer == 0 {
 							yspd = min(yspd + grav, termVel);
@@ -1721,7 +1797,7 @@ function scr_YCollision() {
 								scr_Landing();
 							}
     
-							vel -= angleSin * yspd;
+							vel -= angleSin * (yspd * 1);
 							yspd = 0;
 							PlayerSetGround(true);
 						}
@@ -1729,6 +1805,7 @@ function scr_YCollision() {
 						//Check if we're in the air but we collided with the ceiling
 						if yspd < 0 && PlayerCollisionTop(x, y, 0, maskBig) {
 							yspd = 0;
+							gravTimer = 0;
 						}
 					}
 				#endregion
@@ -1754,27 +1831,41 @@ function scr_YCollision() {
 						}
 					}
 
-					//Stop when meet a wall/slide pass and isnt sliding
-					if vel > 0 && PlayerCollisionRight(x, y - 1, angle, maskBig) {
-						vel = 0;
-					} else if vel < 0 && PlayerCollisionLeft(x, y - 1, angle, maskBig) {
-						vel = 0;
-					}
-					
-					if object_index != obj_IvyOverworld {
-						if angle == 0 && !sliding && !railGrind {
-							if vel > 0 && PlayerCollisionRight(x - 1, y - sensorTopDistance + 4, 0, maskBig) {
+					//Stop on wall
+					if smallChar {
+						if vel > 0 && PlayerCollisionRight(x, y - 1, angle, maskBig) {
+							vel = 0;
+							pushingWall = true;
+						} else if vel < 0 && PlayerCollisionLeft(x, y - 1, angle, maskBig) {
+							vel = 0;
+							pushingWall = true;
+						} else {
+							pushingWall = false;
+						}
+					} else {
+						if vel > 0 && PlayerCollisionRight(x, y - 1, angle, maskBig) {
+							vel = 0;
+							pushingWall = true;
+						} else if vel < 0 && PlayerCollisionLeft(x, y - 1, angle, maskBig) {
+							vel = 0;
+							pushingWall = true;
+						} else if drawAngle == 0 && !sliding && !railGrind {
+							if vel > 0 && PlayerCollisionRight(x, y - sensorTopDistance + 5, angle, maskBig) {
 								vel = 0;
-								x -= acc;
-							} else if vel < 0 && PlayerCollisionLeft(x + 1, y - sensorTopDistance + 4, 0, maskBig) {
+								pushingWall = true;
+							} else if vel < 0 && PlayerCollisionLeft(x, y - sensorTopDistance + 5, angle, maskBig) {
 								vel = 0;
-								x += acc;
+								pushingWall = true;
+							} else {
+								pushingWall = false;
 							}
+						} else {
+							pushingWall = false;
 						}
 					}
 					
-					//Pushing
-					if ground && !ducking && !look_up && !railGrind && angle == 0 {
+					/*//Pushing
+					if ground && !ducking && !look_up && !sliding && !railGrind && angle == 0 {
 						if PlayerCollisionRight(x + 1, y - 20, 0, maskBig) && right_Key {
 							pushingWall = true;
 						} else if PlayerCollisionLeft(x - 1, y - 20, 0, maskBig) && left_Key {
@@ -1782,7 +1873,7 @@ function scr_YCollision() {
 						} else {
 							pushingWall = false;
 						}
-					}
+					}*/
 					
 					//Decrease gravity freeze timer
 					if gravTimer > 0 {
@@ -1793,7 +1884,7 @@ function scr_YCollision() {
 						//Rotate while moving on the ground
 						drawAngle = ApproachAngle(drawAngle, angle, 6 + abs(vel));
 					} else {
-						drawAngle = ApproachAngle(drawAngle, 0, 4);
+						drawAngle = ApproachAngle(drawAngle, 0, 6);
 						angle = ApproachAngle(angle, 0, 4);
 					}
 				#endregion
@@ -1801,7 +1892,6 @@ function scr_YCollision() {
 		#endregion
 	}
 }
-
 
 
 function scr_Landing(_type = "hard") {
@@ -1812,7 +1902,7 @@ function scr_Landing(_type = "hard") {
 			obj_SFXManager.landHard = true;
 		}
 		
-		if railGrind {
+		if PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParent) or PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParentA) or PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParentB) {
 			obj_SFXManager.railGrindOn = true;
 		}
 	}
@@ -1908,9 +1998,9 @@ function scr_RailGrindingStep() {
 			}
 		}*/
 		
-		if ground && (PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParent)
+		if ground && ((PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParent)
 		or (PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParentA) && terrainLayer == 0)
-		or (PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParentB) && terrainLayer == 1)) {
+		or (PlayerCollisionObjectBottom(x, y, angle, maskBig, obj_RailParentB) && terrainLayer == 1))) {
 			railGrind = true;
 		} else {
 			railGrind = false;
@@ -2076,7 +2166,7 @@ function scr_CeilingDetect() {
 		_ceilingDetect = collision_point(x, y - 25, obj_SolidA, true, true);
 	}
 	
-	if (_ceilingDetect or _ceilingDetect2) && ground && object_index != obj_IvyOverworld && !jumping && angle == 0 {
+	if (_ceilingDetect or _ceilingDetect2) && ground && !smallChar && !jumping && angle == 0 {
 		collide = true;
 	} else {
 		collide = false;
@@ -2087,14 +2177,10 @@ function scr_CeilingDetect() {
 	}
 	
 	if ground && collideTimer > 0 {
-		if !railGrind {
-			if vel != 0 {
-				sliding = true;
-			} else {
-				ducking = true;
-			}
+		if vel != 0 {
+			sliding = true;
 		} else {
-			railGrindCrouch = true;
+			ducking = true;
 		}
 	}
 	

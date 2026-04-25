@@ -158,4 +158,12 @@ function scr_SpriteDataSarahNormal() {
 	//Victory
 	sprVictory = spr_SarahVictory;
 	
+	//Particles
+	boostingSprite = spr_SarahBoost;
+	boostingSpriteSimple = spr_SarahBoostSimple;
+	
+	stompingSprite = spr_SarahStompingVFX;
+	stompedSprite = spr_SarahStompedVFX;
+	
+	speedBreakSprite = spr_SarahSpeedBreakVFX;
 }

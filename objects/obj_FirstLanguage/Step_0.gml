@@ -62,6 +62,7 @@ if !chosen {
 		file_text_close(_file);
 		
 		save_options();
+		audio_play_sound(snd_SolemnConfirm, 8, false, global.MASTER_VOL * global.SFX_VOL);
 	}
 } else {
 	flashAlpha = lerp(flashAlpha, 0, 0.05);

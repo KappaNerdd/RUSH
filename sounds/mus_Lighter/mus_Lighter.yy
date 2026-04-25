@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":46.54544,
+  "duration":51.2,
   "exportDir":"",
   "name":"mus_Lighter",
   "parent":{

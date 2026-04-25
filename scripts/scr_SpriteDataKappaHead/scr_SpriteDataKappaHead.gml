@@ -97,4 +97,13 @@ function scr_SpriteDataKappaHead() {
 	
 	//Pushing
 	sprPush = spr_KappaPushHead;
+	
+	//Particles
+	boostingSprite = spr_KappaHeadBoost;
+	boostingSpriteSimple = spr_KappaHeadBoostSimple;
+	
+	stompingSprite = spr_HeadStompingVFX;
+	stompedSprite = spr_HeadStompedVFX;
+	
+	speedBreakSprite = spr_HeadSpeedBreakVFX;
 }

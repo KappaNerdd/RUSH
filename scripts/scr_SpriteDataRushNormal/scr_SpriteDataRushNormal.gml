@@ -2,42 +2,41 @@ function scr_SpriteDataRushNormal() {
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump
-	rush_Idle_Mask = spr_RushIdleMask;
+	idle_Mask = spr_RushIdleMask;
 
 	//Crouch
-	rush_Crouch_Mask = spr_RushCrouchMask;
+	crouch_Mask = spr_RushCrouchMask;
 
 	//Slide
-	rush_Slide_Mask = spr_RushSlideMask;
+	slide_Mask = spr_RushSlideMask;
 
 
 
 	///-----Animations-----///
 
 	//Idle
-	rush_Idle = spr_RushIdle;
-	rush_Special_Idle = spr_RushSpecialIdle;
-	rush_Prepare = spr_RushPrepare;
+	sprIdle = spr_RushIdle;
+	sprSpecialIdle = spr_RushSpecialIdle;
+	sprPrepare = spr_RushPrepare;
 
 
 	//Movement
-	rush_Walking = spr_RushWalk;
-	rush_Running = spr_RushRun;
-	rush_FullSpeed = spr_RushFullSpeedRun;
-	rush_Peelout = spr_RushSuperPeelout;
-	rush_Skid = spr_RushSkid;
+	sprWalk = spr_RushWalk;
+	sprRun = spr_RushRun;
+	sprFullSpeedRun = spr_RushFullSpeedRun;
+	sprPeelout = spr_RushSuperPeelout;
+	sprSkid = spr_RushSkid;
 
 
 	//Jumping
-	rush_jumping = spr_RushJump;
-	rush_DJumping = spr_RushJump;
+	sprJump = spr_RushJump;
+	sprDJump = spr_RushJump;
 
 
 	//Falling
-	rush_Falling = spr_RushFall;
-	rush_Falling_Loop = spr_RushFalling;
-	rush_WallSlide = spr_RushWallCling;
-	rush_OmegaFall = spr_RushHurt;
+	sprFall = spr_RushFall;
+	sprFalling = spr_RushFalling;
+	sprWallSlide = spr_RushWallCling;
 
 
 	//Look Up & Crouching
@@ -46,37 +45,48 @@ function scr_SpriteDataRushNormal() {
 
 
 	//Actions
-	rush_Dropdash = spr_RushDropdash;
+	sprDropdash = spr_RushDropdash;
 	
-	rush_Spindash = spr_RushSpindash;
-	rush_SpindashRev = spr_RushSpindashRev;
+	sprSpindash = spr_RushSpindash;
+	sprSpindashRev = spr_RushSpindashRev;
 	
-	rush_PeeloutRev = spr_RushPeeloutDash;
+	sprPeeloutRev = spr_RushPeeloutDash;
 	
-	rush_Sliding = spr_RushRolling;
+	sprSlide = spr_RushRolling;
 	
-	rush_AirDash = spr_RushWallJump;
+	sprAirDash = spr_RushWallJump;
 
-	rush_PreStomp = spr_RushPreStomp;
-	rush_Stomping = spr_RushStomping;
+	sprPreStomp = spr_RushPreStomp;
+	sprStomping = spr_RushStomping;
 
-	rush_RailGrind = spr_RushRailGrind;
-	rush_RailGrindCrouch = spr_RushRailGrindCrouch;
-	rush_RailJump = spr_RushRailJump;
+	sprRailGrind = spr_RushRailGrind;
+	sprRailJump = spr_RushRailJump;
 	
-	rush_TrickUpPre = spr_RushTrickUpPre;
-	rush_TrickUp = spr_RushTrickUp;
+	sprTrickUpPre = spr_RushTrickUpPre;
+	sprTrickUp = spr_RushTrickUp;
 	
-	rush_TrickSidePre = spr_RushTrickSidePre;
-	rush_TrickSide = spr_RushTrickSide;
+	sprTrickSidePre = spr_RushTrickSidePre;
+	sprTrickSide = spr_RushTrickSide;
 	
-	rush_Trick1 = spr_RushTrick1;
-	rush_Trick2 = spr_RushTrick2;
-	rush_Trick3 = spr_RushTrick3Fin;
-	rush_TrickFinish = spr_RushTrick3Fin;
+	sprTrick1 = spr_RushTrick1;
+	sprTrick2 = spr_RushTrick2;
+	sprTrick3 = spr_RushTrick3Fin;
+	sprTrick3Fin = spr_RushTrick3Fin;
 	
-	rush_Death = spr_RushDeath;
+	
+	//Hurt
+	sprOmegaFall = spr_RushHurt;
+	sprDeath = spr_RushDeath;
 	
 	//Special
-	rush_Pully = spr_RushPully;
+	sprPully = spr_RushPully;
+	
+	//Particles
+	boostingSprite = spr_RushBoost;
+	boostingSpriteSimple = spr_RushBoostSimple;
+	
+	stompingSprite = spr_RushStompingVFX;
+	stompedSprite = spr_RushStompedVFX;
+	
+	speedBreakSprite = spr_RushSpeedBreakVFX;
 }

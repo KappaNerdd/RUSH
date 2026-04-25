@@ -29,7 +29,7 @@ if is_string(targetSongAsset) {
 				//Play song and store instance in variable
 				if global.Freeplay {
 					if !global.Jukebox {
-						songInstance = audio_play_sound(targetSongAsset, 1, true);
+						songInstance = audio_play_sound(targetSongAsset, 1, true, 0, targetPos);
 					} else {
 						if global.JukeboxLoop {
 							songInstance = audio_play_sound(targetSongAsset, 1, true);
@@ -38,7 +38,7 @@ if is_string(targetSongAsset) {
 						}
 					}
 				} else {
-					songInstance = audio_play_sound(targetSongAsset, 1, true);
+					songInstance = audio_play_sound(targetSongAsset, 1, true, 0, targetPos);
 				}
 
 				//Start song's volume at 0

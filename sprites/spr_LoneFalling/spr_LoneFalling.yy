@@ -85,8 +85,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Lone",
+    "path":"texturegroups/Lone",
   },
   "type":0,
   "VTile":false,

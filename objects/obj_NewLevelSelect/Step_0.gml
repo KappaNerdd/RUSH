@@ -1,61 +1,61 @@
 getCharacterControls();
 
-if !confirm {
-	#region //Animations
-		var _yScale = 0;
+#region //Animations
+	var _yScale = 0;
 	
-		if speedStage or actionStage {
-			bottomY = lerp(bottomY, 0, 0.1);
-			choiceX = lerp(choiceX, -300, 0.1);
-		} else {
-			bottomY = lerp(bottomY, 100, 0.1);
-			choiceX = lerp(choiceX, 0, 0.1);
-		}
+	if speedStage or actionStage {
+		bottomY = lerp(bottomY, 0, 0.1);
+		choiceX = lerp(choiceX, -300, 0.1);
+	} else {
+		bottomY = lerp(bottomY, 100, 0.1);
+		choiceX = lerp(choiceX, 0, 0.1);
+	}
 		
-		cursorY = lerp(cursorY, 50 * choice, 0.1);
+	cursorY = lerp(cursorY, 50 * choice, 0.1);
 		
-		srSpikesX = lerp(srSpikesX, 0, 0.1);
-		charBoxY = lerp(charBoxY, srSpikesX + 10, 0.1);
-		image_alpha = lerp(image_alpha, 0.4, 0.1);
-		charX2 = lerp(charX2, 450, 0.04);
+	srSpikesX = lerp(srSpikesX, 0, 0.1);
+	charBoxY = lerp(charBoxY, srSpikesX + 10, 0.1);
+	image_alpha = lerp(image_alpha, 0.4, 0.1);
+	charX2 = lerp(charX2, 450, 0.04);
 		
-		choiceSpeedX = lerp(choiceSpeedX, -125 * chosenSpeed, 0.1);
+	choiceSpeedX = lerp(choiceSpeedX, -125 * chosenSpeed, 0.1);
 		
+	if !global.SimplifyVFX {
+		textboxFrames += textboxAnim;
+	}
+		
+	if textboxFrames >= 2 {
+		textboxFrames = 0;
+	}
+		
+	if speedStage {
+		choiceSpeedY = lerp(choiceSpeedY, 0, 0.1);
+	} else {
+		choiceSpeedY = lerp(choiceSpeedY, 500, 0.1);
+	}
+		
+	if lock {
 		if !global.SimplifyVFX {
-			textboxFrames += textboxAnim;
-		}
-		
-		if textboxFrames >= 2 {
-			textboxFrames = 0;
-		}
-		
-		if speedStage {
-			choiceSpeedY = lerp(choiceSpeedY, 0, 0.1);
+			lockFrames += lockAnim;
 		} else {
-			choiceSpeedY = lerp(choiceSpeedY, 500, 0.1);
+			lock = false;
 		}
-		
-		if lock {
-			if !global.SimplifyVFX {
-				lockFrames += lockAnim;
-			} else {
-				lock = false;
-			}
 			
-			if lockFrames >= 5 {
-				lock = false;
-			}
-		} else {
-			lockFrames = 0;
+		if lockFrames >= 5 {
+			lock = false;
 		}
+	} else {
+		lockFrames = 0;
+	}
 		
-		mindFrames += mindAnim;
+	mindFrames += mindAnim;
 		
-		if mindFrames >= 3 {
-			mindFrames = 0;
-		}
-	#endregion
-	
+	if mindFrames >= 3 {
+		mindFrames = 0;
+	}
+#endregion
+
+if !confirm {
 	if !instance_exists(obj_Jukebox) {
 		if !yes {
 			#region //Choices
@@ -179,10 +179,15 @@ if !confirm {
 			#region //Custom Music
 				if right_Key_Once && chosen && !jukebox {
 					var _chooseSpeed = global.speedStageData[chosenSpeed];
-			
+					
+					
 					if _chooseSpeed.complete {
-						jukeCheck = !jukeCheck;
-						obj_SFXManager.homingLockOn = true;
+						if array_length(global.CustomJukeboxPlaylist) > 0 or (array_length(global.CustomJukeShuffled) > 0 && global.JukeboxShuffle) {
+							jukeCheck = !jukeCheck;
+							obj_SFXManager.homingLockOn = true;
+						} else {
+							scr_ULTRATEXT("freeplay_MTJuke");
+						}
 					} else {
 						obj_SFXManager.menuCancel = true;
 					}
@@ -307,6 +312,7 @@ if !confirm {
 		if confirmTimer <= 0 {
 			if !instance_exists(obj_RoomTransParent) {
 				global.Jukebox = jukeCheck;
+				global.JukeCheck = jukeCheck;
 				
 				with(instance_create_depth(-100000, 0, depth, obj_RushTransition)) {
 					if !global.speedStageData[global.SpeedSelected].levelForced {

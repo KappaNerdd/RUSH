@@ -2,77 +2,86 @@ function scr_SpriteDataIvyNormal() {
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump
-	ivy_Idle_Mask = spr_IvyIdleMask;
+	idle_Mask = spr_IvyIdleMask;
 
 	//Crouch
-	ivy_Crouch_Mask = spr_IvyCrouchMask;
+	crouch_Mask = spr_IvyCrouchMask;
 
 	//Slide
-	ivy_Slide_Mask = spr_IvySlideMask;
+	slide_Mask = spr_IvySlideMask;
 
 
 
 	///-----Animations-----///
 
 	//Idle
-	ivy_Idle = spr_IvyIdle;
-	ivy_Special_Idle = spr_IvySpecialIdle;
-	ivy_Prepare = spr_IvyPrepareSolo;
+	sprIdle = spr_IvyIdle;
+	sprSpecialIdle = spr_IvySpecialIdle;
+	sprPrepare = spr_IvyPrepareSolo;
 
 
 	//Movement
-	ivy_Walking = spr_IvyWalk;
-	ivy_Running = spr_IvyRun;
-	ivy_FullSpeed = spr_IvyFullSpeedRun;
-	ivy_Skid = spr_IvySkid;
+	sprWalk = spr_IvyWalk;
+	sprRun = spr_IvyRun;
+	sprFullSpeedRun = spr_IvyFullSpeedRun;
+	sprSkid = spr_IvySkid;
 
 
 	//Jumping
-	ivy_jumping = spr_IvyJump;
-	ivy_DJumping = spr_IvyJump;
+	sprJump = spr_IvyJump;
+	sprDJump = spr_IvyJump;
 
 
 	//Falling
-	ivy_Falling = spr_IvyFall;
-	ivy_Falling_Loop = spr_IvyFalling;
-	ivy_OmegaFall = spr_IvyHurt;
+	sprFall = spr_IvyFall;
+	sprFalling = spr_IvyFalling;
 
 
 	//Look Up & Crouching
-	ivy_Ducking = spr_IvyCrouch;
-	ivy_Look_Up = spr_IvyLookUp;
+	sprCrouch = spr_IvyCrouch;
+	sprLook_up = spr_IvyLookUp;
 
 
 	//Actions
-	ivy_Sliding = spr_IvySlide;
+	sprSlide = spr_IvySlide;
 
-	ivy_PreStomp = spr_IvyPreStomp;
-	ivy_Stomping = spr_IvyStomping;
-	ivy_HShooting = spr_IvyHoriShoot;
-	ivy_Stomp = spr_IvyStomped;
+	sprPreStomp = spr_IvyPreStomp;
+	sprStomping = spr_IvyStomping;
+	sprHShooting = spr_IvyHoriShoot;
+	sprStomp = spr_IvyStomped;
 
-	ivy_RailGrind = spr_IvyRailGrind;
-	ivy_RailGrindCrouch = spr_IvyRailGrindCrouch;
-	ivy_RailJump = spr_IvyRailJump;
+	sprRailGrind = spr_IvyRailGrind;
+	sprRailJump = spr_IvyRailJump;
 	
-	ivy_ShootGround = spr_IvyShootGround;
-	ivy_ShootAir = spr_IvyShootAir;
+	sprShootGround = spr_IvyShootGround;
+	sprShootAir = spr_IvyShootAir;
 	
 	
 	//Tricking
-	ivy_TrickUpPre = spr_IvyTrickUpPre;
-	ivy_TrickUp = spr_IvyTrickUp;
+	sprTrickUpPre = spr_IvyTrickUpPre;
+	sprTrickUp = spr_IvyTrickUp;
 	
-	ivy_TrickSidePre = spr_IvyTrickRightPre;
-	ivy_TrickSide = spr_IvyTrickRight;
+	sprTrickSidePre = spr_IvyTrickRightPre;
+	sprTrickSide = spr_IvyTrickRight;
 	
-	ivy_Trick1 = spr_IvyTrick1;
-	ivy_Trick2 = spr_IvyTrick2;
-	ivy_Trick3 = spr_IvyTrick3Fin;
-	ivy_TrickFinish = spr_IvyTrick3Fin;
+	sprTrick1 = spr_IvyTrick1;
+	sprTrick2 = spr_IvyTrick2;
+	sprTrick3 = spr_IvyTrick3Fin;
+	sprTrick3Fin = spr_IvyTrick3Fin;
 	
-	ivy_Death = spr_IvyDeath;
+	//Hurt
+	sprOmegaFall = spr_IvyHurt;
+	sprDeath = spr_IvyDeath;
 	
 	//Special
-	ivy_Pully = spr_IvyPully;
+	sprPully = spr_IvyPully;
+	
+	//Particles
+	boostingSprite = spr_IvyBoost;
+	boostingSpriteSimple = spr_IvyBoostSimple;
+	
+	stompingSprite = spr_IvyStompingVFX;
+	stompedSprite = spr_IvyStompedVFX;
+	
+	speedBreakSprite = spr_IvySpeedBreakVFX;
 }

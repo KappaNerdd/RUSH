@@ -398,10 +398,10 @@ if can_MoveFULL {
 	#endregion
 
 	#region //Stomped
-		if !place_meeting(x, y + yspd + 1, obj_BreakableFloor) && stomping && ground {
+		if !place_meeting(x, y + yspd, obj_BreakableFloor) && stomping && ground {
 			if winningAngle == 0 {	
 				stomped = true;
-				vel = 0;
+				stompedTimer = stompedFrames;
 			}
 			
 			yspd = 0;
@@ -409,7 +409,6 @@ if can_MoveFULL {
 			stomping = false;
 			normalStomp = false;
 			omegaStomp = false;
-			stompedTimer = stompedFrames;
 			
 			obj_SFXManager.stompSound = true;
 		}

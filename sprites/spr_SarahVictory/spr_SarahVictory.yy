@@ -305,8 +305,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Sarah",
+    "path":"texturegroups/Sarah",
   },
   "type":0,
   "VTile":false,

@@ -4,20 +4,19 @@ if instance_exists(obj_RoomTransParent) or instance_exists(obj_Textbox) or insta
 	xMove = lerp(xMove, 0, 0.1);
 }
 
-personalBoost = lerp(personalBoost, obj_Player.boostEnergy, 0.25);
+personalBoost = scr_Approach(personalBoost, obj_Player.boostEnergy, 1.5);
 
 if instance_exists(obj_Player) {
-	if obj_Player.rushMode == false {
-		charColor = make_color_rgb(global.realR, global.realG, global.realB);
+	if !obj_Player.rushMode {
+		charColor = global.fullRGB
 		boostColor = charColor;
 	} else {
-		charColor = make_color_rgb(global.realR, global.realG, global.realB);
+		charColor = global.fullRGB;
 	
-		if global.SimplifyVFX == false {
+		if !global.SimplifyVFX {
 			if rushTimer > 0 {
 				rushTimer -= 1;
 			}
-	
 	
 			if rushTimer <= 0 {
 				if rushCol {

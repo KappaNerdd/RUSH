@@ -7,6 +7,10 @@ if global.countUp {
 
 inGameScore = lerp(inGameScore, global.GameScore, 0.25);
 
+if inGameScore <= 0 {
+	inGameScore = 0;
+}
+
 if global.GameScore <= 0 {
 	global.GameScore = 0;
 }

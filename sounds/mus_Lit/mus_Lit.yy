@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":11.745374,
+  "duration":12.094195,
   "exportDir":"",
   "name":"mus_Lit",
   "parent":{

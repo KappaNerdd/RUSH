@@ -32,7 +32,7 @@ if global.DEBUG {
 	draw_text(_camX + _camXAdd, _camY + 60, "groundSpeed: " + string(groundSpeed));
 	draw_text(_camX + _camXAdd, _camY + 80, "yspd: " + string(yspd));
 	draw_text(_camX + _camXAdd, _camY + 100, "groundAngle: " + string(groundAngle));
-	draw_text(_camX + _camXAdd, _camY + 120, "leftEdge: " + string(leftEdge));
-	draw_text(_camX + _camXAdd, _camY + 140, "rushTrickCombo: " + string(rushTrickCombo));
-	//draw_text(_camX + _camXAdd, _camY + 160, "globalPlayerID: " + string(global.PlayerID));
+	draw_text(_camX + _camXAdd, _camY + 120, "edgeColl: " + string(edgeCollision));
+	draw_text(_camX + _camXAdd, _camY + 140, "bottomColl: " + string(bottomCollision));
+	draw_text(_camX + _camXAdd, _camY + 160, "collisionTest: " + string(collisionTest));
 }

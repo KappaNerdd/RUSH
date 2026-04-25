@@ -198,6 +198,10 @@ if !done {
 				if choice == 6 {
 					global.Footstep = !global.Footstep;
 				}
+				
+				if choice == 7 {
+					
+				}
 			}
 		#endregion
 		

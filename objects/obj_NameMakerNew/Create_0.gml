@@ -8,7 +8,8 @@ charArray = [
 ]
 
 charScale = 1.5;
-charAlpha = 1;
+charAlpha = 0;
+otherCharAlpha = 1;
 
 nameChar = 0;
 nameColumn = 0;
@@ -35,3 +36,6 @@ rightFrames = 0;
 
 leftArrow = false;
 leftFrames = 0;
+
+charName = false;
+famName = false;

@@ -91,8 +91,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Kappa",
+    "path":"texturegroups/Kappa",
   },
   "type":0,
   "VTile":false,

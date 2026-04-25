@@ -88,6 +88,8 @@
 #endregion
 
 #region //Girly/Left-Facing/Sonic & Blaze Rush
+	smallChar = true;
+
 	//Choose if your character has unique left-facing sprites or not
 	leftFacer = false;
 	

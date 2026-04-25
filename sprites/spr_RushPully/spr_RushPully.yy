@@ -83,8 +83,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Characters",
-    "path":"texturegroups/Characters",
+    "name":"Rush",
+    "path":"texturegroups/Rush",
   },
   "type":0,
   "VTile":false,

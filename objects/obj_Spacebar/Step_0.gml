@@ -7,13 +7,10 @@ if instance_exists(obj_Player) {
 		opacity = 1;
 	} else if instance_exists(obj_Player) && (place_meeting(x, y, obj_TextboxColl) or place_meeting(x, y, obj_LevelDoorHead)) && (obj_Player.can_MoveFULL == false or obj_Player.ground == false or obj_Player.vel != 0 or obj_Player.stomped == true or obj_Player.specialIdle == true) {
 		opacity = 0.5;
-	} else if place_meeting(x, y, obj_RailTrickColl) && obj_Player.railGrind == true {
-		opacity = 1;
 	} else {
 		opacity = 0;
 	}
 
-	
 	image_alpha = opacity;
 } else {
 	image_xscale = 1;

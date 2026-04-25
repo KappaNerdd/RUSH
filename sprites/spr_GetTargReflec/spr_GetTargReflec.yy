@@ -81,8 +81,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"Collisions",
+    "path":"texturegroups/Collisions",
   },
   "type":0,
   "VTile":false,

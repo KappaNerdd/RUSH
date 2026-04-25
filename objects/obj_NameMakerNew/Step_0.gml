@@ -114,7 +114,7 @@ if !nameChosen {
 	nameY = lerp(nameY, 150, 0.05);
 	
 	if !global.SimplifyVFX {
-		nameAngle = random_range(-1, 1);
+		nameAngle = random_range(-2, 2);
 	}
 	
 	if nameScale < 2 {
@@ -125,7 +125,6 @@ if !nameChosen {
 		if jump_Key or pause_Key {
 			if confirmName {
 				nameConfirmed = true;
-				obj_NameFallinKappa.yspd = -2;
 			} else {
 				obj_SFXManager.menuCancel = true;
 			}
@@ -136,12 +135,50 @@ if !nameChosen {
 			nameChosen = false;
 		}
 	} else {
-		if !instance_exists(obj_NameWhiteTrans) {
-			instance_create_depth(-1000, 0, 0, obj_NameWhiteTrans);
+		if otherCharAlpha > 0 {
+			otherCharAlpha -= 0.01;
+		} else {
+			instance_destroy();
+			obj_FallinChar.leave = true;
+			
+			if !obj_FallinSkip.skip {
+				with(instance_create_depth(x, y, depth, obj_FadeIntroText)) {
+					if other.charName {
+						textArray = [
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-3",
+							"new_Intro4-4",
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-5",
+							"new_Intro4-6",
+							"new_Intro4-7",
+							"new_Intro4-8",
+						];
+					} else if other.famName {
+						textArray = [
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-2",
+							"new_Intro4-4",
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-5",
+							"new_Intro4-6",
+							"new_Intro4-7",
+							"new_Intro4-8",
+						];
+					} else {
+						textArray = [
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-1",
+							"\"" + global.PlayerName + "\".",
+							"new_Intro4-5",
+							"new_Intro4-6",
+							"new_Intro4-7",
+							"new_Intro4-8",
+						];
+					}
+				}
+			}
 		}
-		
-		obj_NameFallinKappa.yspd += 0.025;
-		obj_HeadBlockBG.extraY += 0.035;
 	}
 }
 

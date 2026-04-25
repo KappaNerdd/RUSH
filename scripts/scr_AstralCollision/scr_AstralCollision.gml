@@ -1,29 +1,32 @@
 function PlayerCollision(_x, _y) {
-	var _extraSense = yspd;
+	var _extraSense = 0;
 	
-	if (place_meeting(_x, _y, obj_Solid) 
+	if place_meeting(_x, _y, obj_Solid)
 	|| (place_meeting(_x, _y, obj_SolidA) && terrainLayer == 0)
-	|| (place_meeting(_x, _y, obj_SolidB) && terrainLayer == 1)) {
+	|| (place_meeting(_x, _y, obj_SolidB) && terrainLayer == 1) {
+		onPlatform = false;
+		return true;
+	}
+	
+	//Check for Rails
+	if ground 
+	&& (place_meeting(_x, _y + _extraSense, obj_RailParent)
+	|| (place_meeting(_x, _y + _extraSense, obj_RailParentA) && terrainLayer == 0) 
+	|| (place_meeting(_x, _y + _extraSense, obj_RailParentB) && terrainLayer == 1)) {
 		onPlatform = false;
 		return true;
 	}
 
 	//Check for platform
-	if (place_meeting(_x, _y + _extraSense, obj_SemiSolid)) && ground {
+	if place_meeting(_x, _y, obj_SemiSolid) && ground {
 	    if (!onPlatform) {
 	        if (angleMode == 0) {
 	            onPlatform = true;
 	            return true;
 	        }
+	    } else {
+	        return true;
 	    }
-	}
-	
-	//Check for Rails
-	if ((place_meeting(_x, _y + _extraSense, obj_RailParentA) && terrainLayer == 0) 
-	|| (place_meeting(_x, _y + _extraSense, obj_RailParentB) && terrainLayer == 1) 
-	|| place_meeting(_x, _y + _extraSense, obj_RailParent)) && ground {
-		onPlatform = false;
-		return true;
 	}
 
 	return false;
@@ -135,16 +138,19 @@ function PlayerCollisionBottom(argument0, argument1, argument2, argument3) {
 	sensorSin = dsin(argument2);
 	sensorCos = dcos(argument2);
 
-	// Calculate sensor position
+	//Calculate sensor position
 	sensorX = floor(argument0 + sensorSin * sensorBottomDistance);
 	sensorY = floor(argument1 + sensorCos * sensorBottomDistance);
 
-	// Test collision
+	//Test collision
 	collisionTest = PlayerCollision(sensorX, sensorY);
 
-	// Test platform collision
-	if (!collisionTest && yspd >= 0 && !ground) {
-	    collisionTest = (place_meeting(sensorX, sensorY, obj_SemiSolid) && !place_meeting(floor(argument0), floor(argument1), obj_SemiSolid)) or (place_meeting(sensorX, sensorY, obj_RailParent) && !place_meeting(floor(argument0), floor(argument1), obj_RailParent)) or (place_meeting(sensorX, sensorY, obj_RailParentB) && !place_meeting(floor(argument0), floor(argument1), obj_RailParentB) && terrainLayer == 1) or (place_meeting(sensorX, sensorY, obj_RailParentA) && !place_meeting(floor(argument0), floor(argument1), obj_RailParentA) && terrainLayer == 0);
+	//Test platform collision
+	if !collisionTest && yspd >= 0 && !ground {
+	    collisionTest = (place_meeting(sensorX, sensorY, obj_SemiSolid) && !place_meeting(floor(argument0), floor(argument1), obj_SemiSolid))
+		|| (place_meeting(sensorX, sensorY, obj_RailParent) && !place_meeting(floor(argument0), floor(argument1), obj_RailParent))
+		|| (place_meeting(sensorX, sensorY, obj_RailParentB) && !place_meeting(floor(argument0), floor(argument1), obj_RailParentB) && terrainLayer == 1)
+		|| (place_meeting(sensorX, sensorY, obj_RailParentA) && !place_meeting(floor(argument0), floor(argument1), obj_RailParentA) && terrainLayer == 0);
 	}
 
 	// Set to the old mask
@@ -271,24 +277,24 @@ function PlayerCollisionLeftEdge(argument0, argument1, argument2) {
 	sensorX = argument0 - sensorCos * 8 + sensorSin * 8;
 	sensorY = argument1 + sensorSin * 8 + sensorCos * 8;
 
-	if (collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_Solid, 1, 0)) {
+	if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_Solid, 1, 0) {
 	    return true;
 	}
 	
-	if (collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_RailParent, 1, 0)) {
+	if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_RailParent, 1, 0) {
 	    return true;
 		railGrind = true;
 	}
 
-	// Check for platform
-	if (collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SemiSolid, 1, 0) && ground) {
+	//Check for platform
+	if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SemiSolid, 1, 0) && ground {
 	    return true;
 	}
 
 	switch (terrainLayer) {
 	    //Check for low layer
 	    case 0:
-	        if (collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SolidA, 1, 0)) {
+	        if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SolidA, 1, 0) {
 	            return true;
 				railGrind = false;
 	        }
@@ -301,7 +307,7 @@ function PlayerCollisionLeftEdge(argument0, argument1, argument2) {
 
 	    //Check for high layer
 	    case 1:
-	        if (collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SolidB, 1, 0)) {
+	        if collision_line(sensorX, sensorY, argument0 - sensorCos * 8 + sensorSin * 36, argument1 + sensorSin * 8 + sensorCos * 36, obj_SolidB, 1, 0) {
 	            return true;
 				railGrind = false;
 	        }
@@ -382,24 +388,24 @@ function PlayerCollisionRightEdge(argument0, argument1, argument2) {
 	sensorX = argument0 + sensorCos * 8 + sensorSin * 8;
 	sensorY = argument1 - sensorSin * 8 + sensorCos * 8;
 
-	if (collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_Solid, 1, 0)) {
+	if collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_Solid, 1, 0) {
 	    return true;
 	}
 	
-	if (collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_RailParent, 1, 0)) {
+	if collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_RailParent, 1, 0) {
 	    return true;
 		railGrind = true;
 	}
 
-	// Check for platform
-	if (collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SemiSolid, 1, 0) && ground) {
+	//Check for platform
+	if collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SemiSolid, 1, 0) && ground {
 	    return true;
 	}
 
 	switch (terrainLayer) {
-	    // Check for low layer
+	    //Check for low layer
 	    case 0:
-	        if (collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SolidA, 1, 0)) {
+	        if collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SolidA, 1, 0) {
 	            return true;
 				railGrind = false;
 	        }
@@ -410,9 +416,9 @@ function PlayerCollisionRightEdge(argument0, argument1, argument2) {
 			}
 	    break;
 
-	    // Check for high layer
+	    //Check for high layer
 	    case 1:
-	        if (collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SolidB, 1, 0)) {
+	        if collision_line(sensorX, sensorY, argument0 + sensorCos * 8 + sensorSin * 36, argument1 - sensorSin * 8 + sensorCos * 36, obj_SolidB, 1, 0) {
 	            return true;
 				railGrind = false;
 	        }
@@ -470,7 +476,7 @@ function PlayerCollisionCache() {
 	var _x, _y;
 	_x = floor(x);
 	_y = floor(y);
-	// Cache collisions
+	//Cache collisions
 	edgeCollision = PlayerCollisionLeftEdge(_x, _y, angle) && PlayerCollisionRightEdge(_x, _y, angle);
 	bottomCollision = PlayerCollisionBottom(_x, _y, angle, maskBig);
 	

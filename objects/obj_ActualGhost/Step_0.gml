@@ -13,8 +13,10 @@ if instance_exists(obj_StageTrackerSpeed) {
 		frame++;
 	}
 	
-	if x > obj_GOALRing.x {
-		instance_destroy();
+	if instance_exists(obj_GOALRing) {
+		if x > obj_GOALRing.x {
+			instance_destroy();
+		}
 	}
 }
 

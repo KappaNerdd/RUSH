@@ -97,4 +97,13 @@ function scr_SpriteDataKappaNormal() {
 	
 	//Pushing
 	sprPush = spr_KappaPush;
+	
+	//Particles
+	boostingSprite = spr_KappaBoost;
+	boostingSpriteSimple = spr_KappaBoostSimple;
+	
+	stompingSprite = spr_KappaStompingVFX;
+	stompedSprite = spr_KappaStompedVFX;
+	
+	speedBreakSprite = spr_KappaSpeedBreakVFX;
 }

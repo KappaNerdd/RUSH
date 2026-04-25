@@ -190,9 +190,11 @@ function scr_BasicVariablesSpeedCreate() {
 	
 	#region //Astral Checks
 		landing = false;
+		
+		smallChar = false;
 	
 		xDirection = 1;
-		xMinSpeedToFall = 4;
+		xMinSpeedToFall = 5;
 		wallJumpTimer = 0;
 
 		//Terrain
@@ -284,19 +286,6 @@ function scr_BasicControlsSpeedStep1() {
 				getCharacterControls();
 			}
 		} else {
-			if instance_exists(obj_SonicRushIntroCard) {
-				var _recorder = instance_find(obj_InputRecorder, 0);
-
-				if _recorder != noone {
-					if !_recorder.isPlaying {
-						jump_Key = keyboard_check_pressed(global.JumpKeySpeed) or gamepad_button_check_pressed(global.Player1Con, global.JumpButtonSpeed);
-					}
-					
-					jump_Key = clamp(jump_Key, 0, 1);
-					_recorder.input[eKey.JumpPressed] = jump_Key;
-				}
-			}
-			
 			/*left_Key = false;
 			left_Key_Once = false;
 	
@@ -410,7 +399,7 @@ function scr_BasicControlsSpeedStep1() {
 				whoopsTimer = whoopsFrames;
 				x = global.RespawnX;
 				y = global.RespawnY;
-				instance_create_depth(x, y, depth, obj_Whoops);
+				scr_ULTRATEXT();
 			}
 		} else {
 			whoopsTimer = whoopsFrames;
@@ -1210,6 +1199,8 @@ function scr_HealthSystemCreate() {
 function scr_HealthSystemStep() {
 	if playerHurt {
 		//can_Move = false;
+		
+		speedBreakTimer = speedBreakFrames;
 	}
 	
 	if ground && playerHurt && yspd > 0 {
@@ -1399,11 +1390,11 @@ function scr_SpeedLimit() {
 		vel = 0;
 	}
  
-	if vel >= 40 {
+	/*if vel >= 40 {
 		vel = 40;
 	} else if vel <= -40 {
 		vel = -40;
-	}
+	}*/
 }
 
 

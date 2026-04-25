@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":11.784195,
+  "duration":11.725124,
   "exportDir":"",
   "name":"mus_ItsDone",
   "parent":{

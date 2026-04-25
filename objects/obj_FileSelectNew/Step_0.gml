@@ -20,7 +20,7 @@ getCharacterControls();
 	}
 		
 	if confirm or erase {
-		boxExtraScale = lerp(boxExtraScale, 1, 0.1);
+		boxExtraScale = lerp(boxExtraScale, 1, 0.3);
 	} else {
 		boxExtraScale = lerp(boxExtraScale, 0, 0.1);
 	}
@@ -326,17 +326,23 @@ if !fileChosen {
 	} else {
 		var _dir = working_directory + "/saves/" + string(fileChoice + 1) + "/";
 		var _filename = _dir + string(global.NoMindDataFile) + string(fileChoice + 1) + ".sav";
+		var _filename2 = _dir + string(global.MainDataFile) + string(fileChoice + 1) + ".sav";
 		var _room = rm_TitleNormal;
-		var _trans = obj_RushTransition;
+		var _trans = obj_RoomTransitionSEGAMenu;
 		
 		if !file_exists(_filename) {
-			_room = rm_NameMakerNew;
-			_trans = obj_RoomTransitionBasic;
+			if !file_exists(_filename2) {
+				_room = rm_NameMakerNew;
+				_trans = obj_RoomTransitionSEGAMenu;
+			} else {
+				_trans = obj_RoomTransitionSEGALoad;
+			}
 		}
 		
 		if !instance_exists(obj_RoomTransParent) {
 			with(instance_create_depth(-100000, 0, depth, _trans)) {
 				target_rm = _room;
+				division = 3;
 			}
 		}
 	}
