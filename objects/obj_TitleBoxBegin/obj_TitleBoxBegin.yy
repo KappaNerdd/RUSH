@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Main Title",
-    "path":"folders/Objects/Title/Other/Menus/Main Title.yy",
+    "path":"folders/Objects/Title/Other/Old/Menus/Main Title.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleBoxParent",

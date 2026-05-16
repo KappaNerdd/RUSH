@@ -1,4 +1,26 @@
 function scr_SpriteDataSarahNormal() {
+	//Palettes
+	basePal = spr_SarahPalette;
+	headPal = spr_SarahPaletteHead;
+	
+	//Particles
+	if !global.MIND && global.PlayerChar != 0 {
+		boostingSprite = spr_SarahBoost;
+		boostingSpriteSimple = spr_SarahBoostSimple;
+	
+		stompingSprite = spr_SarahStompingVFX;
+		stompedSprite = spr_SarahStompedVFX;
+	
+		speedBreakSprite = spr_SarahSpeedBreakVFX;
+	} else {
+		boostingSprite = spr_KappaHeadBoost;
+		boostingSpriteSimple = spr_KappaHeadBoostSimple;
+	
+		stompingSprite = spr_HeadStompingVFX;
+		stompedSprite = spr_HeadStompedVFX;
+	
+		speedBreakSprite = spr_HeadSpeedBreakVFX;
+	}
 	
 	///-----Mask Collisions-----///
 
@@ -157,13 +179,4 @@ function scr_SpriteDataSarahNormal() {
 	
 	//Victory
 	sprVictory = spr_SarahVictory;
-	
-	//Particles
-	boostingSprite = spr_SarahBoost;
-	boostingSpriteSimple = spr_SarahBoostSimple;
-	
-	stompingSprite = spr_SarahStompingVFX;
-	stompedSprite = spr_SarahStompedVFX;
-	
-	speedBreakSprite = spr_SarahSpeedBreakVFX;
 }

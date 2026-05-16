@@ -6,11 +6,13 @@ if global.MIND or global.PlayerChar == 0 {
 	_arrow = spr_PauseArrowHead;
 }
 
-draw_sprite_ext(_arrow, image_index, sprX - 80, sprY - 7, 1, 0.5, 0, c_black, image_alpha * altAlpha);
-draw_sprite_ext(sprite_index, image_index, sprX - 4, sprY - 37, 1, 1, 0, c_black, image_alpha * altAlpha);
+if !global.DisableHUD {
+	draw_sprite_ext(_arrow, image_index, sprX - 80, sprY - 7, 1, 0.5, 0, c_black, image_alpha * altAlpha);
+	draw_sprite_ext(sprite_index, image_index, sprX - 4, sprY - 37, 1, 1, 0, c_black, image_alpha * altAlpha);
 
-draw_sprite_ext(_arrow, image_index, sprX - 80, sprY - 10, 1, 0.5, 0, global.fullRGB, image_alpha * altAlpha);
-draw_sprite_ext(sprite_index, image_index, sprX - 4, sprY - 40, 1, 1, 0, c_white, image_alpha * altAlpha);
+	draw_sprite_ext(_arrow, image_index, sprX - 80, sprY - 10, 1, 0.5, 0, global.fullRGB, image_alpha * altAlpha);
+	draw_sprite_ext(sprite_index, image_index, sprX - 4, sprY - 40, 1, 1, 0, c_white, image_alpha * altAlpha);
+}
 
 var _camX = camera_get_view_x(view_camera[0]);
 var _camY = camera_get_view_y(view_camera[0]);
@@ -98,15 +100,15 @@ if image_alpha <= 0 {
 draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
 draw_set_font(global.LifeFont);
-
 	var _plus = "+";
 	
 	if fullScore < 0 {
 		_plus = "";
 	}
-
-	draw_text_transformed_color(sprX, sprY, string(_plus) + string(fullScore), 1, sprYScale, 0, c_white, c_white, global.fullRGB, global.fullRGB, image_alpha * altAlpha);
 	
+	if !global.DisableHUD {
+		draw_text_transformed_color(sprX, sprY, string(_plus) + string(fullScore), 1, sprYScale, 0, c_white, c_white, global.fullRGB, global.fullRGB, image_alpha * altAlpha);
+	}
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(global.font_main);

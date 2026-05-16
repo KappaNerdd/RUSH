@@ -35,65 +35,81 @@ if !normalJuke && !customJuke && !extraPlay {
 }
 
 if extraPlay && !customJuke {
-	for(var i = 0; i < array_length(global.NewJukes); i++) {
-		var _col = c_grey;
-		var _words = filename_name(string(global.NewJukes[i]));
-		var _yGap = 64;
+	if array_length(global.NewJukes) > 0 {
+		for(var i = 0; i < array_length(global.NewJukes); i++) {
+			var _col = c_grey;
+			var _words = filename_name(string(global.NewJukes[i]));
+			var _yGap = 64;
 	
-		if extraChoice == i {
-			_col = c_white;
-		}
+			if extraChoice == i {
+				_col = c_white;
+			}
 	
-		draw_sprite_ext(spr_TextboxHead, 0, 0, 32 + (_yGap * i), 10, 2, 0, _col, textAlpha);
+			draw_sprite_ext(spr_TextboxHead, 0, 0, 32 + (_yGap * i), 10, 2, 0, _col, textAlpha);
 		
+			draw_set_halign(fa_middle);
+			draw_set_valign(fa_center);
+				draw_text_transformed_color(160, 64 + (_yGap * i), scr_LocalText(_words), 0.6, 0.75, 0, c_white, c_white, _col, _col, textAlpha);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
+		
+			if extraChoice == i {
+				draw_sprite_ext(obj_CustomJumpKeySpeed.sprite_index, obj_CustomJumpKeySpeed.image_index, -8, 64 + (_yGap * i), 1, 1, 0, c_white, textAlpha);
+			}
+		}
+	} else {
 		draw_set_halign(fa_middle);
 		draw_set_valign(fa_center);
-			draw_text_transformed_color(160, 64 + (_yGap * i), scr_LocalText(_words), 0.6, 0.75, 0, c_white, c_white, _col, _col, textAlpha);
+			draw_text_ext_transformed_color(160, 160, scr_LocalText("juke_NoFolders"), 20, 20, 1, 1, 0, c_white, c_white, c_white, c_white, textAlpha);
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
-		
-		if extraChoice == i {
-			draw_sprite_ext(obj_CustomJumpKeySpeed.sprite_index, obj_CustomJumpKeySpeed.image_index, -8, 64 + (_yGap * i), 1, 1, 0, c_white, textAlpha);
-		}
 	}
 }
 
 if customJuke {
-	var _custArray = global.CustomJukeboxPlaylist;
+	if array_length(global.CustomJukeboxPlaylist) > 0 {
+		var _custArray = global.CustomJukeboxPlaylist;
 	
-	if global.JukeboxShuffle {
-		_custArray = global.CustomJukeShuffled;
-	}
-	
-	for(var c = 0; c < array_length(_custArray); c++) {
-		var _yGap = 64;
-		var _col = c_grey;
-		
-		if chosenCustMus == c {
-			_col = c_white;
+		if global.JukeboxShuffle {
+			_custArray = global.CustomJukeShuffled;
 		}
+	
+		for(var c = 0; c < array_length(_custArray); c++) {
+			var _yGap = 64;
+			var _col = c_grey;
 		
-		draw_sprite_ext(spr_TextboxHead, 0, 0, 32 + (_yGap * c) + customY, 10, 2, 0, _col, textAlpha);
+			if chosenCustMus == c {
+				_col = c_white;
+			}
 		
-		if global.CustomJukeChoice == c {
-			draw_sprite_ext(sprite_index, image_index, 0, 32 + (_yGap * c) + customY, 10, 2, 0, _col, textAlpha / 4);
-			//draw_sprite_ext(sprite_index, image_index, 320, 32, 3, 2, 0, c_grey, textAlpha);
+			draw_sprite_ext(spr_TextboxHead, 0, 0, 32 + (_yGap * c) + customY, 10, 2, 0, _col, textAlpha);
+		
+			if global.CustomJukeChoice == c {
+				draw_sprite_ext(sprite_index, image_index, 0, 32 + (_yGap * c) + customY, 10, 2, 0, _col, textAlpha / 4);
+				//draw_sprite_ext(sprite_index, image_index, 320, 32, 3, 2, 0, c_grey, textAlpha);
 			
-			draw_set_halign(fa_center);
-				//draw_text_transformed(368, 40, "< x" + string(pitch) + " >", 0.75, 0.75, 0);
-			draw_set_halign(fa_left);
+				draw_set_halign(fa_center);
+					//draw_text_transformed(368, 40, "< x" + string(pitch) + " >", 0.75, 0.75, 0);
+				draw_set_halign(fa_left);
+			}
+		
+			if chosenCustMus == c {
+				draw_sprite_ext(obj_CustomJumpKeySpeed.sprite_index, obj_CustomJumpKeySpeed.image_index, -8, 64 + (_yGap * c) + customY, 1, 1, 0, c_white, textAlpha);
+			}
+		
+			var _fileName = filename_name(_custArray[c]);
+			var _fileWidth = string_width(_fileName);
+			var _fileLimit = 400;	
+		
+			draw_set_valign(fa_center);
+				draw_text_transformed_color(64, 64 + (_yGap * c) + customY, scr_TextBull(_fileName, _fileLimit), 0.6, 0.75, 0, c_white, c_white, _col, _col, textAlpha);
+			draw_set_valign(fa_top);
 		}
-		
-		if chosenCustMus == c {
-			draw_sprite_ext(obj_CustomJumpKeySpeed.sprite_index, obj_CustomJumpKeySpeed.image_index, -8, 64 + (_yGap * c) + customY, 1, 1, 0, c_white, textAlpha);
-		}
-		
-		var _fileName = filename_name(_custArray[c]);
-		var _fileWidth = string_width(_fileName);
-		var _fileLimit = 400;	
-		
+	} else {
+		draw_set_halign(fa_middle);
 		draw_set_valign(fa_center);
-			draw_text_transformed_color(64, 64 + (_yGap * c) + customY, scr_TextBull(_fileName, _fileLimit), 0.6, 0.75, 0, c_white, c_white, _col, _col, textAlpha);
+			draw_text_ext_transformed_color(160, 160, scr_LocalText("juke_NoTracks"), 20, 20, 1, 1, 0, c_white, c_white, c_white, c_white, textAlpha);
+		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 	}
 }

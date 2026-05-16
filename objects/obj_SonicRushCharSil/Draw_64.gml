@@ -10,6 +10,10 @@ if instance_exists(obj_SonicRushIntroCard) {
 
 var _mainCol2 = c_black;
 
+if global.MIND or global.PlayerChar == 0 {
+	_mainCol2 = c_white;
+}
+
 var _camX = camera_get_view_x(view_camera[0]);
 var _camY = camera_get_view_y(view_camera[0]);
 

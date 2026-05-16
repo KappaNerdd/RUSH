@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Audio",
-    "path":"folders/Sprites/Menus/Options/Audio.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Audio.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

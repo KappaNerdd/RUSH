@@ -1,4 +1,8 @@
-sprite_index = global.PlayerSelection[global.PlayerChar][19][0];
+if !global.MIND {
+	sprite_index = global.PlayerSelection[global.PlayerChar][19][0];
+} else {
+	sprite_index = global.PlayerSelection[0][19][0];
+}
 
 scale = 0.5;
 

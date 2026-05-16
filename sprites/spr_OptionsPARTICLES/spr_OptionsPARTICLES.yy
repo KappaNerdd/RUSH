@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Visual",
-    "path":"folders/Sprites/Menus/Options/Visual.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Visual.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

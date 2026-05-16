@@ -44,10 +44,15 @@
 	global.FullScreen = false;
 	global.VSync = false;
 	
+	global.WinX = 1538;
+	global.WinY = 864;
+	
+	
 	//Preferences
 	global.FocusLoss = false;
 	global.ColorCode = true;
 	global.ChangeColor = 0;
+	global.LifeIcon = 0;
 	
 	//Online
 	global.DiscordRich = true;
@@ -234,9 +239,9 @@
 			obj_KappaHeadOverworld, //SPEED STAGE Player Object
 			obj_ActionPlayer, //ACTION STAGE Player Object
 		
-			[spr_LevelCard_KappaHead, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_LevelCard_KappaHead, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_Freeplay_Kappa_Head, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_KappaHead, spr_LevelCard_KappaHead, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_KappaHead, spr_LevelCard_KappaHead, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_Freeplay_Kappa_Head, spr_Freeplay_Kappa_Head, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
 			[spr_CharNameKappaHead, 1], //Character Select/Freeplay Char Name (Optional (Animated): Sprite Strip)
 		
 			[ //Character Select Stats (SPEED STAGE)
@@ -264,7 +269,7 @@
 			[mus_NextTime, mus_StandProud, mus_HonorarySonic, mus_HonorarySonic, mus_ImDoneHere], //Results Theme Tracks [shit, good, sick, perfect]
 			["You'll Get 'em Next Time", "Stand Proud", "Honorary Sonic", "Honorary Sonic",], //Results Theme Track Names (Must be a string, EX: "My Balls")
 			["Kappa Nerd", "Kappa Nerd", "Kappa Nerd", "Kappa Nerd",], //Results Theme Track Composer(s) (Must be a string, EX: "Lord Beerus")
-			[spr_LevelCard_KappaHead, 1], //Results Portrait
+			[spr_LevelCard_KappaHead, spr_LevelCard_KappaHead, 1], //Results Portrait
 			["stagecharkappahead",],
 			[spr_CheckpointHead, spr_RingHeadIcon, spr_RingKappaHandHead, spr_CharSelectKappaHeadIcon, spr_IntroQuoteKappa, 1],
 		],
@@ -289,10 +294,10 @@
 			obj_KappaNormalOverworld, //SPEED STAGE Player Object
 			obj_ActionPlayer, //ACTION STAGE Player Object
 		
-			[spr_LevelCard_KappaSet, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_LevelCard_KappaSet, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_Freeplay_Kappa_Set, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
-			[spr_CharNameKappa, 1], //Character Select/Freeplay Char Name (Optional (Animated): Sprite Strip)
+			[spr_LevelCard_KappaSet, spr_LevelCard_KappaHead, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_KappaSet, spr_LevelCard_KappaHead, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_Freeplay_Kappa_Set, spr_Freeplay_Kappa_Head, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
+			[spr_CharNameKappa, spr_CharNameKappaHead, 1], //Character Select/Freeplay Char Name (Optional (Animated): Sprite Strip)
 		
 			[ //Character Select Stats (SPEED STAGE)
 				//Because of how I coded this in source, you'll have to interpret your character's stats
@@ -319,7 +324,7 @@
 			[mus_NextTime, mus_StandProud, mus_HonorarySonic, mus_HonorarySonic, mus_ImDoneHere], //Results Theme Tracks [shit, good, sick, perfect]
 			["You'll Get 'em Next Time", "Stand Proud", "Honorary Sonic", "Honorary Sonic",], //Results Theme Track Names (Must be a string, EX: "My Balls")
 			["Kappa Nerd", "Kappa Nerd", "Kappa Nerd", "Kappa Nerd",], //Results Theme Track Composer(s) (Must be a string, EX: "Lord Beerus")
-			[spr_LevelCard_KappaSet, 1], //Results Portrait
+			[spr_LevelCard_KappaSet, spr_LevelCard_KappaHead, 1], //Results Portrait
 			["stagecharkappanormal",],
 			[spr_CheckpointKappa, spr_RingKappaIcon, spr_RingKappaHand, spr_CharSelectKappaIcon, spr_IntroQuoteKappa, 1],
 		],
@@ -343,9 +348,9 @@
 			obj_SarahOverworld, //SPEED STAGE Player Object
 			obj_ActionPlayer, //ACTION STAGE Player Object
 		
-			[spr_LevelCard_SarahSet, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_LevelCard_SarahSet, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_Freeplay_Sarah_Set, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_SarahSet, spr_LevelCard_SarahSet, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_SarahSet, spr_LevelCard_SarahSet, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_Freeplay_Sarah_Set, spr_Freeplay_Sarah_Set, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
 			[spr_CharNameSarah, 1], //Character Select/Freeplay Char Name (Optional (Animated): Sprite Strip)
 		
 			[ //Character Select Stats (SPEED STAGE)
@@ -372,7 +377,7 @@
 			[mus_DidYourBest, mus_KnewYouHadIt, mus_HeartsAround, mus_HeartsAround, mus_YouDidIt], //Results Theme Tracks [shit, good, sick, perfect]
 			["You Did Your Best", "I Knew You Had it in You", "Hearts All Around", "Hearts All Around",], //Results Theme Track Names (Must be a string, EX: "My Balls")
 			["Kappa Nerd", "Kappa Nerd", "Kappa Nerd", "Kappa Nerd",], //Results Theme Track Composer(s) (Must be a string, EX: "Lord Beerus")
-			[spr_LevelCard_SarahSet, 1], //Results Portrait
+			[spr_LevelCard_SarahSet, spr_LevelCard_SarahSet, 1], //Results Portrait
 			["stagecharsarahnormal",],
 			[spr_CheckpointSarah, spr_RingSarahIcon, spr_RingSarahHand, spr_CharSelectSarahIcon, spr_IntroQuoteSarah, 1],
 		],
@@ -550,7 +555,7 @@
 		
 			[255, 132, 025], //RGB (Must be filled out)
 		
-			[spr_CloeTextbox, 10, spr_MCursorCloee],
+			[spr_CloeeTextbox, 10, spr_MCursorCloee],
 		
 			obj_SarahOverworld, //SPEED STAGE Player Object
 			obj_ActionPlayer, //ACTION STAGE Player Object
@@ -820,9 +825,9 @@
 			obj_SarahOverworld, //SPEED STAGE Player Object
 			obj_ActionPlayer, //ACTION STAGE Player Object
 		
-			[spr_LevelCard_LuciferSet, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_LevelCard_LuciferSet, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
-			[spr_Freeplay_Lucifer_Set, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_LuciferSet, spr_LevelCard_LuciferSet, 1], //SPEED STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_LevelCard_LuciferSet, spr_LevelCard_LuciferSet, 1], //ACTION STAGE Level Portrait (Optional (Costumes): Sprite Strip)
+			[spr_Freeplay_Lucifer_Set, spr_Freeplay_Lucifer_Set, 1], //Freeplay Character Portrait (Optional (Costumes): Sprite Strip)
 			[spr_CharNameLucifer, 1], //Character Select/Freeplay Char Name (Optional (Animated): Sprite Strip)
 		
 			[ //Character Select Stats (SPEED STAGE)
@@ -839,7 +844,7 @@
 			[spr_BoostMeterLucifer, 1], //Boost Meter (Sprite Strip)
 			[spr_BoostEmblemLucifer, 1], //Trick Particles/Boost Emblem (Optional (Animated): Sprite Strip)
 			[spr_BoostEmblemLuciferRush, 1], //RUSH MODE Version of Boost Emblem (Optional (Animated): Sprite Strip)
-			[spr_LifeLuciferSet, spr_LifeLuciferSetColor, spr_StageCharKappaSet, spr_LifeLuciferSet, 1], //Extra Life Icon/STAGE Char Icon (Optional (Costumes): Sprite Strip)
+			[spr_LifeLuciferSet, spr_LifeLuciferSetColor, spr_StageCharKappaSet, spr_LifeLuciferHead, 1], //Extra Life Icon/STAGE Char Icon (Optional (Costumes): Sprite Strip)
 			[spr_LuciferBoost, spr_LuciferBoostSimple, spr_LuciferStompingVFX, spr_LuciferStompedVFX, spr_LuciferSpeedBreakVFX, 1], //Boost [Normal, Simple, Frames]
 			[spr_LuciferTrickFinalVFX, 1], //Final Trick VFX
 		
@@ -850,7 +855,7 @@
 			[mus_BeenBetter, mus_YouStrong, mus_HonoraryBlaze, mus_HonoraryBlaze, mus_ItsDone], //Results Theme Tracks [shit, good, sick, perfect]
 			["That Could've Been Better", "You Are Strong", "Honorary Blaze", "Honorary Blaze",], //Results Theme Track Names (Must be a string, EX: "My Balls")
 			["Kappa Nerd", "Kappa Nerd", "Kappa Nerd", "Kappa Nerd",], //Results Theme Track Composer(s) (Must be a string, EX: "Lord Beerus")
-			[spr_LevelCard_LuciferSet, 1], //Results Portrait
+			[spr_LevelCard_LuciferSet, spr_LevelCard_LuciferSet, 1], //Results Portrait
 			["stagecharlucifernormal",],
 			[spr_CheckpointSarah, spr_RingLuciferIcon, spr_RingLuciferHand, spr_CharSelectLuciferIcon, spr_IntroQuoteLucifer, 1],
 		],
@@ -1068,7 +1073,7 @@
 	global.GameOverCountdown = 180;
 
 	//Player extra lives
-	global.PlayerExtraLives = 3;
+	global.PlayerExtraLives = 2;
 	global.CollectedLives = 0;
 	
 	global.Death = false;
@@ -1089,6 +1094,8 @@
 #region //Extra shit for the sake of initialization
 	global.Opacity = 0;
 	global.ThunderCountdown = 300;
+	
+	global.DisableHUD = false;
 #endregion
 
 #region ///-----Jukebox-----///
@@ -1169,6 +1176,7 @@
 			colorCode: true, //Character Color-Coding
 			changeColor: 0, //Change Base Color
 			focusLoss: false, //Pause on Focus Loss
+			lifeIcon: 0, //Life Icon
 		},
 		
 		{ //Online Options
@@ -1280,6 +1288,7 @@
 	
 			player_ExtraLives : 0,
 			player_Health : 0,
+			player_Money : 0,
 		},
 	
 		//Room Checking

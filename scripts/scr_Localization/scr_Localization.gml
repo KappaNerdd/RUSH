@@ -34,6 +34,7 @@ function scr_LocalText(_key) {
 		var _text = global.LocData[# global.Language, global.Localization[? _key]];
 		var _num = argument_count > 1 ? argument[1] : "";
 		_text = string_replace_all(_text, "{num}", _num);
+		_text = string_replace_all(_text, "\\n", "\n");
 	} else {
 		var _text = _key;
 	}
@@ -62,6 +63,7 @@ function scr_DialogueText(_key) {
 		var _text = global.LocDialogData[# global.Language, global.LocalizationDialog[? _key]];
 		var _num = argument_count > 1 ? argument[1] : "";
 		_text = string_replace_all(_text, "{num}", _num);
+		_text = string_replace_all(_text, "\\n", "\n");
 	} else {
 		var _text = _key;
 	}

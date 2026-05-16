@@ -1,15 +1,13 @@
-if global.DEBUG == true {
+if global.DEBUG {
 	if keyboard_check_pressed(ord("1")) {
-		room_goto_next();
-		if room == noone {
-			exit;
+		if room != room_last {
+			room_goto_next();
 		}
 	}
 
 	if keyboard_check_pressed(ord("2")) {
-		room_goto_previous();
-		if room == rm_Init {
-			exit;
+		if room != room_first {
+			room_goto_previous();
 		}
 	}
 	
@@ -20,7 +18,7 @@ if global.DEBUG == true {
 	}
 	
 	if keyboard_check_pressed(ord("9")) {
-		room_goto(rm_360Test);
+		room_goto(rm_MainMenuNew);
 	}
 	
 	if keyboard_check_pressed(ord("Q")) {
@@ -52,12 +50,16 @@ if global.DEBUG == true {
 	if keyboard_check_pressed(ord("8")) {
 		room_goto(rm_CharSelectNew);
 	}
+	
+	if keyboard_check_pressed(ord("]")) {
+		global.BPM++;
+	}
+	
+	if keyboard_check_pressed(ord("[")) {
+		global.BPM--;
+	}
 }
 
 if keyboard_check_pressed(ord("7")) {
-	if !global.DEBUG {
-		global.DEBUG = true;
-	} else {
-		global.DEBUG = false;
-	}
+	global.DEBUG = !global.DEBUG;
 }

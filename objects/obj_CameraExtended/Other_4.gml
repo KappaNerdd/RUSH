@@ -1,3 +1,5 @@
 //Get camera target coords
-finalCamX = floor(obj_Player.x);
-finalCamY = floor(obj_Player.y);
+if following != noone {
+	finalCamX = floor(following.x);
+	finalCamY = floor(following.y);
+}

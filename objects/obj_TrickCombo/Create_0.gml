@@ -1,8 +1,6 @@
 scr_GetCharBoostIcon();
 scr_GetCharRushBoostIcon();
 
-depth = 0;
-
 textX = 678;
 textY = 80;
 addedY = 0;

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"mus_InvincN",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":21.323175,
+  "exportDir":"",
+  "name":"mus_InvincN",
+  "parent":{
+    "name":"Characters",
+    "path":"folders/Sounds/Music/Invincibility/Characters.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_InvincN.ogg",
+  "volume":1.0,
+}

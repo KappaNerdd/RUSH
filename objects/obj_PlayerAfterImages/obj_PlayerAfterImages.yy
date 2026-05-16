@@ -10,8 +10,8 @@
   "name":"obj_PlayerAfterImages",
   "overriddenProperties":[],
   "parent":{
-    "name":"Overall",
-    "path":"folders/Objects/Characters/VFX/General/Overall.yy",
+    "name":"Obsolete",
+    "path":"folders/Objects/Characters/VFX/General/Obsolete.yy",
   },
   "parentObjectId":null,
   "persistent":false,

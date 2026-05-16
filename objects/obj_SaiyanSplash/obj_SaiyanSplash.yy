@@ -6,8 +6,8 @@
   "name":"obj_SaiyanSplash",
   "overriddenProperties":[],
   "parent":{
-    "name":"Splash Screens",
-    "path":"folders/Objects/Title/Head/Splash Screens.yy",
+    "name":"Splash",
+    "path":"folders/Objects/Title/Head/Old/Splash.yy",
   },
   "parentObjectId":null,
   "persistent":false,

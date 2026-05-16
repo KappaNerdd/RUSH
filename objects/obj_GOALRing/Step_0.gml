@@ -6,6 +6,7 @@ if image_speed <= 0 {
 
 if place_meeting(x, y, obj_Player) && !goal && !global.Death {
 	goal = true;
+	scr_SetCamFollow(self);
 	scr_ChangeCamZoom(0.65, 0.075);
 	
 	if instance_exists(obj_InputRecorder) {
@@ -19,8 +20,6 @@ if place_meeting(x, y, obj_Player) && !goal && !global.Death {
 	
 	obj_Player.speedBreak = false;
 	obj_Player.speedBreakTimer = obj_Player.speedBreakFrames;
-	
-	obj_CameraExtended.following = self;
 	
 	with(obj_Player) {
 		if abs(vel) <= 5 {
@@ -142,7 +141,12 @@ if goalTimer < 0 {
 if goalTimer <= 0 {
 	if image_speed > 0 {
 		image_speed -= 0.02;
-		iconSprite = global.PlayerSelection[global.PlayerChar][28][2];
+		
+		if global.MIND {
+			iconSprite = global.PlayerSelection[0][28][2];
+		} else {
+			iconSprite = global.PlayerSelection[global.PlayerChar][28][2];
+		}
 	}
 	
 	if image_speed <= 1.175 {

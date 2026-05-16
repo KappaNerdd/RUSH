@@ -26,7 +26,7 @@
   "origin":6,
   "parent":{
     "name":"Normal",
-    "path":"folders/Sprites/Menus/General/Cursors/Normal.yy",
+    "path":"folders/Sprites/Menus/Old/General/Cursors/Normal.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

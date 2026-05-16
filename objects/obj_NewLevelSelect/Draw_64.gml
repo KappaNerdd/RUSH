@@ -13,8 +13,16 @@ display_set_gui_size(768, 432);
 #region //Character
 	var _charX = charX + charX2;
 	var _charY = charY + charY2;
+	var _charX2 = _charX;
+	var _charY2 = _charY;
 	
-	draw_sprite_ext(_charSprite, global.PlayerCostume, _charX + 5, _charY + 5, 0.5, 0.5, charAngle, c_black, 1);
+	_charX2 = lerp(_charX2, _charX, 0.01);
+	_charY2 = lerp(_charY2, _charY, 0.01);
+	
+	gpu_set_fog(true, c_white, 0, 1);
+		draw_sprite_ext(_charSprite, global.PlayerCostume, _charX2, _charY2, 0.5, 0.5, charAngle, c_black, 1);
+	gpu_set_fog(false, c_black, 0, 1);
+		
 	draw_sprite_ext(_charSprite, global.PlayerCostume, _charX, _charY, 0.5, 0.5, charAngle, c_white, 1);
 #endregion
 
@@ -481,14 +489,17 @@ display_set_gui_size(768, 432);
 	if !speedStage && !actionStage {
 		var _press = scr_LocalText("freeplay_ChooseChar1") + " " + string(obj_CustomAct4KeySpeed.keyText) + " " + scr_LocalText("freeplay_ChooseChar2");
 		var _press2 = scr_LocalText("freeplay_ChooseChar1") + " " + string(obj_CustomAct2KeySpeed.keyText) + " " + scr_LocalText("freeplay_ChooseJuke");
-		
+		var _press3 = scr_LocalText("freeplay_ChooseChar1") + " " + string(obj_CustomSelectKeySpeed.keyText) + " " + scr_LocalText("freeplay_CharTut");
 		
 		draw_set_halign(fa_center);
-			draw_text_transformed_color(384, 53, _press, 1, 1, 0, c_black, c_black, c_black, c_black, changeCharAlpha);
-			draw_text_transformed_color(384, 50, _press, 1, 1, 0, c_white, c_white, c_white, c_white, changeCharAlpha);
+			draw_text_transformed_color(384, 353, _press, 1, 1, 0, c_black, c_black, c_black, c_black, changeCharAlpha);
+			draw_text_transformed_color(384, 350, _press, 1, 1, 0, c_white, c_white, c_white, c_white, changeCharAlpha);
 			
-			draw_text_transformed_color(384, 78, _press2, 1, 1, 0, c_black, c_black, c_black, c_black, changeCharAlpha);
-			draw_text_transformed_color(384, 75, _press2, 1, 1, 0, c_white, c_white, c_white, c_white, changeCharAlpha);
+			draw_text_transformed_color(384, 378, _press2, 1, 1, 0, c_black, c_black, c_black, c_black, changeCharAlpha);
+			draw_text_transformed_color(384, 375, _press2, 1, 1, 0, c_white, c_white, c_white, c_white, changeCharAlpha);
+			
+			draw_text_transformed_color(384, 403, _press3, 1, 1, 0, c_black, c_black, c_black, c_black, changeCharAlpha);
+			draw_text_transformed_color(384, 400, _press3, 1, 1, 0, c_white, c_white, c_white, c_white, changeCharAlpha);
 		draw_set_halign(fa_left);
 	}
 #endregion

@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Xbox",
-    "path":"folders/Sprites/User Interface/Xbox.yy",
+    "path":"folders/Sprites/User Interface/Old/Xbox.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

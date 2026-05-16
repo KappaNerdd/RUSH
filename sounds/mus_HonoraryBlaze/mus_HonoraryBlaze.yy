@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":54.857143,
+  "duration":27.428549,
   "exportDir":"",
   "name":"mus_HonoraryBlaze",
   "parent":{

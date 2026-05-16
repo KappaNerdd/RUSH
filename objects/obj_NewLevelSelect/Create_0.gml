@@ -71,6 +71,9 @@ changeCharTimer = 60;
 changeCharAlpha = 0.25;
 changeAlpha = true;
 
+tutorialChar = false;
+tutorialTimer = 60;
+
 jukebox = false;
 jukeChoice = false;
 

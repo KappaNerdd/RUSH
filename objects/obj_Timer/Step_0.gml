@@ -2,7 +2,9 @@ if global.countUp {
 	global.seconds += 1 / 60;
 	image_speed = 1;
 } else {
-	image_speed = 0;
+	if !global.MIND && global.PlayerChar != 0 {
+		image_speed = 0;
+	}
 }
 
 inGameScore = lerp(inGameScore, global.GameScore, 0.25);
@@ -33,7 +35,7 @@ if trinket {
 
 trinketScale = lerp(trinketScale, 1, 0.1);
 
-if instance_exists(obj_LevelCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) or instance_exists(obj_LevelCardMinor) or instance_exists(obj_ResultsCard) or instance_exists(obj_RoomTransParent) {
+if global.DisableHUD or instance_exists(obj_LevelCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) or instance_exists(obj_LevelCardMinor) or instance_exists(obj_ResultsCard) or instance_exists(obj_RoomTransParent) {
 	moveY = lerp(moveY, -200, 0.1);
 } else {
 	moveY = lerp(moveY, 10, 0.1);

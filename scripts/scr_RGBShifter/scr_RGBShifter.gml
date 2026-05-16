@@ -12,13 +12,21 @@ function scr_CreateRBG() {
 
 
 function scr_ShiftRGB() {
-	global.realR = lerp(global.realR, global.r, 0.03);
-	global.realG = lerp(global.realG, global.g, 0.03);
-	global.realB = lerp(global.realB, global.b, 0.03);
+	global.realR = lerp(global.realR, global.r, 0.05);
+	global.realG = lerp(global.realG, global.g, 0.05);
+	global.realB = lerp(global.realB, global.b, 0.05);
 	
-	if global.ColorCode {
-		global.fullRGB = make_color_rgb(global.realR, global.realG, global.realB);
+	if !global.MIND {
+		if global.ColorCode {
+			global.fullRGB = make_color_rgb(global.realR, global.realG, global.realB);
+		} else {
+			global.fullRGB = global.ColorBase[global.ChangeColor][0];
+		}
 	} else {
-		global.fullRGB = global.ColorBase[global.ChangeColor][0];
+		global.r = 255;
+		global.g = 255;
+		global.b = 255;
+		
+		global.fullRGB = make_color_rgb(global.realR, global.realG, global.realB);
 	}
 }

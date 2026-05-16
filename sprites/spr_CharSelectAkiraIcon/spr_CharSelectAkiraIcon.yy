@@ -12,14 +12,15 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"6fe1dd27-d0a3-46bb-89e2-fb9f9b071d3e","name":"6fe1dd27-d0a3-46bb-89e2-fb9f9b071d3e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c50c9c11-4028-4262-9248-57aef1d0e5e5","name":"c50c9c11-4028-4262-9248-57aef1d0e5e5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"0e9279e9-2a83-4962-8eaf-542150a6e570","name":"0e9279e9-2a83-4962-8eaf-542150a6e570","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":59,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"b4e33fed-89e8-47c6-b3a7-ba116af1a7e1","blendMode":0,"displayName":"default","isLocked":false,"name":"b4e33fed-89e8-47c6-b3a7-ba116af1a7e1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"fd4f81f0-32d3-4b3c-bf0b-105e9cd34223","blendMode":0,"displayName":"default","isLocked":false,"name":"fd4f81f0-32d3-4b3c-bf0b-105e9cd34223","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_CharSelectAkiraIcon",
   "nineSlice":null,
@@ -49,7 +50,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":2.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -71,8 +72,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6fe1dd27-d0a3-46bb-89e2-fb9f9b071d3e","path":"sprites/spr_CharSelectAkiraIcon/spr_CharSelectAkiraIcon.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"2c3a0958-a8fb-4ded-879a-da718e20110a","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c50c9c11-4028-4262-9248-57aef1d0e5e5","path":"sprites/spr_CharSelectAkiraIcon/spr_CharSelectAkiraIcon.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"570269c4-ed4c-44ba-9ffe-ccab1ca50b7c","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0e9279e9-2a83-4962-8eaf-542150a6e570","path":"sprites/spr_CharSelectAkiraIcon/spr_CharSelectAkiraIcon.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"9746bbdf-484d-477d-85ee-301eb6f7358e","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -9,3 +9,5 @@ if !global.MIND && global.PlayerChar != 0 {
 } else {
 	sprite_index = spr_HeadCollectable;
 }
+
+visible = !global.DisableHUD;

@@ -16,11 +16,12 @@ draw_sprite_ext(sprite_index, image_index, _camX - 5, _camY - 5, image_xscale, i
 
 
 //Sonic Rush Boss Ball
-var _ballAlpha = 1;
+var _ballAlpha = 0.5;
 var _leftBackAnim = mindImageIndex;
 
 if !global.MIND && global.PlayerChar != 0 {
 	_leftBackAnim = 0;
+	_ballAlpha = 1;
 }
 
 draw_sprite_ext(leftBackSprite, _leftBackAnim, _camX + leftBackMoveX + 10, _camY - 10, 1, 1, 0, c_black, 0.5);

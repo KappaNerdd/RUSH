@@ -348,16 +348,14 @@ if !completed {
 }
 
 if died {
-	if !global.SimplifyVFX {
-		dyingTimer -= 1;
+	if !global.DisableHUD {
+		if !global.SimplifyVFX {
+			dyingTimer -= 1;
 		
-		if dyingTimer <= 0 {
-			dyingTimer = 1;
+			if dyingTimer <= 0 {
+				dyingTimer = 1;
 			
-			if visible {
-				visible = false;
-			} else {
-				visible = true;
+				visible = !visible;
 			}
 		}
 	}
@@ -378,4 +376,6 @@ if died {
 	startI4Y += random_range(0.5, 5);
 	startI5Y += random_range(0.5, 5);
 	startI6Y += random_range(0.5, 5);
+} else {
+	visible = !global.DisableHUD;
 }

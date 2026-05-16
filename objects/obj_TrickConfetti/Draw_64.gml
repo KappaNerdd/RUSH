@@ -1,3 +1,5 @@
+display_set_gui_size(768, 432);
+
 var _sprCol = c_white;
 
 if !global.MIND && global.PlayerChar != 0 {

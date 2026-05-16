@@ -1,4 +1,8 @@
 function scr_SpriteDataKappaHead() {
+	//Palettes
+	basePal = spr_KappaPaletteHead;
+	headPal = spr_KappaPaletteHead;
+	
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump

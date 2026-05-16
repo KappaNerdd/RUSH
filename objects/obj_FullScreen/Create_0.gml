@@ -1,5 +1,3 @@
-global.LineForce = false;
-
 depth = -15;
 
 quittingTimer = 0;

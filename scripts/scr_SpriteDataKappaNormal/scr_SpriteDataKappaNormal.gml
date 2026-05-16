@@ -1,4 +1,27 @@
 function scr_SpriteDataKappaNormal() {
+	//Palettes
+	basePal = spr_KappaPalette;
+	headPal = spr_KappaPaletteHead;
+	
+	//Particles
+	if !global.MIND && global.PlayerChar != 0 {
+		boostingSprite = spr_KappaBoost;
+		boostingSpriteSimple = spr_KappaBoostSimple;
+	
+		stompingSprite = spr_KappaStompingVFX;
+		stompedSprite = spr_KappaStompedVFX;
+	
+		speedBreakSprite = spr_KappaSpeedBreakVFX;
+	} else {
+		boostingSprite = spr_KappaHeadBoost;
+		boostingSpriteSimple = spr_KappaHeadBoostSimple;
+	
+		stompingSprite = spr_HeadStompingVFX;
+		stompedSprite = spr_HeadStompedVFX;
+	
+		speedBreakSprite = spr_HeadSpeedBreakVFX;
+	}
+	
 	///-----Mask Collisions-----///
 
 	//Idle + Look Up + Walk + Run + Jump + Double Jump + Fall + Guard + Stomp + Air Dash + Wall Jump
@@ -97,13 +120,4 @@ function scr_SpriteDataKappaNormal() {
 	
 	//Pushing
 	sprPush = spr_KappaPush;
-	
-	//Particles
-	boostingSprite = spr_KappaBoost;
-	boostingSpriteSimple = spr_KappaBoostSimple;
-	
-	stompingSprite = spr_KappaStompingVFX;
-	stompedSprite = spr_KappaStompedVFX;
-	
-	speedBreakSprite = spr_KappaSpeedBreakVFX;
 }

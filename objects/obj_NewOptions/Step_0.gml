@@ -200,7 +200,11 @@ if !done {
 				}
 				
 				if choice == 7 {
-					
+					if global.Invincible < 2 {
+						global.Invincible++;
+					} else {
+						global.Invincible = 0;
+					}
 				}
 			}
 		#endregion
@@ -304,6 +308,14 @@ if !done {
 				if choice == 2 {
 					global.FocusLoss = !global.FocusLoss;
 				}
+				
+				if choice == 3 {
+					if global.LifeIcon < 2 {
+						global.LifeIcon++;
+					} else {
+						global.LifeIcon = 0;
+					}
+				}
 			}
 		#endregion
 		
@@ -328,7 +340,7 @@ if !done {
 						global.WindowSize = 0.5;
 					}
 					
-					window_set_size(1280 * global.WindowSize, 720 * global.WindowSize);
+					window_set_size(global.WinX * global.WindowSize, global.WinY * global.WindowSize);
 					window_center();
 				}
 				
@@ -396,6 +408,7 @@ if !done {
 			global.AMBIENCE_VOL = 1;
 			global.UniquePauseTheme = false;
 			global.Footstep = true;
+			global.Invincible = 0;
 
 			//Visual
 			global.ScreenShake = true;
@@ -417,7 +430,7 @@ if !done {
 	
 			//Display
 			global.WindowSize = 1;
-			window_set_size(1280, 720);
+			window_set_size(global.WinX, global.WinY);
 			window_center();
 			global.FullScreen = false;
 			global.VSync = false;
@@ -427,6 +440,7 @@ if !done {
 			global.FocusLoss = false;
 			global.ColorCode = true;
 			global.ChangeColor = 0;
+			global.LifeIcon = 0;
 	
 			//Online
 			global.DiscordRich = true;
@@ -514,6 +528,10 @@ if !done {
 		scr_SaveControls();
 		done = true;
 		obj_SFXManager.menuConfirm = true;
+		
+		if room == rm_MainMenuNew {
+			obj_MainMenu.nerd = !obj_MainMenu.nerd;
+		}
 	}
 	
 	#region //Timers
@@ -521,7 +539,7 @@ if !done {
 			changeBindY = lerp(changeBindY, 48, 0.2);
 			
 			if waitTimer <= 1 {
-				if opt == 4 {
+				if opt == 6 {
 					#region //Con General
 						if choice == 0 {
 							if !gamepad_is_connected(global.Player1Con) {
@@ -541,7 +559,7 @@ if !done {
 					#endregion
 				}
 				
-				if opt == 5 {
+				if opt == 7 {
 					#region //Con Speed 1
 						if choice == 0 {
 							if !gamepad_is_connected(global.Player1Con) {
@@ -593,7 +611,7 @@ if !done {
 					#endregion
 				}
 				
-				if opt == 6 {
+				if opt == 8 {
 					#region //Con Speed 2
 						if choice == 0 {
 							if !gamepad_is_connected(global.Player1Con) {
@@ -629,7 +647,7 @@ if !done {
 					#endregion
 				}
 				
-				if opt == 7 {
+				if opt == 9 {
 					#region //Con Action 1
 						if choice == 0 {
 							if !gamepad_is_connected(global.Player1Con) {
@@ -681,7 +699,7 @@ if !done {
 					#endregion
 				}
 				
-				if opt == 8 {
+				if opt == 10 {
 					#region //Con Action 2
 						if choice == 0 {
 							if !gamepad_is_connected(global.Player1Con) {
@@ -730,7 +748,7 @@ if !done {
 		}
 	#endregion
 } else {
-	setY = lerp(setY, 500, 0.2);
+	setY = lerp(setY, 500, 0.25);
 	leftSpikesX = lerp(leftSpikesX, 0, 0.1);
 	
 	if setY >= 499.5 {

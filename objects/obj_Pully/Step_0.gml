@@ -1,7 +1,6 @@
-
 if pulled {
-	if y <= pullyBase.y - 38 {
-		y = pullyBase.y - 38;
+	if y <= pullyBase.y - 40 {
+		y = pullyBase.y - 40;
 		
 		if !pulledDone {
 			for(var i = 0; i < array_length(pulledChars); i++) {
@@ -54,6 +53,9 @@ if pulled {
 			_chars.vel = 0;
 			_chars.yspd = 0;
 			_chars.can_MoveFULL = false;
+			_chars.jumping = true;
+			_chars.realJumping = false;
+			_chars.ground = false;
 			
 			if _chars.leftFacer {
 				if pullyBase.image_xscale == 1 {

@@ -1,6 +1,5 @@
 getCharacterControls();
 
-
 if kysTimer > 0 {
 	if mainAlpha < 1 {
 		mainAlpha += 0.025;
@@ -69,15 +68,11 @@ if kysTimer > 0 {
 		global.countUp = true;
 		
 		if !finishedCreate {
-			if !instance_exists(obj_InputRecorder) {
+			if instance_exists(obj_InputRecorder) {
 				if global.Replay {
-					with(instance_create_depth(x, y, depth, obj_InputRecorder)) {
-						isPlaying = true;
-					}
+					obj_InputRecorder.isPlaying = true;
 				} else {
-					with(instance_create_depth(x, y, depth, obj_InputRecorder)) {
-						isRecording = true;
-					}
+					obj_InputRecorder.isRecording = true;
 				}
 			}
 			
@@ -96,7 +91,7 @@ if kysTimer > 0 {
 				}
 			}
 		
-			if !instance_exists(obj_ActualGhost) {
+			if !instance_exists(obj_ActualGhost) && !global.LevelForced {
 				if global.ShowGhost {
 					instance_create_depth(x, y, depth, obj_ActualGhost);
 				}

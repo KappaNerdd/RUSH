@@ -26,7 +26,7 @@ function scr_SpeedBreakVFX(_sprite) {
 		speedBreakSprTimer--;
 	}
 	
-	if global.Particles && speedBreakSprTimer <= 0 && vel != 0 {
+	if global.Particles && speedBreakSprTimer <= 0 && abs(vel) >= 3 {
 		var _xscale = 1;
 		
 		if leftFacer {

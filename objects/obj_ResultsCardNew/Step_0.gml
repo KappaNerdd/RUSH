@@ -189,6 +189,10 @@ if !completed {
 							scr_SaveReplayChar(fileName);
 						}
 					}
+				} else {
+					if action1_Key {
+						obj_SFXManager.menuCancel = true;
+					}
 				}
 				
 				with(obj_GhostRecorder) {
@@ -276,11 +280,7 @@ if !completed {
 					instantiated.target_y = global.TargetY;
 					instantiated.target_rm = global.TargetRM;
 				}
-			} else {
-				if global.MIND {
-					global.MIND = false;
-				}
-				
+			} else {				
 				if !instance_exists(obj_RoomTransParent) {
 					var instantiated = instance_create_depth(0, 0, -100000000000, obj_RushTransition);
 					instantiated.target_rm = rm_FreeplayNew;

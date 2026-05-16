@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"PlayStation",
-    "path":"folders/Sprites/User Interface/PlayStation.yy",
+    "path":"folders/Sprites/User Interface/Old/PlayStation.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

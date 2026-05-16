@@ -33,7 +33,6 @@ function save_game(_fileNum = 0) {
 	buffer_delete(_buffer);
 }
 	
-
 //Overall Loading
 function load_game(_fileNum = 0) {
 	//Loading our save data
@@ -74,7 +73,7 @@ function load_game(_fileNum = 0) {
 	//Go to the correct room
 	var _loadRoom = asset_get_index(global.statData[0].save_rm);
 		
-	room_goto(_loadRoom);
+	scr_RoomTrans(obj_RoomTransitionSEGALoad, _loadRoom);
 		
 	//Change player info if the player exists
 	if instance_exists(obj_Player) {
@@ -92,7 +91,93 @@ function load_game(_fileNum = 0) {
 	global.PlayerExtraLives = global.statData[0].player_ExtraLives;
 }
 
-
+function scr_GameReset() {
+	//Resets Other Shit
+	global.PlayerName = "";
+	
+	global.PlayerChar = 0;
+	global.PlayerCostume = 0;
+	
+	global.PartnerChar = -1;
+	global.PartnerCostume = 0;
+	
+	global.PlayerExtraLives = 2;
+	global.CollectedLives = 0;
+	
+	global.PlayerTimeSeconds = 0;
+	global.PlayerTimeMinutes = 0;
+	global.PlayerTimeHours = 0;
+	
+	global.Health = global.MaxHealth;
+	
+	global.Death = false;
+	global.RespawnX = 0;
+	global.RespawnY = 0;
+	
+	global.SpeedSelected = 0;
+	global.SelectedPlayer = 0;
+	global.SelectedCostume = 0;
+	global.Girly = false;
+	global.MIND = false;
+	
+	//Reset Player Position & Room
+	global.statData[0].save_x = 0;
+	global.statData[0].save_y = 0;
+	global.statData[0].save_rm = "fs_Empty";
+	
+	//Reset Player Stats & Time
+	global.statData[0].player_Char = 0;
+	global.statData[0].player_Costume = 0;
+	global.statData[0].player_Sprite = spr_StageCharNone;
+	
+	global.statData[0].partner_Char = -1;
+	global.statData[0].partner_Costume = 0;
+	
+	global.statData[0].player_Name = "fs_Empty";
+	global.statData[0].player_TimeSeconds = 0;
+	global.statData[0].player_TimeMinutes = 0;
+	global.statData[0].player_TimeHours = 0;
+	global.statData[0].player_ExtraLives = 2;
+	global.statData[0].player_Health = 0;
+	
+	//Reset SPEED Stage Stats
+	for(var i = 0; i < array_length(global.speedStageData); i++) {
+		global.speedStageData[i].rank = 0;
+		global.speedStageData[i].rankTime = 0;
+		global.speedStageData[i].totalTime = 0;
+		global.speedStageData[i].seconds = 0;
+		global.speedStageData[i].minutes = 0;
+		global.speedStageData[i].gameScore = 0;
+		global.speedStageData[i].rankScore = 0;
+		global.speedStageData[i].rings = 0;
+		global.speedStageData[i].rings_Rank = 0;
+		global.speedStageData[i].enemies = 0;
+		global.speedStageData[i].enemy_Rank = 0;
+			
+		global.speedStageData[i].player_Char = 0;
+		global.speedStageData[i].player_Sprite = spr_StageCharNone;
+		global.speedStageData[i].player_Costume = 0;
+		global.speedStageData[i].player_CharTime = 0;
+		global.speedStageData[i].player_SpriteTime = spr_StageCharNone;
+		global.speedStageData[i].player_CostumeTime = 0;
+		global.speedStageData[i].player_CharScore = 0;
+		global.speedStageData[i].player_SpriteScore = spr_StageCharNone;
+		global.speedStageData[i].player_CostumeScore = 0;
+		global.speedStageData[i].player_CharRings = 0;
+		global.speedStageData[i].player_SpriteRings = spr_StageCharNone;
+		global.speedStageData[i].player_CostumeRings = 0;
+		global.speedStageData[i].player_CharEnemy = 0;
+		global.speedStageData[i].player_SpriteEnemy = spr_StageCharNone;
+		global.speedStageData[i].player_CostumeEnemy = 0;
+		
+		global.speedStageData[i].complete = false;
+		global.speedStageData[i].musicSecret = false;
+		
+		for(var j = 0; j < array_length(global.speedStageData[i].jsrSecrets); j++) {
+			global.speedStageData[i].jsrSecrets[j] = false;
+		}
+	}
+}
 
 //Saving Files (TRASH)
 function scr_SaveFiles() {

@@ -1,5 +1,7 @@
 scr_GetCharRushBoostIcon();
 
+visible = !global.DisableHUD;
+
 if !global.MIND && global.PlayerChar != 0 {
 	sprite_index = _charCheck3;
 } else {

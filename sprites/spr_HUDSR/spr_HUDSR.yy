@@ -29,7 +29,7 @@
   "origin":0,
   "parent":{
     "name":"Switch",
-    "path":"folders/Sprites/User Interface/Switch.yy",
+    "path":"folders/Sprites/User Interface/Old/Switch.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

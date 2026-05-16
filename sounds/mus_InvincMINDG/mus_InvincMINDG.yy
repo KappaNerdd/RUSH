@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"mus_InvincMINDG",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":21.323992,
+  "exportDir":"",
+  "name":"mus_InvincMINDG",
+  "parent":{
+    "name":"Levels",
+    "path":"folders/Sounds/Music/Invincibility/Levels.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"mus_InvincMINDG.ogg",
+  "volume":1.0,
+}

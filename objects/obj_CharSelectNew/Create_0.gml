@@ -8,8 +8,8 @@
 		global.SelectedPlayer = 1;
 	}
 	
+	global.DownBPM = true;
 	global.BPM = 140;
-
 	global.ConvertedBPM = time_bpm_to_seconds(global.BPM);
 	global.RealBPM = 0;
 #endregion
@@ -78,84 +78,7 @@
 	checkUniversalMoves = false;
 	
 	charMoveList = [
-		[ //Kappa (Head)
-			"DOUBLE-JUMP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (MID-AIR)", 
-			"SLIDE-CANCEL: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (SLIDING, GROUND)",
-			"WALL-KICK: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (ON WALL, MID-AIR)", 
-			"AIR-DASH: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR)",
-		],
 		
-		[ //Kappa
-			"DOUBLE-JUMP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (MID-AIR)",
-			"SLIDE-CANCEL: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (SLIDING, GROUND)",
-			"WALL-KICK: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (ON WALL, MID-AIR)", 
-			"AIR-DASH: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR)",
-		],
-		
-		[ //Sarah
-			"DOUBLE-JUMP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (MID-AIR)",
-			"SLIDE-CANCEL: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (SLIDING, GROUND)",
-			"POWER-STOMP: HOLD " + string(obj_CustomDownKeySpeed.keyText) + " & HOLD " + string(obj_CustomAct1KeySpeed.keyText) + " (MID-AIR)",
-			"WALL-HOP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (ON WALL, MID-AIR)", 
-			"WALL-KICK: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (ON WALL, MID-AIR)",
-			"HOVER: HOLD " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR)",
-		],
-		
-		[ //Lone
-			
-		],
-		
-		[ //Brock
-			
-		],
-		
-		[ //Neegi
-			
-		],
-		
-		[ //Cloee
-			
-		],
-		
-		[ //Akira
-			
-		],
-		
-		[ //Taylor
-			
-		],
-		
-		[ //Ayana
-			
-		],
-		
-		[ //Rush
-			"DOUBLE-JUMP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (MID-AIR)",
-			"WALL-KICK: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (ON WALL, MID-AIR)", 
-			"SPINDASH: HOLD " + string(obj_CustomDownKeySpeed.keyText) + " & SPAM " + string(obj_CustomJumpKeySpeed.keyText) + " AND/OR " + string(obj_CustomAct1KeySpeed.keyText),
-			"PEELOUT: HOLD " + string(obj_CustomUpKeySpeed.keyText) + " & SPAM " + string(obj_CustomJumpKeySpeed.keyText) + " AND/OR " + string(obj_CustomAct1KeySpeed.keyText),
-			"DROPDASH: HOLD " + string(obj_CustomAct1KeySpeed.keyText) + " (MID-AIR TO GROUND)",
-			"HOMING-ATTACK: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, RETICLE)",
-		],
-		
-		[ //Edge
-			
-		],
-		
-		[ //Roxxane
-			
-		],
-		
-		[ //Lucifer
-			
-		],
-		
-		[ //Ivy
-			"REVOLVER (GROUND): PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (CHARGABLE)",
-			"REVOLVER (JUMP): HOLD " + string(obj_CustomJumpKeySpeed.keyText) + " OR " + string(obj_CustomUpKeySpeed.keyText) + " AND PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, CHARGEABLE)",
-			"REVOLVER (AIR-DASH): PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, CHARGEABLE)",
-			"REVOLVER (RELOAD): PRESS " + string(obj_CustomAct5KeySpeed.keyText) + " (GROUND & MID-AIR)",
-		],
 	]
 	
 	universalMoves = [

@@ -9,14 +9,23 @@ if global.MIND or global.PlayerChar == 0 {
 }
 
 var _choiceLength = overworld;
+var _dir = working_directory + "/saves/" + string(global.PastMindDataFile) + ".sav";
 	
 if !global.Freeplay {
 	if instance_exists(obj_StageTrackerSpeed) {
-		_choiceLength = speedStg;
+		if file_exists(_dir) {
+			_choiceLength = speedStg;
+		} else {
+			_choiceLength = speedMind;
+		}
 	} else if instance_exists(obj_StageTrackerAction) {
 		_choiceLength = actionStg;
-	} else {		
-		_choiceLength = overworld;
+	} else {
+		if file_exists(_dir) {
+			_choiceLength = overworld;
+		} else {
+			_choiceLength = overworldMind;
+		}
 	}
 } else {
 	_choiceLength = freeplay;
@@ -24,19 +33,7 @@ if !global.Freeplay {
 
 if !done {
 	#region //Animations
-		var _rushBS = 60;
-		
-		if !global.Freeplay {
-			if instance_exists(obj_StageTrackerSpeed) {
-				_rushBS = 60;
-			} else if instance_exists(obj_StageTrackerAction) {
-				_rushBS = 60;
-			} else {
-				_rushBS = 72;
-			}
-		} else {
-			_rushBS = 51;
-		}
+		var _rushBS = 360 / array_length(_choiceLength);
 	
 		image_alpha = lerp(image_alpha, 1, 0.2);
 		backSideX = lerp(backSideX, -500, 0.1);
@@ -51,7 +48,12 @@ if !done {
 			confirmY = lerp(confirmY, 500, 0.1);
 		}
 		
-		charNameX++;
+		if !global.SimplifyVFX {
+			charNameX++;
+			image_speed = 1;
+		} else {
+			image_speed = 0;
+		}
 		
 		if charNameX >= -384 {
 			charNameX = -768;
@@ -315,9 +317,8 @@ if !done {
 						}
 					
 						if _choiceLength[choice][1] == freeplayS {
-							var _transit = instance_create_depth(-100000, 0, depth, obj_RushTransition);
-							
-							_transit.target_rm = rm_FreeplayNew;
+							scr_RoomTrans(obj_RoomTransitionSEGAMenu, rm_FreeplayNew);
+							set_song_ingame(noone, 60);
 							
 							if instance_exists(obj_GhostRecorder) {
 								instance_destroy(obj_GhostRecorder);
@@ -334,7 +335,8 @@ if !done {
 						}
 					
 						if _choiceLength[choice][1] == fileSelect {
-							game_restart();
+							scr_RoomTrans(obj_RoomTransitionSEGAMenu, rm_FileSelectNew);
+							set_song_ingame(noone, 60);
 						}
 						
 						if _choiceLength[choice][1] == mainMenu {
@@ -348,13 +350,8 @@ if !done {
 								instance_destroy(obj_InputRecorder);
 							}
 							
-							var _dir = working_directory + "/saves/" + string(global.saveFile) + "/"
-							
-							if file_exists(string(global.NoMindDataFile) + string(global.saveFile) + ".sav") {
-								_transit.target_rm = rm_TitleNormal;
-							} else {
-								_transit.target_rm = rm_TitleHead;
-							}
+							scr_RoomTrans(obj_RoomTransitionSEGAMenu, rm_MainMenuNew);
+							set_song_ingame(noone, 60);
 							
 							if !audio_is_paused(pause) {
 								audio_stop_sound(pause);
@@ -363,8 +360,7 @@ if !done {
 						}
 						
 						if _choiceLength[choice][1] == quitGame {
-							var _transit = instance_create_depth(-100000, 0, depth, _trans);
-							endGame = true;
+							scr_LeaveTrans();
 						}
 					}
 				} else {
@@ -373,14 +369,6 @@ if !done {
 				}
 			}
 		#endregion
-	}
-	
-	if endGame {
-		endGameTimer--;
-		
-		if endGameTimer <= 0 {
-			game_end();
-		}
 	}
 } else {
 	image_alpha = lerp(image_alpha, 0, 0.1);
@@ -393,7 +381,6 @@ if !done {
 	if image_alpha <= 0.05 {
 		instance_destroy();
 		instance_activate_all();
-		
 		
 		if !audio_is_paused(pause) {
 			audio_stop_sound(pause);

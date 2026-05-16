@@ -10,8 +10,8 @@
   "name":"obj_NameWhiteTrans",
   "overriddenProperties":[],
   "parent":{
-    "name":"Name Maker",
-    "path":"folders/Objects/New Game Shit/Name Maker.yy",
+    "name":"New",
+    "path":"folders/Objects/Title/Head/New.yy",
   },
   "parentObjectId":null,
   "persistent":true,

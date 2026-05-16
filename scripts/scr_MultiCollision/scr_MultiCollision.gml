@@ -67,7 +67,7 @@ function scr_XCollision() {
 	}
 }
 
-function scr_YCollision() {
+function scr_YCollision() { //Didn't feel like renaming this shit
 	if !global.Death {
 		#region //Other Special BS
 			#region //Breakable Floor (Head)
@@ -956,7 +956,7 @@ function scr_YCollision() {
 					realJumping = false;
 					obj_SFXManager.bump = true;
 					
-					yspd = -4;
+					yspd = -5;
 					
 					if vel > max_Speed {
 						vel -= 4;
@@ -1085,6 +1085,7 @@ function scr_YCollision() {
 							PlayerSetGround(false);
 							bottomCollision = false;
 							jumping = true;
+							ground = false;
 						} else if _spring.hori && !_spring.verti {
 							vel = _spring.launchVel;
 							
@@ -1108,6 +1109,7 @@ function scr_YCollision() {
 							jumping = true;
 							PlayerSetGround(false);
 							bottomCollision = false;
+							ground = false;
 							
 							if _spring.launchVel > 0 {
 								if leftFacer {
@@ -1335,6 +1337,7 @@ function scr_YCollision() {
 						event_user(2);
 						PlayerSetGround(false);
 						jumping = true;
+						ground = false;
 						realJumping = false;
 						yspd = 0;
 						vel = 0;
@@ -1760,12 +1763,12 @@ function scr_YCollision() {
 						}
     
 						//Wall collision (needs to be performed because y axis has recently changed)
-						while (PlayerCollisionRight(x, y, angle, maskMid)) {
+						while (PlayerCollisionRight(x, y - 1, angle, maskMid)) {
 							x -= angleCos;
 							y += angleSin;
 						}
         
-						while (PlayerCollisionLeft(x, y, angle, maskMid)) {
+						while (PlayerCollisionLeft(x, y - 1, angle, maskMid)) {
 							x += angleCos;
 							y -= angleSin;
 						}
@@ -1793,6 +1796,7 @@ function scr_YCollision() {
 						if yspd >= 0 && bottomCollision {
 							if edgeCollision {
 								PlayerSetAngle(PlayerGetAngle(x, y, angle));
+								drawAngle = angle;
 								PlayerCollisionCache();
 								scr_Landing();
 							}
@@ -1818,16 +1822,14 @@ function scr_YCollision() {
 
 					//Acceleration and deceleration on slopes
 					if ground && angle > 20 && angle < 340 {
-						if angle > 35 && angle < 325 {
-							var _slopeFactor = slopeFactor;
+						var _slopeFactor = slopeFactor;
 						
-							if sliding {
-								_slopeFactor = slopeFactorSlide;
-							}
+						if sliding {
+							_slopeFactor = slopeFactorSlide;
+						}
 							
-							if noMoveTimer == 0 {
-								vel -= angleSin * _slopeFactor;
-							}
+						if noMoveTimer == 0 {
+							vel -= angleSin * _slopeFactor;
 						}
 					}
 
@@ -1863,17 +1865,6 @@ function scr_YCollision() {
 							pushingWall = false;
 						}
 					}
-					
-					/*//Pushing
-					if ground && !ducking && !look_up && !sliding && !railGrind && angle == 0 {
-						if PlayerCollisionRight(x + 1, y - 20, 0, maskBig) && right_Key {
-							pushingWall = true;
-						} else if PlayerCollisionLeft(x - 1, y - 20, 0, maskBig) && left_Key {
-							pushingWall = true;
-						} else {
-							pushingWall = false;
-						}
-					}*/
 					
 					//Decrease gravity freeze timer
 					if gravTimer > 0 {
@@ -1911,19 +1902,12 @@ function scr_Landing(_type = "hard") {
 		playerHurt = false;
 	}
 	
-	if angleHolder == 0 {
-		drawAngle = 0;
-	}
-	
 	if global.Particles {
 		if stomping or fallVel {
 			scr_StompedVFX();
 		}
 		
-		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
-		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
-		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
-		instance_create_depth(x + angleSin, y + angleCos, depth, obj_SlideDustVFX);
+		instance_create_depth(x - scr_CharSensX(4, 10), y + scr_CharSensY(4, 10), depth, obj_SlideDustVFX);
 	}
 }
 
@@ -1934,7 +1918,7 @@ function scr_RailGrindCreate() {
 	railGrindCrouch = false;
 	railGrindFloor = noone;
 	railGrindCheckingTimer = 0;
-	railGrindCheckingFrames = 15;
+	railGrindCheckingFrames = 1;
 	
 	forgetSemiSolid = noone;
 	
@@ -1943,11 +1927,7 @@ function scr_RailGrindCreate() {
 	afterRailJumpFrames = 10;
 }
 
-function scr_RailGrindingStep() {
-	if railGrindCheckingTimer > 0 {
-		railGrindCheckingTimer -= 1;
-	}
-	
+function scr_RailGrindingStep() {	
 	if !global.Death {
 		/*if instance_exists(obj_RailParent) {
 			var _list = ds_list_create();
@@ -2176,7 +2156,7 @@ function scr_CeilingDetect() {
 		collideTimer = collideFrames;
 	}
 	
-	if ground && collideTimer > 0 {
+	if ground && collideTimer > 0 && !railGrind {
 		if vel != 0 {
 			sliding = true;
 		} else {

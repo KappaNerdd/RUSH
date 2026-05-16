@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Main Menu",
-    "path":"folders/Objects/Title/Other/Menus/Main Menu.yy",
+    "path":"folders/Objects/Title/Other/Old/Menus/Main Menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

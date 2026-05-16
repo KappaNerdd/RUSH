@@ -21,6 +21,40 @@ if !transComplete {
 		}
 	}
 } else {
+	if waitType {
+		waitType = false;
+		
+		if room == rm_MainMenuNew {
+			if type == "freeplay" {
+				with(obj_MainMenu) {
+					menuChoice = 1;
+					moveGameplay = true;
+				}
+			}
+			
+			if type == "bio" {
+				with(obj_MainMenu) {
+					menuChoice = 2;
+					moveExtra = true;
+				}
+			}
+			
+			if type == "gallery" {
+				with(obj_MainMenu) {
+					menuChoice = 1;
+					moveExtra = true;
+				}
+			}
+			
+			if type == "freeplay" {
+				with(obj_MainMenu) {
+					menuChoice = 1;
+					moveGameplay = true;
+				}
+			}
+		}
+	}
+	
 	if colorRed > 0 && colorGreen <= 0 {
 	    colorRed -= 20 / division;
 	}

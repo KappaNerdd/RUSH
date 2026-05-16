@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":17.158094,
+  "duration":123.42855,
   "exportDir":"",
   "name":"mus_FunknRushNew",
   "parent":{

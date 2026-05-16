@@ -18,12 +18,7 @@ if !transComplete {
 	    } else {
 			if !transComplete {
 				transComplete = true;
-				
-				var _dir = working_directory + "/saves/" + string(global.saveFile) + "/";
-				
-				if file_exists(_dir + string(global.MainDataFile) + string(global.saveFile) + ".sav") {
-					load_game(global.saveFile);
-				}
+				room_goto(target_rm);
 			}
 		}
 	}
@@ -44,8 +39,11 @@ if !transComplete {
 			
 		if file_exists(_dir + string(global.MainDataFile) + string(global.saveFile) + ".sav") {
 			if instance_exists(obj_Player) {
-				obj_Player.x = global.statData[0].save_x;
-				obj_Player.y = global.statData[0].save_y;
+				if !spawnPlayer {
+					obj_Player.x = global.statData[0].save_x;
+					obj_Player.y = global.statData[0].save_y;
+					spawnPlayer = true;
+				}
 			}
 		}
 	}

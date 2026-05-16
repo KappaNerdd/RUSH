@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":51.601994,
+  "duration":68.57143,
   "exportDir":"",
   "name":"mus_TalkinAbout",
   "parent":{

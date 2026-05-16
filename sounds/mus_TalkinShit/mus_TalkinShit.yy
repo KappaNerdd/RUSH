@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":19.24127,
+  "duration":208.1928,
   "exportDir":"",
   "name":"mus_TalkinShit",
   "parent":{

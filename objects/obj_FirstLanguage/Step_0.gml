@@ -52,7 +52,7 @@ if !chosen {
 		}
 	}
 	
-	if jump_Key {
+	if jump_Key or pause_Key {
 		obj_SFXManager.menuPop = true;
 		chosen = true;
 		flashAlpha = 0.5;
@@ -71,14 +71,11 @@ if !chosen {
 	fadeTimer--;
 	
 	if fadeTimer <= 0 {
-		normAlph -= 0.01;
+		normAlph -= 0.0075;
 		
 		if normAlph <= 0 {
-			if !instance_exists(obj_RoomTransParent) {
-				with(instance_create_depth(-1000, 0, depth, obj_RoomTransitionSEGAMenu)) {
-					target_rm = rm_FileSelectNew;
-				}
-			}
+			instance_destroy();
+			instance_create_depth(-1000, 0, depth, obj_Disclaimer);
 		}
 	}
 }

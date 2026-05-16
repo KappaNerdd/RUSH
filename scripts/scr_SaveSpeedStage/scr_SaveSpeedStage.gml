@@ -1,7 +1,12 @@
-///-----Speed Stage Saving-----///
-
+///Speed Stage Saving
 function save_Speed_Stage(_fileNum = 0) {
 	if !instance_exists(obj_SavBox) {		
+		var _life = global.PlayerSelection[global.PlayerChar][17][0];
+			
+		if global.MIND {
+			_life = global.PlayerSelection[global.PlayerChar][17][3];
+		}
+			
 		//Ensure that if the rank is worse than what was previously saved, it will not save
 		if global.Rank > global.speedStageData[global.SpeedSelected].rank {
 			global.speedStageData[global.SpeedSelected].rank = global.Rank; //Keep track of rank
@@ -17,19 +22,19 @@ function save_Speed_Stage(_fileNum = 0) {
 			global.speedStageData[global.SpeedSelected].enemy_Rank = global.RankEnemies;
 			
 			global.speedStageData[global.SpeedSelected].player_Char = global.PlayerChar;
-			global.speedStageData[global.SpeedSelected].player_Sprite = global.PlayerSelection[global.PlayerChar][17][0];
+			global.speedStageData[global.SpeedSelected].player_Sprite = _life;
 			global.speedStageData[global.SpeedSelected].player_Costume = global.PlayerCostume;
 			global.speedStageData[global.SpeedSelected].player_CharTime = global.PlayerChar;
-			global.speedStageData[global.SpeedSelected].player_SpriteTime = global.PlayerSelection[global.PlayerChar][17][0];
+			global.speedStageData[global.SpeedSelected].player_SpriteTime = _life;
 			global.speedStageData[global.SpeedSelected].player_CostumeTime = global.PlayerCostume;
 			global.speedStageData[global.SpeedSelected].player_CharScore = global.PlayerChar;
-			global.speedStageData[global.SpeedSelected].player_SpriteScore = global.PlayerSelection[global.PlayerChar][17][0];
+			global.speedStageData[global.SpeedSelected].player_SpriteScore = _life;
 			global.speedStageData[global.SpeedSelected].player_CostumeScore = global.PlayerCostume;
 			global.speedStageData[global.SpeedSelected].player_CharRings = global.PlayerChar;
-			global.speedStageData[global.SpeedSelected].player_SpriteRings = global.PlayerSelection[global.PlayerChar][17][0];
+			global.speedStageData[global.SpeedSelected].player_SpriteRings = _life;
 			global.speedStageData[global.SpeedSelected].player_CostumeRings = global.PlayerCostume;
 			global.speedStageData[global.SpeedSelected].player_CharEnemy = global.PlayerChar;
-			global.speedStageData[global.SpeedSelected].player_SpriteEnemy = global.PlayerSelection[global.PlayerChar][17][0];
+			global.speedStageData[global.SpeedSelected].player_SpriteEnemy = _life;
 			global.speedStageData[global.SpeedSelected].player_CostumeEnemy = global.PlayerCostume;
 			
 			obj_NewRecordN.visible = true;
@@ -38,7 +43,7 @@ function save_Speed_Stage(_fileNum = 0) {
 				global.speedStageData[global.SpeedSelected].gameScore = global.GameScore;
 				global.speedStageData[global.SpeedSelected].rankScore = global.RankScore;
 				global.speedStageData[global.SpeedSelected].player_CharScore = global.PlayerChar;
-				global.speedStageData[global.SpeedSelected].player_SpriteScore = global.PlayerSelection[global.PlayerChar][17][0];
+				global.speedStageData[global.SpeedSelected].player_SpriteScore = _life;
 				global.speedStageData[global.SpeedSelected].player_CostumeScore = global.PlayerCostume;
 			}
 			
@@ -46,7 +51,7 @@ function save_Speed_Stage(_fileNum = 0) {
 				global.speedStageData[global.SpeedSelected].rings = global.Rings;
 				global.speedStageData[global.SpeedSelected].rings_Rank = global.RankRings;
 				global.speedStageData[global.SpeedSelected].player_CharRings = global.PlayerChar;
-				global.speedStageData[global.SpeedSelected].player_SpriteRings = global.PlayerSelection[global.PlayerChar][17][0];
+				global.speedStageData[global.SpeedSelected].player_SpriteRings = _life;
 				global.speedStageData[global.SpeedSelected].player_CostumeRings = global.PlayerCostume;
 			}
 			
@@ -54,7 +59,7 @@ function save_Speed_Stage(_fileNum = 0) {
 				global.speedStageData[global.SpeedSelected].enemies = global.EnemyCount;
 				global.speedStageData[global.SpeedSelected].enemy_Rank = global.RankEnemies;
 				global.speedStageData[global.SpeedSelected].player_CharEnemy = global.PlayerChar;
-				global.speedStageData[global.SpeedSelected].player_SpriteEnemy = global.PlayerSelection[global.PlayerChar][17][0];
+				global.speedStageData[global.SpeedSelected].player_SpriteEnemy = _life;
 				global.speedStageData[global.SpeedSelected].player_CostumeEnemy = global.PlayerCostume;
 			}
 		
@@ -66,7 +71,7 @@ function save_Speed_Stage(_fileNum = 0) {
 					global.speedStageData[global.SpeedSelected].seconds = global.seconds;
 					
 					global.speedStageData[global.SpeedSelected].player_CharTime = global.PlayerChar;
-					global.speedStageData[global.SpeedSelected].player_SpriteTime = global.PlayerSelection[global.PlayerChar][17][0];
+					global.speedStageData[global.SpeedSelected].player_SpriteTime = _life;
 					global.speedStageData[global.SpeedSelected].player_CostumeTime = global.PlayerCostume;
 				} else if global.minutes == global.speedStageData[global.SpeedSelected].minutes {
 					if global.seconds < global.speedStageData[global.SpeedSelected].seconds {
@@ -75,7 +80,7 @@ function save_Speed_Stage(_fileNum = 0) {
 						global.speedStageData[global.SpeedSelected].seconds = global.seconds;
 						
 						global.speedStageData[global.SpeedSelected].player_CharTime = global.PlayerChar;
-						global.speedStageData[global.SpeedSelected].player_SpriteTime = global.PlayerSelection[global.PlayerChar][17][0];
+						global.speedStageData[global.SpeedSelected].player_SpriteTime = _life;
 						global.speedStageData[global.SpeedSelected].player_CostumeTime = global.PlayerCostume;
 					}
 				}
@@ -86,7 +91,7 @@ function save_Speed_Stage(_fileNum = 0) {
 					global.speedStageData[global.SpeedSelected].seconds = global.seconds;
 					
 					global.speedStageData[global.SpeedSelected].player_CharTime = global.PlayerChar;
-					global.speedStageData[global.SpeedSelected].player_SpriteTime = global.PlayerSelection[global.PlayerChar][17][0];
+					global.speedStageData[global.SpeedSelected].player_SpriteTime = _life;
 					global.speedStageData[global.SpeedSelected].player_CostumeTime = global.PlayerCostume;
 				}
 			}
@@ -158,7 +163,6 @@ function save_Speed_Stage(_fileNum = 0) {
 		buffer_delete(_buffer);
 	}
 }
-
 
 ///Speed Stage Loading
 function load_Speed_Stage(_fileNum = 0) {

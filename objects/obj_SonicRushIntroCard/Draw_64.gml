@@ -24,6 +24,11 @@ var _char = global.PlayerSelection[global.PlayerChar][28][4];
 var _mainCol1 = c_white;
 var _mainCol2 = c_black;
 
+if global.MIND or global.PlayerChar == 0 {
+	_mainCol1 = c_black;
+	_mainCol2 = c_white;
+}
+
 draw_sprite_ext(sprite_index, 0, 0, 0, 28, 16.5, 0, _mainCol1, whiteAlpha);
 draw_sprite_ext(sprite_index, 0, 0, 0, 28, 2, 0, _mainCol2, mainAlpha);
 draw_sprite_ext(sprite_index, 0, 0, 504, 28, -2, 0, _mainCol2, mainAlpha);

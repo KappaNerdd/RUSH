@@ -3,12 +3,13 @@
   "%Name":"tls_HeadTiles",
   "autoTileSets":[],
   "macroPageTiles":{
-    "SerialiseHeight":0,
-    "SerialiseWidth":0,
-    "TileSerialiseData":[],
+    "SerialiseHeight":2,
+    "SerialiseWidth":2,
+    "TileCompressedData":[-4,0,],
+    "TileDataFormat":1,
   },
   "name":"tls_HeadTiles",
-  "out_columns":14,
+  "out_columns":16,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -34,5 +35,5 @@
   "tileWidth":32,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":210,
+  "tile_count":250,
 }

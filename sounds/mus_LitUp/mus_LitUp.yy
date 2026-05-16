@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":18.20009,
+  "duration":114.54546,
   "exportDir":"",
   "name":"mus_LitUp",
   "parent":{

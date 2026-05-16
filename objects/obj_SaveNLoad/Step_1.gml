@@ -188,8 +188,10 @@ if room == rm_CharSelect {
 	}
 }*/
 
-global.r = global.PlayerSelection[global.PlayerChar][5][0];
-global.g = global.PlayerSelection[global.PlayerChar][5][1];
-global.b = global.PlayerSelection[global.PlayerChar][5][2];
+if !global.MIND {
+	global.r = global.PlayerSelection[global.PlayerChar][5][0];
+	global.g = global.PlayerSelection[global.PlayerChar][5][1];
+	global.b = global.PlayerSelection[global.PlayerChar][5][2];
+}
 
 scr_ShiftRGB();

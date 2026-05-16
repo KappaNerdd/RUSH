@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Sunrise Title",
-    "path":"folders/Objects/Title/Other/General/Sunrise Title.yy",
+    "path":"folders/Objects/Title/Other/Old/General/Sunrise Title.yy",
   },
   "parentObjectId":null,
   "persistent":false,

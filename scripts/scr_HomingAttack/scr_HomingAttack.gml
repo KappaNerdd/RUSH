@@ -79,6 +79,7 @@ function scr_HomingAttackStep() {
 				scr_ControllerRumble();
 				airBoost = false;
 				dJumping = false;
+				realJumping = true;
 				scr_StopCamMove();
 			
 				if x < homing_Target.x {
@@ -121,7 +122,7 @@ function scr_HomingAttackStep() {
 			}
 		}
 	
-		if homingAttacked && yspd > 0 {
+		if homingAttacked && yspd >= 0 {
 			homingAttacked = false;
 		}
 	#endregion

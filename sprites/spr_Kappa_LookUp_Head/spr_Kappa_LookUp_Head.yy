@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Head",
-    "path":"folders/Sprites/Textboxes/Character Portraits/Kappa/Head.yy",
+    "name":"Old",
+    "path":"folders/Sprites/Textboxes/Character Portraits/Kappa/Head/Old.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

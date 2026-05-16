@@ -8,6 +8,7 @@ function save_options() {
 	global.optionsData[0].ambience = global.AMBIENCE_VOL;
 	global.optionsData[0].uniquePause = global.UniquePauseTheme;
 	global.optionsData[0].footStep = global.Footstep;
+	global.optionsData[0].invincible = global.Invincible;
 	
 	global.optionsData[1].extCam = global.ExtendCamera;
 	global.optionsData[1].simpVFX = global.SimplifyVFX;
@@ -32,6 +33,7 @@ function save_options() {
 	global.optionsData[4].colorCode = global.ColorCode;
 	global.optionsData[4].changeColor = global.ChangeColor;
 	global.optionsData[4].focusLoss = global.FocusLoss;
+	global.optionsData[4].lifeIcon = global.LifeIcon;
 	
 	global.optionsData[5].discord = global.DiscordRich;
 	global.optionsData[5].ghost = global.ShowGhost;
@@ -91,6 +93,7 @@ function load_options() {
 	global.AMBIENCE_VOL = global.optionsData[0].ambience;
 	global.UniquePauseTheme = global.optionsData[0].uniquePause;
 	global.Footstep = global.optionsData[0].footStep;
+	global.Invincible = global.optionsData[0].invincible;
 		
 	global.ExtendCamera = global.optionsData[1].extCam;
 	global.SimplifyVFX = global.optionsData[1].simpVFX;
@@ -110,7 +113,7 @@ function load_options() {
 		
 	global.FullScreen = global.optionsData[3].fullscrn;
 	global.WindowSize = global.optionsData[3].windowSize;
-	window_set_size(1280 * global.optionsData[3].windowSize, 720 * global.optionsData[3].windowSize);
+	window_set_size(global.WinX * global.optionsData[3].windowSize, global.WinY * global.optionsData[3].windowSize);
 	window_center();
 	global.VSync = global.optionsData[3].vsync;
 	display_reset(0, global.optionsData[3].vsync);
@@ -118,6 +121,7 @@ function load_options() {
 	global.ColorCode = global.optionsData[4].colorCode;
 	global.ChangeColor = global.optionsData[4].changeColor;
 	global.FocusLoss = global.optionsData[4].focusLoss;
+	global.LifeIcon = global.optionsData[4].lifeIcon;
 		
 	global.DiscordRich = global.optionsData[5].discord;
 	global.ShowGhost = global.optionsData[5].ghost;

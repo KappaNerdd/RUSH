@@ -240,6 +240,11 @@ function scr_BasicVariablesSpeedCreate() {
 		whoopsTimer = 150;
 		whoopsFrames = 150;
 	#endregion
+	
+	#region //Dust Particles
+		dustCreateTimer = 0;
+		dustCreateFrames = 4;
+	#endregion
 }
 
 function scr_BasicControlsSpeedStep1() {
@@ -281,6 +286,8 @@ function scr_BasicControlsSpeedStep1() {
 					_recorder.input[eKey.Special1Released] = action2_Key_Released
 
 					_recorder.input[eKey.Special2Pressed] = action4_Key;
+				} else if _recorder == noone {
+					getCharacterControls();
 				}
 			} else {
 				getCharacterControls();
@@ -405,6 +412,7 @@ function scr_BasicControlsSpeedStep1() {
 			whoopsTimer = whoopsFrames;
 		}
 	#endregion
+	
 }
 
 function scr_BasicControlsSpeedStep2() {
@@ -539,9 +547,14 @@ function scr_BasicControlsSpeedStep5() {
 }
 
 function scr_BasicVisualEffectsSpeed1() {
-	#region //Skidding & Sliding
-		if slowSkid or sliding {
-			scr_DustParticles();
+	#region //Skidding & Sliding && Jumping
+		if (!ground && jumping && yspd <= -(normalJspd / 2)) or ((slowSkid or sliding) && abs(vel) > 3) {
+			if dustCreateTimer > 0 {
+				dustCreateTimer--;
+			} else {
+				dustCreateTimer = dustCreateFrames;
+				instance_create_depth(x + angleSin * 10, y + angleCos * 10, depth, obj_SlideDustVFX);
+			}
 		}
 	#endregion
 			
@@ -575,7 +588,7 @@ function scr_BasicVisualEffectsSpeed1() {
 	#region //Stomped Screen Shake
 		if stomped {
 			scr_ScreenShake(0.75);
-			scr_ControllerRumble(0.5)
+			scr_ControllerRumble(0.5);
 		}
 	#endregion
 	
@@ -1488,13 +1501,6 @@ function scr_JumpManipulate() {
 		}
 		
 		if ground {
-			if global.Particles {
-				instance_create_depth(x, y + 5, depth, obj_SlideDustVFX);
-				instance_create_depth(x + 7, y + 5, depth, obj_SlideDustVFX);
-				instance_create_depth(x - 17, y + 5, depth, obj_SlideDustVFX);
-				instance_create_depth(x - 24, y + 5, depth, obj_SlideDustVFX);
-			}
-			
 			PlayerJumpAct();
 			wallJumpTimer = 5;
 			

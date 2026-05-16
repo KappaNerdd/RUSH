@@ -28,7 +28,7 @@
   "origin":4,
   "parent":{
     "name":"Languages",
-    "path":"folders/Sprites/Menus/Options/Languages.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Languages.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

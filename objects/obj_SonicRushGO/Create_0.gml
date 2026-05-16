@@ -18,9 +18,3 @@ if obj_Player.sonicRush {
 } else if obj_Player.blazeRush {
 	obj_SFXManager.breakBlaze = true;
 }
-
-if global.Replay {
-	obj_InputRecorder.isPlaying = true;
-} else {
-	obj_InputRecorder.isRecording = true;
-}

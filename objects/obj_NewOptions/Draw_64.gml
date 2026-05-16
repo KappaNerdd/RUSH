@@ -98,8 +98,17 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 				draw_sprite_ext(spr_OptionCheckbox, global.Footstep, setX + _gapX + string_width(scr_LocalText(_choice7)) + 17, setY + 61 + (_gapY * a), 1, 1, 0, c_black, 1);
 				draw_sprite_ext(spr_OptionCheckbox, global.Footstep, setX + _gapX + string_width(scr_LocalText(_choice7)) + 20, setY + 58 + (_gapY * a), 1, 1, 0, _chosenCol2, 1);
 			} else if a == 7 {
-				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice2)) + 14, setY + 67 + (_gapY * a), "x" + string(global.TextSpd), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
-				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice2)) + 17, setY + 64 + (_gapY * a), "x" + string(global.TextSpd), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
+				var _invCheck = "inv_Level";
+				_choice = _choice8;
+				
+				if global.Invincible == 1 {
+					_invCheck = "inv_Char";
+				} else if global.Invincible == 2 {
+					_invCheck = "inv_None";
+				}
+				
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 14, setY + 67 + (_gapY * a), "-  " + string(_invCheck), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 17, setY + 64 + (_gapY * a), "-  " + string(_invCheck), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
 			}
 		
 			draw_text_transformed_color(setX + _gapX - 3, setY + 67 + (_gapY * a), scr_LocalText(_choice), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
@@ -277,6 +286,7 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 		var _choice = pref[a][0];
 		var _choice2 = "opt_ChangeColor";
 		var _choice3 = "opt_FocusLoss";
+		var _choice4 = "opt_LifeIcon";
 		var _drawX = setX + _gapX - 3;
 	
 		if choice == a {
@@ -303,6 +313,18 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 				_choice = _choice3;
 				draw_sprite_ext(spr_OptionCheckbox, global.FocusLoss, setX + _gapX + string_width(scr_LocalText(_choice3)) + 17, setY + 61 + (_gapY * a), 1, 1, 0, c_black, 1);
 				draw_sprite_ext(spr_OptionCheckbox, global.FocusLoss, setX + _gapX + string_width(scr_LocalText(_choice3)) + 20, setY + 58 + (_gapY * a), 1, 1, 0, _chosenCol2, 1);
+			} else if a == 3 {
+				var _life = "life_Sil";
+				
+				if global.LifeIcon == 1 {
+					_life = "life_Color";
+				} else if global.LifeIcon == 2 {
+					_life = "life_Old";
+				}
+				
+				_choice = _choice4;
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice4)) + 14, setY + 67 + (_gapY * a), "-  " + scr_LocalText(_life), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice4)) + 17, setY + 64 + (_gapY * a), "-  " + scr_LocalText(_life), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
 			}
 	
 			draw_text_transformed_color(setX + _gapX - 3, setY + 67 + (_gapY * a), scr_LocalText(_choice), 1, 1, 0, c_black, c_black, c_black, c_black, 1);

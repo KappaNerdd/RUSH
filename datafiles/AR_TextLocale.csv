@@ -63,6 +63,7 @@ opt_Pref,PREFERENCES,PREFERENCIAS
 opt_ColorCode,CHARACTER COLOR-CODING,COLOREADO DE PERSONAJE
 opt_FocusLoss,AUTO-PAUSE ON FOCUS LOSS,PAUSAR AL PERDER FOCO
 opt_ChangeColor,CHANGE BASE COLOR,CAMBIAR COLOR BASE
+opt_LifeIcon,LIFE ICON,
 ,,
 opt_Online,ONLINE,EN LÍNEA
 opt_Discord,DISCORD RICH PRESCENCE,PRESENCIA DE DISCORD
@@ -113,12 +114,17 @@ opt_On,ON,ENCENDIDO
 opt_Default,DEFAULT,POR DEFECTO
 opt_ChangeBind,CHANGING BIND...,CAMBIANDO BOTÓN...
 ,,
-title_Start,START,INICIO
+title_Gameplay,GAMEPLAY,
+title_Extras,EXTRAS,
+title_Options,OPTIONS,OPCIONES
+title_QuitGame,QUIT GAME,SALIR JUEGO
+title_StoryMode,STORY MODE,
+title_Freeplay,FREEPLAY,JUEGO LIBRE
 title_NewGame,NEW GAME,NUEVO JUEGO
 title_Continue,CONTINUE,CONTINUAR
-title_Freeplay,FREEPLAY,JUEGO LIBRE
-title_Options,OPTIONS,OPCIONES
-title_QuitGame,QUIT GAME,SALIR
+title_Bios,CHARACTER BIOS,
+title_Gallery,GALLERY,
+title_Boombox,BOOMBOX,
 ,,
 freeplay_Speed,SPEED STAGES,ETAPA DE VELOCIDAD
 freeplay_Action,ACTION STAGES,ETAPA DE ACCIÓN
@@ -130,6 +136,7 @@ freeplay_ChooseChar1,PRESS,PRESIONA
 freeplay_ChooseChar2,TO CHANGE CHARACTERS,PARA CAMBIAR PERSONAJES
 freeplay_Mix,CHOOSE YER MIX!!,¡¡SELECCIONÁ TU MIX!!
 freeplay_Stage,STAGE,ETAPA
+freeplay_CharTut,TO ENTER THE CHARACTER TUTORIAL,
 ,,
 charSel_Acc,ACCELERATION,ACELERACIÓN
 charSel_Jump,JUMP POWER,SALTO
@@ -430,15 +437,26 @@ col_Navy,NAVY-BLUE,AZUL MARINO
 col_Purple,PURPLE,PÚRPURA
 col_Magenta,MAGENTA,MAGENTA
 ,,
+life_Sil,COLORED SILHOUETTE,
+life_Color,FULLY COLORED,
+life_Old,OLD,
+,,
+inv_Level,LEVEL-BASED,
+inv_Char,CHARACTER-BASED,
+inv_None,NONE,
+,,
 level_Markiplier,ON YOUR MARK,EN SUS MARCAS
 level_Ready,READY?,¿PREPARADOS?
 level_Set,SET!,¡LISTOS!
 level_Go,GO!,¡YA!
-level_Rush,RUSH!,¡RUSH!
+level_Adrenaline,ADRENALINE,ADRENALINE
+level_Rush,RUSH   RUSH,RUSH   RUSH
 level_Run,RUN!,
 ,,
 game_Whoops,"Whoops, sorry about that.",
 game_ToSkip,TO SKIP,
+game_Disc,DISCLAIMER,
+game_MainDisc,"This game contains violence, cursin', & potentially sensitive themes. This is not intended for people under age 13 or those who are easily disturbed. \nThe game also contains flashing lights, screen shaking, & others of the sort that can be turned off in the Options menu. (Controller is EXTREMELY recommended!) \nWould you like to open the Options menu first? ",
 ,,
 check_Name,Is this name correct?,
 check_Kappa,Not happenin'.,
@@ -464,3 +482,8 @@ check_Sonic,The legend who started it.,
 check_Blaze,The legend who continued it.,
 check_OnTheNose,"That's pretty on-the-nose, don't you think?",
 check_AAAAAA,"Not very creative, huh?",
+,,
+new_Warning,WARNING!,
+new_WarnDisc,This will delete your current save file and it will be unrecoverable. Do you wish to continue?,
+,,
+comp_Nerd,Nerd.,

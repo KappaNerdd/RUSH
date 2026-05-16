@@ -80,6 +80,13 @@ draw_set_valign(fa_middle);
 						charName = true;
 						famName = false;
 					break;
+					
+					case "roxxane":
+						_nameCheck = "check_Roxxane";
+						confirmName = true;
+						charName = true;
+						famName = false;
+					break;
 				
 					case "rush":
 					case "blur":
@@ -98,7 +105,7 @@ draw_set_valign(fa_middle);
 				
 					case "ivy":
 						_nameCheck = "check_Ivy";
-						confirmName = false;
+						confirmName = true;
 						charName = true;
 						famName = false;
 					break;
@@ -126,10 +133,11 @@ draw_set_valign(fa_middle);
 					break;
 				
 					case "nerd":
+					case "nerd.":
 					case "kappanerd":
 					case "kappanerdd":
 						_nameCheck = "check_Nerd";
-						confirmName = true;
+						confirmName = false;
 						charName = false;
 						famName = false;
 					break;
@@ -171,6 +179,10 @@ draw_set_valign(fa_middle);
 					break;
 				
 					case "gaster":
+					case "drac":
+					case "dracula":
+					case "drac cula":
+					case "drac_cula":
 						game_end();
 					break;
 				#endregion

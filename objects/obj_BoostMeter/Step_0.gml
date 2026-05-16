@@ -1,4 +1,4 @@
-if instance_exists(obj_RoomTransParent) or instance_exists(obj_Textbox) or instance_exists(obj_CutsceneParent) or instance_exists(obj_LevelCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) or instance_exists(obj_LevelCardMinor) or instance_exists(obj_ResultsCard) {
+if global.DisableHUD or instance_exists(obj_RoomTransParent) or instance_exists(obj_Textbox) or instance_exists(obj_CutsceneParent) or instance_exists(obj_LevelCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) or instance_exists(obj_LevelCardMinor) or instance_exists(obj_ResultsCard) {
 	xMove = lerp(xMove, -100, 0.1);
 } else {
 	xMove = lerp(xMove, 0, 0.1);

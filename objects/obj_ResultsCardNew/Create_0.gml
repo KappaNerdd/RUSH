@@ -39,7 +39,12 @@ set_song_ingame(noone);
 #endregion
 
 #region //Character Boxes
-	scr_GetCharTextboxes();
+	if global.MIND or global.PlayerChar == 0 {
+		sprite_index = spr_PauseMenuBGBasic;
+	} else {
+		scr_GetCharTextboxes();
+	}
+	
 	image_alpha = 0;
 	image_xscale = 25;
 	image_yscale = 15;
@@ -181,7 +186,7 @@ set_song_ingame(noone);
 
 
 #region //Player
-	playerSprite = global.PlayerSelection[global.PlayerChar][26][0];
+	playerSprite = global.PlayerSelection[global.PlayerChar][26][global.MIND];
 	playerCostume = global.PlayerCostume;
 	
 	playerStartX = 800;

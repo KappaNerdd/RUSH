@@ -206,8 +206,8 @@ var _camY = 0;
 		var _charStat = global.PlayerSelection[global.SelectedPlayer][13];
 		var _questionStat = "??";
 	
-		draw_sprite_ext(spr_SideBarR, 0, _camX - 1000 + checkStatsX, _camY, 1, 1, 0, global.fullRGB, 1);
-		draw_sprite_ext(spr_SideBarR, 1, _camX - 1000 + checkStatsX, _camY, 1, 1, 0, c_white, 0.1);
+		draw_sprite_ext(spr_SideBarR, 0, _camX - 970 + checkStatsX, _camY, 1, 1, 0, global.fullRGB, 1);
+		draw_sprite_ext(spr_SideBarR, 1, _camX - 970 + checkStatsX, _camY, 1, 1, 0, c_white, 0.1);
 		draw_sprite_ext(spr_SideBarR, 0, _camX - 1450 + checkStatsX, _camY, 1, 1, 0, global.fullRGB, 1);
 		
 		draw_set_halign(fa_right);
@@ -242,45 +242,39 @@ var _camY = 0;
 				_boostStat = 0;
 			}
 		
-			draw_text_transformed(_camX - 650 + checkStatsX, _camY + 80, scr_LocalText("charSel_Acc") + ": ", 0.75, 1, 0);
+			draw_text_transformed(_camX - 650 + checkStatsX, _camY + 80, scr_LocalText("charSel_Acc") + ": ", 1, 1, 0);
 			draw_sprite_ext(spr_CharSelectSpeedStat, _accStat, _camX - (640 - string_width(_accText)) + checkStatsX, _camY + 80, 1, 1, 0, c_white, 1);
 			
-			draw_text_transformed(_camX - 635 + checkStatsX, _camY + 100, scr_LocalText("charSel_Jump") + ": ", 0.75, 1, 0);
-			draw_sprite_ext(spr_CharSelectOtherStat, _jumpStat, _camX - (640 - string_width(_jumpText)) + checkStatsX, _camY + 100, 1, 1, 0, c_white, 1);
+			draw_text_transformed(_camX - 625 + checkStatsX, _camY + 120, scr_LocalText("charSel_Jump") + ": ", 1, 1, 0);
+			draw_sprite_ext(spr_CharSelectOtherStat, _jumpStat, _camX - (615 - string_width(_jumpText)) + checkStatsX, _camY + 120, 1, 1, 0, c_white, 1);
 			
-			draw_text_transformed(_camX - 620 + checkStatsX, _camY + 120, scr_LocalText("charSel_Grav") + ": ", 0.75, 1, 0);
-			draw_sprite_ext(spr_CharSelectOtherStat, _gravStat, _camX - (640 - string_width(_gravText)) + checkStatsX, _camY + 120, 1, 1, 0, c_white, 1);
+			draw_text_transformed(_camX - 600 + checkStatsX, _camY + 160, scr_LocalText("charSel_Grav") + ": ", 1, 1, 0);
+			draw_sprite_ext(spr_CharSelectOtherStat, _gravStat, _camX - (595 - string_width(_gravText)) + checkStatsX, _camY + 160, 1, 1, 0, c_white, 1);
 			
-			draw_text_transformed(_camX - 605 + checkStatsX, _camY + 140, scr_LocalText("charSel_Max") + ": ", 0.75, 1, 0);
-			draw_sprite_ext(spr_CharSelectSpeedStat, _maxStat, _camX - (640 - string_width(_maxText)) + checkStatsX, _camY + 140, 1, 1, 0, c_white, 1);
+			draw_text_transformed(_camX - 575 + checkStatsX, _camY + 200, scr_LocalText("charSel_Max") + ": ", 1, 1, 0);
+			draw_sprite_ext(spr_CharSelectSpeedStat, _maxStat, _camX - (563 - string_width(_maxText)) + checkStatsX, _camY + 200, 1, 1, 0, c_white, 1);
 			
-			draw_text_transformed(_camX - 590 + checkStatsX, _camY + 160, scr_LocalText("charSel_Break") + ": ", 0.75, 1, 0);
-			draw_sprite_ext(spr_CharSelectSpeedStat, _breakStat, _camX - (640 - string_width(_breakText)) + checkStatsX, _camY + 160, 1, 1, 0, c_white, 1);
+			draw_text_transformed(_camX - 550 + checkStatsX, _camY + 240, scr_LocalText("charSel_Break") + ": ", 1, 1, 0);
+			draw_sprite_ext(spr_CharSelectSpeedStat, _breakStat, _camX - (540 - string_width(_breakText)) + checkStatsX, _camY + 240, 1, 1, 0, c_white, 1);
 			
-			draw_text_transformed(_camX - 590 + checkStatsX, _camY + 180, scr_LocalText("charSel_Boost") + ": ", 0.75, 1, 0);
-			draw_sprite_ext(spr_CharSelectSpeedStat, _boostStat, _camX - (640 - string_width(_boostText)) + checkStatsX, _camY + 180, 1, 1, 0, c_white, 1);
+			draw_text_transformed(_camX - 525 + checkStatsX, _camY + 280, scr_LocalText("charSel_Boost") + ": ", 1, 1, 0);
+			draw_sprite_ext(spr_CharSelectSpeedStat, _boostStat, _camX - (510 - string_width(_boostText)) + checkStatsX, _camY + 280, 1, 1, 0, c_white, 1);
 		}
 		
 			
 		if checkMoves {
-			draw_text_transformed(_camX - 660 + checkStatsX, _camY + 50, "UNIVERSAL MOVES", 0.8, 1, 0);
-			draw_sprite_ext(obj_CustomAct3KeySpeed.sprite_index, obj_CustomAct3KeySpeed.image_index, _camX - 510 + checkStatsX, _camY + 62, 1, 1, 0, c_white, 1);
+			//draw_text_transformed(_camX - 660 + checkStatsX, _camY + 50, "UNIVERSAL MOVES", 0.8, 1, 0);
+			//draw_sprite_ext(obj_CustomAct3KeySpeed.sprite_index, obj_CustomAct3KeySpeed.image_index, _camX - 510 + checkStatsX, _camY + 62, 1, 1, 0, c_white, 1);
 			
 			for(var i = 0; i < array_length(charMoveList[global.SelectedPlayer]); i++) {
-				var _gapX = 12;
-				var _gapY = 20;
+				var _gapX = 34;
+				var _gapY = 45;
+				var _text = charMoveList[global.SelectedPlayer][i];
+				var _textWidth = string_width(_text);
+				var _xCheck = _camX - 660 + checkStatsX + (_gapX * i);
+				var _yCheck = _camY + 80 + (_gapY * i);
 				
-				if global.SelectedPlayer == 14 {
-					if i == 2 {
-						_gapY = 30;
-					}
-					
-					if i == 3 {
-						_gapY = 32;
-					}
-				}
-				
-				draw_text_ext_transformed(_camX - 660 + checkStatsX + (_gapX * i), _camY + 80 + (_gapY * i), string(charMoveList[global.SelectedPlayer][i]), 15, 520, 0.75, 1, 0);
+				draw_text_transformed(_xCheck, _yCheck, string(_text), 0.8, 1, 0);
 			}
 		}
 		
@@ -302,8 +296,8 @@ var _camY = 0;
 			draw_text_ext_transformed(_camX + 778 + checkUniversalMovesX + (_gapX * i), _camY + 4 + (_gapY * i), string(universalMoves[i]), 15, 625, 0.75, 1, 0);
 		}
 	
-		draw_sprite_ext(_button, obj_CustomAct2KeySpeed.image_index, _camX + 10, _camY + bottomShitY - 85, 1, 1, 0, c_white, 1);
-		draw_sprite_ext(spr_CharSelectSpeedStatPre, 0, _camX + 42, _camY + bottomShitY - 110, 1, 1, 0, c_white, 1);
+		//draw_sprite_ext(_button, obj_CustomAct2KeySpeed.image_index, _camX + 10, _camY + bottomShitY - 85, 1, 1, 0, c_white, 1);
+		//draw_sprite_ext(spr_CharSelectSpeedStatPre, 0, _camX + 42, _camY + bottomShitY - 110, 1, 1, 0, c_white, 1);
 		
 		draw_sprite_ext(_button, obj_CustomAct4KeySpeed.image_index, _camX + 80, _camY + bottomShitY - 85, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_CharSelectOtherStatPre, 0, _camX + 112, _camY + bottomShitY - 110, 1, 1, 0, c_white, 1);

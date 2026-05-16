@@ -87,6 +87,13 @@ overworld = [
 	["quitGame", quitGame],
 ]
 
+overworldMind = [
+	["resume", resume],
+	["fileSelect", fileSelect],
+	["options", options],
+	["quitGame", quitGame],
+]
+
 //Speed
 speedStg = [
 	["resume", resume],
@@ -94,6 +101,14 @@ speedStg = [
 	["fileSelect", fileSelect],
 	["options", options],
 	["mainMenu", mainMenu],
+	["quitGame", quitGame],
+]
+
+speedMind = [
+	["resume", resume],
+	["restart", restart],
+	["fileSelect", fileSelect],
+	["options", options],
 	["quitGame", quitGame],
 ]
 

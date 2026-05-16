@@ -35,7 +35,7 @@
   "origin":0,
   "parent":{
     "name":"Sonic Rush",
-    "path":"folders/Sprites/User Interface/Sonic Rush.yy",
+    "path":"folders/Sprites/User Interface/Old/Sonic Rush.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

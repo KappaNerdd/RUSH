@@ -24,3 +24,5 @@ if kysTimer > 0 {
 if kysTimer <= 0 {
 	instance_destroy();
 }
+
+visible = !global.DisableHUD;

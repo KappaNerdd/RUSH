@@ -61,6 +61,9 @@ function scr_BoostCreate() {
 	boostEnergy = 100;
 	maxBoostEnergy = 300;
 	
+	boostBarTimer = 0;
+	boostBarFrames = 2;
+	
 	initiateBoost = false;
 	
 	stealBoost = false;
@@ -117,6 +120,10 @@ function scr_BoostingStep() {
 	//Restart Air Boost when hitting the ground
 	if ground {
 		airBoost = false;
+	}
+	
+	if !boost {
+		boostBarTimer = boostBarFrames;
 	}
 	
 	if rushMode {
@@ -290,7 +297,12 @@ function scr_BoostingStep() {
 		}
 		
 		if !rushMode {
-			boostEnergy -= 0.5;
+			if boostBarTimer > 0 {
+				boostBarTimer--;
+			} else {
+				boostBarTimer = boostBarFrames;
+				boostEnergy--;
+			}
 		}
 		
 		if abs(vel) < max_Speed / 2 && ground && !stomping && !stomped {
@@ -560,7 +572,16 @@ function scr_AirTricksStep() {
 			}
 			
 			if rushTrickCombo < 1 {
-				instance_create_depth(-1000000, 0, 0, obj_TrickCombo);
+				if getScore {
+					var _depth = 0;
+					
+					if instance_exists(obj_TrickCombo) {
+						_depth = -1;
+					}
+						
+					instance_create_depth(-1000000, 0, _depth, obj_TrickCombo);
+				}
+				
 				rushTrickCombo = 1;
 			} else {
 				rushTrickCombo += 1;
@@ -664,13 +685,19 @@ function scr_AirTricksStep() {
 				var _randomBS = random_range(0, 3);
 				var _randomRound = round(_randomBS);
 				
+				scr_RushCatType(round(_randomBS));
+				
 				if global.Particles {
-					scr_RushCatType(_randomRound);
+					var _particles = ceil(random(5));
 					
 					instance_create_depth(x, y, depth, obj_FinalTrickParticles);
-					
-					repeat(10) {
+				
+					repeat(10 + _particles) {
 						instance_create_depth(x, y, depth, obj_TrickParticles);
+					}
+				
+					repeat(15 + _particles) {
+						instance_create_depth(-100000, 0, 0, obj_TrickConfetti);
 					}
 				}
 			}
@@ -1289,7 +1316,21 @@ function scr_RushModeColorDraw() {
 		gpu_set_fog(false, c_black, 0, 1);
 	}
 	
-	draw_sprite_ext(sprite_index, image_index, round(x), round(y), visXScale * extraXscale, image_yscale, drawAngle, image_blend, image_alpha);
+	#region //Shader Shit
+		shader_set(shd_PaletteSwap);
+			var _target = shader_get_sampler_index(shd_PaletteSwap, "samp_target");
+			var _replace = shader_get_sampler_index(shd_PaletteSwap, "samp_replace");
+			
+			if !global.MIND && global.PlayerChar != 0 {
+				headPal = basePal;
+			}
+			
+			texture_set_stage(_target, sprite_get_texture(basePal, 0));
+			texture_set_stage(_replace, sprite_get_texture(headPal, 0))
+			
+			draw_sprite_ext(sprite_index, image_index, round(x), round(y), visXScale * extraXscale, image_yscale, drawAngle, image_blend, image_alpha);
+		shader_reset();
+	#endregion
 	
 	if rushMode && !global.SimplifyVFX {
 		gpu_set_fog(true, rushColor, 0, 1);
@@ -1398,7 +1439,7 @@ function scr_RushModeColorDraw() {
 	
 	if global.DEBUG {
         //Draw main masks
-        draw_sprite_ext(idle_Mask, 0, floor(x), floor(y), visXScale, image_yscale, 0, c_white, 0.8);
+        draw_sprite_ext(mask_index, 0, floor(x), floor(y), visXScale, image_yscale, 0, c_white, 0.5);
 		
         //Draw sensor masks
         draw_sprite_ext(maskBig, 0, floor(x + angleSin * sensorBottomDistance), floor(y + angleCos * sensorBottomDistance), image_xscale, image_yscale, 0, c_white, 0.8);

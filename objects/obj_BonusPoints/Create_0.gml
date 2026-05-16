@@ -16,6 +16,10 @@ createScore = 2;
 soundWait = 2;
 soundDone = false;
 
-sprite_index = _charCheck3;
+if !global.MIND {
+	sprite_index = _charCheck3;
+} else {
+	sprite_index = spr_HeadCollectable;
+}
 
 image_speed = 1 / 10;

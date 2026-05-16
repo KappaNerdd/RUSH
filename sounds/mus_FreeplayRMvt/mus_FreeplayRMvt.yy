@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":35.555557,
+  "duration":36.0,
   "exportDir":"",
   "name":"mus_FreeplayRMvt",
   "parent":{

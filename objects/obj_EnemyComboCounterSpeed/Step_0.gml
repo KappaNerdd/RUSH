@@ -1,4 +1,4 @@
-if instance_exists(obj_RoomTransParent) or instance_exists(obj_Textbox) or instance_exists(obj_CutsceneParent) or instance_exists(obj_LevelCard) or instance_exists(obj_ResultsCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) {
+if global.DisableHUD or instance_exists(obj_RoomTransParent) or instance_exists(obj_Textbox) or instance_exists(obj_CutsceneParent) or instance_exists(obj_LevelCard) or instance_exists(obj_ResultsCard) or instance_exists(obj_LevelCardNew) or instance_exists(obj_ResultsCardNew) {
 	visible = false;
 } else {
 	if obj_Player.enemyCombo > 0  {

@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Choices",
-    "path":"folders/Sprites/Menus/Options/Choices.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Choices.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -333,7 +333,7 @@ if can_MoveFULL {
 
 	#region //Stomped
 		if !place_meeting(x, y + yspd, obj_BreakableFloor) && stomping && ground {
-			if winningAngle == 0 {
+			if angleHolder == 0 {
 				stomped = true;
 				stompedTimer = stompedFrames;
 			}

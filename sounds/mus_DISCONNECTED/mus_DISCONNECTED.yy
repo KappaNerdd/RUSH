@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":56.161816,
+  "duration":137.14285,
   "exportDir":"",
   "name":"mus_DISCONNECTED",
   "parent":{

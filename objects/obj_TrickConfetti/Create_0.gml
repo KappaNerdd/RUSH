@@ -13,11 +13,11 @@ yspd2 = random_range(-5, -13);
 
 
 horiFloatAmplitude = 0.05;
-horiFloatSpeed = 0.01;
+horiFloatSpeed = 0.1;
 horiFloatingOffset = 0;
 
 moveX = random_range(0, 640);
-moveY = 370;
+moveY = 440;
 
 kysTimer = 120;
 

@@ -68,4 +68,4 @@ instance_create_depth(-10000, y, -9, obj_HUDRankDisplayer);
 instance_create_depth(-10000, y, -9, obj_LevelCoords);
 instance_create_depth(-10000, y, -9, obj_CreatePauseSpeed);
 instance_create_depth(-10000, y, -9, obj_GhostRecorder);
-instance_create_depth(-10000, y, -9, obj_InputRecorder);
+//instance_create_depth(-10000, y, -9, obj_InputRecorder);

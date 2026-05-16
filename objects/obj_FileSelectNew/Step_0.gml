@@ -327,14 +327,16 @@ if !fileChosen {
 		var _dir = working_directory + "/saves/" + string(fileChoice + 1) + "/";
 		var _filename = _dir + string(global.NoMindDataFile) + string(fileChoice + 1) + ".sav";
 		var _filename2 = _dir + string(global.MainDataFile) + string(fileChoice + 1) + ".sav";
-		var _room = rm_TitleNormal;
+		var _otherFile = working_directory + "/saves/" + string(global.PastMindDataFile) + ".sav";
+		var _room = rm_MainMenuNew;
 		var _trans = obj_RoomTransitionSEGAMenu;
 		
-		if !file_exists(_filename) {
-			if !file_exists(_filename2) {
+		if !file_exists(_filename2) {
+			if !file_exists(_otherFile) {
 				_room = rm_NameMakerNew;
-				_trans = obj_RoomTransitionSEGAMenu;
-			} else {
+			}
+		} else {
+			if !file_exists(_otherFile) {
 				_trans = obj_RoomTransitionSEGALoad;
 			}
 		}
@@ -342,7 +344,7 @@ if !fileChosen {
 		if !instance_exists(obj_RoomTransParent) {
 			with(instance_create_depth(-100000, 0, depth, _trans)) {
 				target_rm = _room;
-				division = 3;
+				division = 2;
 			}
 		}
 	}

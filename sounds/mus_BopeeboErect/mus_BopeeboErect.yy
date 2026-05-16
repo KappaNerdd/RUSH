@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":33.401905,
+  "duration":113.65852,
   "exportDir":"",
   "name":"mus_BopeeboErect",
   "parent":{

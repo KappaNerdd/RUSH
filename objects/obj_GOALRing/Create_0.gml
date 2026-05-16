@@ -26,7 +26,11 @@ image_yscale = 1.5;
 mindAnim = 1 / 12;
 mindFrames = 0;
 
-iconSprite = global.PlayerSelection[global.PlayerChar][28][1];
+if global.MIND {
+	iconSprite = global.PlayerSelection[0][28][1];
+} else {
+	iconSprite = global.PlayerSelection[global.PlayerChar][28][1];
+}
 
 slowSound = false;
 

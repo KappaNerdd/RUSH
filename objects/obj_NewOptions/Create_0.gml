@@ -109,6 +109,7 @@ pref = [
 	["opt_ColorCode", "desc_ColorCode"],
 	["opt_ChangeColor", "desc_ChangeColor"],
 	["opt_FocusLoss", "desc_FocusLoss"],
+	["opt_LifeIcon", "desc_LifeIcon"],
 ]
 
 online = [

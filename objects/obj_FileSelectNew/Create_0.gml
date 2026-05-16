@@ -51,9 +51,9 @@ newBlue = 0;
 
 fullCol = 0;
 
-var _dir = working_directory + "/saves/";
+var _dir = working_directory + "/saves/" + string(global.PastMindDataFile) + ".sav";
 
-if file_exists(_dir + string(global.PastMindDataFile) + ".sav") {
+if file_exists(_dir) {
 	srSpikes = spr_SonicRushSpikesNorm;
 	srBlock = spr_CharSelectTop;
 	srBall = spr_CharSelectRushBall2;

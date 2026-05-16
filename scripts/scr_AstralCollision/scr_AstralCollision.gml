@@ -9,8 +9,7 @@ function PlayerCollision(_x, _y) {
 	}
 	
 	//Check for Rails
-	if ground 
-	&& (place_meeting(_x, _y + _extraSense, obj_RailParent)
+	if ground && (place_meeting(_x, _y + _extraSense, obj_RailParent)
 	|| (place_meeting(_x, _y + _extraSense, obj_RailParentA) && terrainLayer == 0) 
 	|| (place_meeting(_x, _y + _extraSense, obj_RailParentB) && terrainLayer == 1)) {
 		onPlatform = false;
@@ -19,8 +18,8 @@ function PlayerCollision(_x, _y) {
 
 	//Check for platform
 	if place_meeting(_x, _y, obj_SemiSolid) && ground {
-	    if (!onPlatform) {
-	        if (angleMode == 0) {
+	    if !onPlatform {
+	        if angleMode == 0 {
 	            onPlatform = true;
 	            return true;
 	        }
@@ -565,7 +564,7 @@ function PlayerSetGround(value) {
 	} else {
 		sliding = false;
 		jumping = true;
-		onPlatform = false
+		onPlatform = false;
 	}
 }
 
@@ -582,8 +581,6 @@ function PlayerFlight() {
 function PlayerJumpAct() {
 	yspd = angleCos * -normalJspd - angleSin * vel;
 	vel = angleCos * vel + angleSin * -normalJspd;
-	
-	xDirection = sign(vel);
 	
 	PlayerSetGround(false);
 }

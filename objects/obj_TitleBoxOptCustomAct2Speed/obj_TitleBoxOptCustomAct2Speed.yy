@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Speed 2",
-    "path":"folders/Objects/Title/Other/Menus/Options/Controls/Speed 2.yy",
+    "path":"folders/Objects/Title/Other/Old/Menus/Options/Controls/Speed 2.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleBoxParent",

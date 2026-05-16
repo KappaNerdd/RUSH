@@ -27,7 +27,7 @@
   "origin":0,
   "parent":{
     "name":"Other Shit",
-    "path":"folders/Sprites/Menus/Options/Other Shit.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Other Shit.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

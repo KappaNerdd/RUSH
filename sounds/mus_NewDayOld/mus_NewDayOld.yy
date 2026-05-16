@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":35.345123,
+  "duration":144.0,
   "exportDir":"",
   "name":"mus_NewDayOld",
   "parent":{

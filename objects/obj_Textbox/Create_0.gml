@@ -12,8 +12,6 @@ speakerChecker2 = "";
 
 textboxYChange = 0;
 
-instance_create_depth(x, y, depth, obj_TextboxConfirm);
-
 //Textbox Character Portraits Position Shit
 xChange = -260;
 xChange2 = 260;
@@ -40,7 +38,7 @@ if global.SimplifyVFX {
 	txtb_img_spd = 0.1;
 }
 
-depth = -100000000;
+depth = -10;
 
 //The Text
 page = 0;
@@ -54,6 +52,9 @@ char_y[0, 0] = 0;
 
 draw_char = 0;
 text_spd = 0.5 * global.TextSpd;
+
+setGUI = true;
+stopText = false;
 
 //Speaker Name
 speakerName = "";
@@ -78,3 +79,6 @@ snd_count = snd_delay;
 last_free_space = 0;
 text_pause_timer = 0;
 text_pause_time = 4;
+
+scr_GetCharShitCreate();
+iconIndex = 0;

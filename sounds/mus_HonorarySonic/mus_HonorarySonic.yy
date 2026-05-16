@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":16.179955,
+  "duration":46.54544,
   "exportDir":"",
   "name":"mus_HonorarySonic",
   "parent":{

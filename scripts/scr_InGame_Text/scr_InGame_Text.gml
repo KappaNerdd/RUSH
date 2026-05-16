@@ -1,5 +1,5 @@
 // @param text_id
-function scr_game_text(_text_id) {
+function scr_game_text(_text_id) { //("<" = Color) ("<~" = Wavy) ("<^" = Shake)
 	
 	switch(_text_id) {
 		#region /////--------CHAPTER TITLES--------/////
@@ -8,7 +8,6 @@ function scr_game_text(_text_id) {
 				scr_text("PROLOGUE /// MIND");
 					scr_text_float(0, 16);
 			break;
-			
 		#endregion
 		
 		
@@ -201,23 +200,9 @@ function scr_game_text(_text_id) {
 				
 				//rm_HeadOverworld2
 				case "HeadSave1":
-					scr_text("(Huh. This tree looks familiar.)", "false", "Kappa_LookUp_Head");
-					scr_text("(It looks similar to the one Sarah and I have back home.)", "false", "Kappa_Think_Head");
-					scr_text("(It's missin' the tree house, but it looks nice.)", "false", "Kappa_Neutral_Head");
-					scr_text("(I should chill here for a little and relax.)", "false", "Kappa_LookUp_Head");
-					scr_text("(...feels safe to be near it.)", "false", "Kappa_LookUp_Head");
-					scr_text("(Giant trees like this are known as \"SAVE TREES.\")", "false", "No One");
-						scr_text_color(37, 46, c_yellow, c_yellow, c_yellow, c_yellow);
-					
-					scr_text("(These trees allow you to SAVE your game, or let you REST.)", "false", "No One");
-						scr_text_color(25, 29, c_yellow, c_yellow, c_yellow, c_yellow);
-						scr_text_color(52, 56, c_blue, c_blue, c_blue, c_blue);
-					
-					scr_text("(You'll also respawn where you last SAVED if you die in the Overworld and there aren't any Checkpoints.)", "false", "No One");
-						scr_text_color(36, 40, c_yellow, c_yellow, c_yellow, c_yellow);
-						
-					scr_text("(For now, would you like to SAVE?)", "false", "No One");
-						scr_text_color(28, 31, c_yellow, c_yellow, c_yellow, c_yellow);
+					scr_text("(Huh.) \n<rRed.> <oOrange.> <yYellow.> <gGreen.> <aAqua.> <bBlue.> <pPurple.> <mMagenta.> <1<;Rainbow> <:Gray.> <~Wavy.> <^Shake.> <@Circle.> <*Scale.> \n<r`Half-Red.> <o`Half-Orange.> <y`Half-Yellow.> <g`Half-Green.> <a`Half-Aqua.> <b`Half-Blue.> <p`Half-Purple.> <m`Half-Magenta.> <;`Half-Rainbow> <:`Half-Gray.>", "false", ["Kappa_Neutral_Head", "Kappa_LookUp_Head"]);
+					scr_text("Doin' more checks here.", "true", ["Sarah_Neutral_Normal"]);
+					scr_text("Yet <1another> check <2here.> \n<0(KYS!)>", "true", ["Kappa_Think_Head", "Kappa_Shocked_Head", "Kappa_Prepare_Head"]);
 					
 					//Options
 					scr_option("Yes", "HeadSave1 - Yes");

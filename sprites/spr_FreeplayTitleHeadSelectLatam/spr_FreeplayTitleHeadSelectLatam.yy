@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Spanish (Latam)",
-    "path":"folders/Sprites/Menus/Title/Spanish (Latam).yy",
+    "path":"folders/Sprites/Menus/Old/General/Title/Spanish (Latam).yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

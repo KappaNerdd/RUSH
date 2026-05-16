@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Keyboard",
-    "path":"folders/Sprites/User Interface/Keyboard.yy",
+    "path":"folders/Sprites/User Interface/Old/Keyboard.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

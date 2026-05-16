@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Borders",
-    "path":"folders/Sprites/Menus/General/Borders.yy",
+    "path":"folders/Sprites/Menus/Old/General/Borders.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

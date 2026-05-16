@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"Misc",
-    "path":"folders/Sprites/Menus/Options/Misc.yy",
+    "path":"folders/Sprites/Menus/Old/General/Options/Misc.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -5,11 +5,7 @@ if global.FullScreen {
 }
 
 if keyboard_check_pressed(vk_f4) {
-	if global.FullScreen {
-		global.FullScreen = false;
-	} else {
-		global.FullScreen = true;
-	}
+	global.FullScreen = !global.FullScreen;
 }
 
 
@@ -17,12 +13,9 @@ if keyboard_check_pressed(vk_f4) {
 if keyboard_check(vk_escape) {
 	if quittingTimer > 0 {
 		quittingTimer -= 1;
-	}
-	
-	if quittingTimer <= 0 {
+	} else {
 		game_end();
 	}
-	
 	
 	if quitAlpha < 1 {
 		quitAlpha += 0.05;

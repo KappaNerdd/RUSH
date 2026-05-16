@@ -42,30 +42,6 @@ if room == rm_FileSelect {
 	}
 }
 
-
-///-----Splash Screens-----///
-#region //Head
-	if room == rm_Empty {
-		set_song_ingame(noone, 120, 0);
-	}
-
-	if room == rm_Splash1 {
-		set_song_ingame(mus_Solemn, 60, 3 * 60);
-		scr_MusicTag();
-	}
-
-	if room == rm_Splash2 {
-		set_song_ingame(mus_Solemn, 60, 3 * 60);
-	}
-#endregion
-
-#region //Normal
-	if room == rm_Splash1Normal {
-		set_song_ingame(mus_WakeyWakey, 120, 0);
-	}
-#endregion
-
-
 #region ///-----Title Screen Head-----///
 	if room == rm_TitleHead {
 		set_song_ingame(mus_Solemn, 0, 3 * 60);
@@ -108,7 +84,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -120,7 +96,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -128,7 +104,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -136,7 +112,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -144,7 +120,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -152,7 +128,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -160,7 +136,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 
@@ -168,7 +144,7 @@ if room == rm_CharSelect or room == rm_CharSelectNew {
 		set_song_ingame(mus_DISCONNECTED, 60, 60);
 	
 		if !audio_is_playing(mus_DISCONNECTED) {
-			instance_create_depth(x, y, depth, obj_MusicTag);
+			scr_MusicTag();
 		}
 	}
 #endregion

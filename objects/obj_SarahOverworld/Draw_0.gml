@@ -4,14 +4,30 @@ var _camXAdd = 600;
 
 scr_RushModeColorDraw();
 
+var _xscale = 1;
+
+if face_Left {
+	_xscale = -1;
+}
+
 if backTrick or hover {
-	var _xscale = 1;
+	var _humming = spr_SarahTwirlVFX;
 	
-	draw_sprite_ext(spr_SarahTwirlVFX, image_index, x, y - 16, _xscale, 1, drawAngle, c_white, 1);
+	if global.MIND {
+		_humming = spr_HeadHummingVFX;
+	}
+	
+	draw_sprite_ext(_humming, image_index, x, y - 16, _xscale, 1, drawAngle, c_white, 1);
 }
 
 if railGrind {
-	draw_sprite_ext(spr_RailGrindSparksVFX, railGrindSprFrames, x + angleSin * 10, y + angleCos * 10, 0.5, 0.5, drawAngle, c_white, 1);
+	var _rail = spr_RailGrindSparksVFX;
+	
+	if global.MIND {
+		_rail = spr_RailGrindHeadVFX;
+	}
+	
+	draw_sprite_ext(_rail, railGrindSprFrames, x + angleSin * 11, y + angleCos * 11, _xscale, 0.5, drawAngle, c_white, 1);
 }
 
 if global.DEBUG == true && instance_exists(self) {

@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Main Opt Box",
-    "path":"folders/Objects/Title/Other/Menus/Options/Main Opt Box.yy",
+    "path":"folders/Objects/Title/Other/Old/Menus/Options/Main Opt Box.yy",
   },
   "parentObjectId":{
     "name":"obj_TitleBoxParent",

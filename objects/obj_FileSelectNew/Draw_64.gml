@@ -98,6 +98,12 @@ for (var i = 1; i <= global.FileLimit; i++) {
 		draw_sprite_ext(_playerShit[6][0], boxAnim, _changeX, _changeY, 14, 3 + boxExtraScale, _changeAngle, #303030, 0.5);
 		draw_sprite_ext(spr_TextboxTrans, 0, _changeX, _changeY, 14, 3 + boxExtraScale, _changeAngle, _chosenCol, 1);
 		
+		draw_set_halign(fa_right);
+			if !erase && !overwrite {
+				draw_text_transformed_color(_changeX + 380, _changeY + 64, string(_localArray.player_ExtraLives) + "x", 1, 1, _changeAngle, c_white, c_white, _chosenCol, _chosenCol, 1);
+			}
+		draw_set_halign(fa_left);
+		
 		if !erase && !overwrite {
 			for(var f = 0; f <= 3; f++) {
 				var _chosen = c_dkgrey;
@@ -207,9 +213,15 @@ for (var i = 1; i <= global.FileLimit; i++) {
 		draw_sprite_ext(spr_TextboxHead, 0, _changeX, _changeY, 14, 3 + boxExtraScale, _changeAngle, c_white, 0.5);
 		draw_sprite_ext(spr_TextboxTrans, 0, _changeX, _changeY, 14, 3 + boxExtraScale, _changeAngle, _chosenCol, 1);
 		
+		draw_set_halign(fa_right);
+			if !erase && !overwrite {
+				draw_text_transformed_color(_changeX + 380, _changeY + 64, "0x", 1, 1, _changeAngle, c_white, c_white, _chosenCol, _chosenCol, 1);
+			}
+		draw_set_halign(fa_left);
+		
 		for(var f = 0; f <= 3; f++) {
 			var _chosen = c_grey;
-			var _text = "title_Start";
+			var _text = "level_Go";
 			var _extraXs = 0;
 			var _origin = fa_left;
 			

@@ -9,4 +9,6 @@ sprColor = c_white;
 
 depth = obj_Player.depth + 1;
 
-sprite_index = global.PlayerSelection[global.PlayerChar][28][0];
+if !global.MIND && global.PlayerChar != 0 {
+	sprite_index = global.PlayerSelection[global.PlayerChar][28][0];
+}

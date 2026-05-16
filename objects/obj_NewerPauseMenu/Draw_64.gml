@@ -32,6 +32,7 @@ var _camHeight = 432;
 	var _choiceLength = overworld;
 	var _rushBS = 60;
 	var _pauseArrow = spr_PauseArrow;
+	var _dir = working_directory + "/saves/" + string(global.PastMindDataFile) + ".sav";
 	
 	if global.MIND or global.PlayerChar == 0 {
 		_pauseArrow = spr_PauseArrowHead;
@@ -57,7 +58,11 @@ var _camHeight = 432;
 				}
 				
 				if choice == 4 {
-					_choicesNames = scr_LocalText("menu_MainMenu");
+					if file_exists(_dir) {
+						_choicesNames = scr_LocalText("menu_MainMenu");
+					} else {
+						_choicesNames = scr_LocalText("title_QuitGame");
+					}
 				}
 				
 				if choice == 5 {
@@ -65,8 +70,13 @@ var _camHeight = 432;
 				}
 			#endregion
 			
-			_choiceLength = speedStg;
-			_rushBS = 60;
+			if file_exists(_dir) {
+				_choiceLength = speedStg;
+			} else {
+				_choiceLength = speedMind;
+			}
+			
+			_rushBS = 360 / array_length(_choiceLength);
 		} else if instance_exists(obj_StageTrackerAction) {
 			_choiceLength = actionStg;
 			_rushBS = 60;
@@ -97,8 +107,13 @@ var _camHeight = 432;
 				}
 			#endregion
 		} else {
-			_choiceLength = overworld;
-			_rushBS = 72;
+			if file_exists(_dir) {
+				_choiceLength = overworld;
+			} else {
+				_choiceLength = overworldMind;
+			}
+			
+			_rushBS = 360 / array_length(_choiceLength);
 			
 			#region //Choice Names
 				if choice == 0 {
@@ -114,7 +129,11 @@ var _camHeight = 432;
 				}
 				
 				if choice == 3 {
-					_choicesNames = scr_LocalText("menu_MainMenu");
+					if file_exists(_dir) {
+						_choicesNames = scr_LocalText("menu_MainMenu");
+					} else {
+						_choicesNames = scr_LocalText("title_QuitGame");
+					}
 				}
 				
 				if choice == 4 {
@@ -127,34 +146,34 @@ var _camHeight = 432;
 		_rushBS = 51;
 		
 		#region //Choice Names
-				if choice == 0 {
-					_choicesNames = scr_LocalText("menu_Resume");
-				}
+			if choice == 0 {
+				_choicesNames = scr_LocalText("menu_Resume");
+			}
 				
-				if choice == 1 {
-					_choicesNames = scr_LocalText("menu_Restart");
-				}
+			if choice == 1 {
+				_choicesNames = scr_LocalText("menu_Restart");
+			}
 				
-				if choice == 2 {
-					_choicesNames = scr_LocalText("title_Freeplay");
-				}
+			if choice == 2 {
+				_choicesNames = scr_LocalText("title_Freeplay");
+			}
 				
-				if choice == 3 {
-					_choicesNames = scr_LocalText("fs_FileSelect");
-				}
+			if choice == 3 {
+				_choicesNames = scr_LocalText("fs_FileSelect");
+			}
 				
-				if choice == 4 {
-					_choicesNames = scr_LocalText("title_Options");
-				}
+			if choice == 4 {
+				_choicesNames = scr_LocalText("title_Options");
+			}
 				
-				if choice == 5 {
-					_choicesNames = scr_LocalText("menu_MainMenu");
-				}
+			if choice == 5 {
+				_choicesNames = scr_LocalText("menu_MainMenu");
+			}
 				
-				if choice == 6 {
-					_choicesNames = scr_LocalText("title_QuitGame");
-				}
-			#endregion
+			if choice == 6 {
+				_choicesNames = scr_LocalText("title_QuitGame");
+			}
+		#endregion
 	}
 	
 	var _array = array_length(_choiceLength);
@@ -164,7 +183,7 @@ var _camHeight = 432;
 	draw_sprite_ext(spr_CharSelectRushBallWhite, 0, rushBallX, _camHeight - 90, 1, 1, rushBallAngle, c_white, 1);
 	draw_sprite_ext(spr_CharSelectRushBall2, 0, rushBallX, _camHeight - 90, 1, 1, rushBallAngle, global.fullRGB, 1);
 	draw_sprite_ext(spr_CharSelectRushBall2, 1, rushBallX, _camHeight - 90, 1, 1, 0, global.fullRGB, 1);
-	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][28][3], mindFrames, rushBallX, _camHeight - 90, 1, 1, rushBallAngle, c_white, 1);
+	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][28][3], global.MIND, rushBallX, _camHeight - 90, 1, 1, rushBallAngle, c_white, 1);
 	
 	draw_sprite_ext(_pauseArrow, mindFrames, rushBallX * 2.55 - 3, _camHeight - 40 + 15, 1, 0.5, 0, c_black, 1);
 	draw_text_transformed_color(rushBallX * 2.55 - 3,  - 40 + 3, _choicesNames, 1, 1, 0, c_black, c_black, c_black, c_black, 1);
@@ -192,8 +211,8 @@ var _camHeight = 432;
 	draw_sprite_ext(_charSprite, global.PlayerCostume, _charX + 10, _charY + 10, 0.5, 0.5, charAngle, c_black, 1);
 	draw_sprite_ext(_charSprite, global.PlayerCostume, _charX, _charY, 0.5, 0.5, charAngle, c_white, 1);
 	
-	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][12][0], 0, 605, charY2 + 155, 0.75, 0.75, -charAngle, c_black, 1);
-	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][12][0], 0, 600, charY2 + 150, 0.75, 0.75, -charAngle, c_white, 1);
+	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][12][0], global.MIND, 605, charY2 + 155, 0.75, 0.75, -charAngle, c_black, 1);
+	draw_sprite_ext(global.PlayerSelection[global.PlayerChar][12][0], global.MIND, 600, charY2 + 150, 0.75, 0.75, -charAngle, c_white, 1);
 #endregion
 
 #region //Character Name
@@ -235,8 +254,8 @@ var _camHeight = 432;
 	draw_sprite_ext(spr_TextboxTrans, image_index, 304, confirmY, 5, 5, 0, c_white, 1);
 	
 	draw_set_halign(fa_center);
-		draw_text_transformed_color(384, confirmY + 4 + 7, scr_LocalText("opt_Yes"), 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
-		draw_text_transformed_color(384, confirmY + 4, scr_LocalText("opt_Yes"), 1.5, 1.5, 0, c_white, _conCol, _conCol, _conCol, 1);
+		draw_text_transformed_color(384, confirmY + 8 + 7, scr_LocalText("opt_Yes"), 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
+		draw_text_transformed_color(384, confirmY + 8, scr_LocalText("opt_Yes"), 1.5, 1.5, 0, c_white, _conCol, _conCol, _conCol, 1);
 		
 		draw_text_transformed_color(384, confirmY + 96 + 7, scr_LocalText("opt_No"), 1.5, 1.5, 0, c_black, c_black, c_black, c_black, 1);
 		draw_text_transformed_color(384, confirmY + 96 + 4, scr_LocalText("opt_No"), 1.5, 1.5, 0, c_white, _conCol2, _conCol2, _conCol2, 1);

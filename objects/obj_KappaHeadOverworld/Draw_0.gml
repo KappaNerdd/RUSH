@@ -4,10 +4,16 @@ var _camY = camera_get_view_y(view_camera[0]);
 
 scr_RushModeColorDraw();
 
+var _xscale = visXScale;
+
 if leftTrick or rightTrick or backTrick {
-	var _xscale = visXScale;
-	
 	draw_sprite_ext(spr_HeadHummingVFX, image_index, x, y - 16, _xscale, 1, 0, c_white, 1);
+}
+
+if railGrind {
+	var _rail = spr_RailGrindCentHeadVFX;
+	
+	draw_sprite_ext(_rail, railGrindSprFrames, x + angleSin * 13, y + angleCos * 13, 1.25 * _xscale, 0.25, drawAngle, c_white, 1);
 }
 
 if global.DEBUG == true && instance_exists(self) {

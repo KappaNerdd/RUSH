@@ -1,7 +1,11 @@
 x = -100000;
 
 if file_exists("ARLANGCHECK.sav") {
-	room_goto(rm_FileSelectNew);
+	if !file_exists(string(global.PastMindDataFile) + ".sav") {
+		room_goto(rm_Splash1);
+	} else {
+		room_goto(rm_Splash1Normal);
+	}
 }
 
 langArray = [

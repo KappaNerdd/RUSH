@@ -155,6 +155,7 @@ if !confirm {
 								lock = true;
 								lockFrames = 0;
 								obj_SFXManager.funkinLocked = true;
+								scr_ULTRATEXT(string(_chooseSpeed.requirement));
 							} else {
 								obj_SFXManager.funkinFav = true;
 								chosen = true;
@@ -171,6 +172,7 @@ if !confirm {
 							chosen = false;
 							changingY = -3;
 							global.Replay = false;
+							global.MIND = _chooseSpeed.mind;
 						}
 					}
 				}
@@ -179,7 +181,6 @@ if !confirm {
 			#region //Custom Music
 				if right_Key_Once && chosen && !jukebox {
 					var _chooseSpeed = global.speedStageData[chosenSpeed];
-					
 					
 					if _chooseSpeed.complete {
 						if array_length(global.CustomJukeboxPlaylist) > 0 or (array_length(global.CustomJukeShuffled) > 0 && global.JukeboxShuffle) {
@@ -253,6 +254,18 @@ if !confirm {
 						
 							}
 						}
+					}
+				}
+			#endregion
+			
+			#region //Select Button
+				if select_Key {
+					if !speedStage && !actionStage {
+						tutorialChar = true;
+						obj_SFXManager.funkinCheckpoint = true;
+						confirm = true;
+						set_song_ingame(noone, 60, 0);
+						changingY = -5;
 					}
 				}
 			#endregion
@@ -334,18 +347,20 @@ if !confirm {
 			changeCharTimer--;
 			
 			if changeCharTimer <= 0 {
-				if !instance_exists(obj_RoomTransParent) {
-					with(instance_create_depth(-100000, 0, depth, obj_RoomTransitionSEGAMenu)) {
-						target_rm = rm_CharSelectNew;
-					}
-				}
+				scr_RoomTrans(obj_RoomTransitionSEGAMenu, rm_CharSelectNew);
 			}
 		} else {
-			charX2 = lerp(charX2, 1100, 0.04);
-			
-			if !instance_exists(obj_RoomTransParent) {
-				with(instance_create_depth(-10000, 0, depth, obj_RushTransition)) {
-					target_rm = rm_TitleNormal;
+			if !tutorialChar {
+				charX2 = lerp(charX2, 1100, 0.04);
+				scr_MainMenuTrans("freeplay");
+			} else {
+				changingY += 0.25;
+				charY2 += changingY;
+				
+				tutorialTimer--;
+				
+				if tutorialTimer <= 0 {
+					
 				}
 			}
 		}

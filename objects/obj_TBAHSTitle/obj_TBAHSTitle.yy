@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"General",
-    "path":"folders/Objects/Title/Other/General.yy",
+    "path":"folders/Objects/Title/Other/Old/General.yy",
   },
   "parentObjectId":null,
   "persistent":false,

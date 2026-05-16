@@ -1,5 +1,86 @@
 getCharacterControls();
 
+#region //Character Move List
+	charMoveList = [
+		[ //Kappa (Head)
+			
+		],
+		
+		[ //Kappa
+			string(obj_CustomJumpKeySpeed.keyText) + " || (AIR): DOUBLE-JUMP",
+			"HOLD " + string(obj_CustomDownKeySpeed.keyText) + "+" + string(obj_CustomAct1KeySpeed.keyText) + " || (AIR): STOMP",
+			string(obj_CustomAct3KeySpeed.keyText) + " || (AIR) (NO RETICLE): AIR-DASH",
+			string(obj_CustomAct3KeySpeed.keyText) + " || (AIR) (RETICLE): HOMING-ATTACK",
+			"HOLD " + string(obj_CustomDownKeySpeed.keyText) + "+" + string(obj_CustomJumpKeySpeed.keyText) + " || (GROUND): SLIDE",
+			string(obj_CustomAct3KeySpeed.keyText) + " || (SLIDING): SLIDE-CANCEL",
+		],
+		
+		[ //Sarah
+			string(obj_CustomJumpKeySpeed.keyText) + " || (AIR): DOUBLE-JUMP",
+			"HOLD " + string(obj_CustomDownKeySpeed.keyText) + "+" + string(obj_CustomAct1KeySpeed.keyText) + " || (AIR) (CHARGEABLE): STOMP",
+			"HOLD " + string(obj_CustomAct3KeySpeed.keyText) + " || (AIR): HOVER TWIRL",
+			"HOLD " + string(obj_CustomDownKeySpeed.keyText) + "+" + string(obj_CustomJumpKeySpeed.keyText) + " || (GROUND): SLIDE",
+			string(obj_CustomAct3KeySpeed.keyText) + " || (SLIDING): SLIDE-CANCEL",
+		],
+		
+		[ //Lone
+			
+		],
+		
+		[ //Brock
+			
+		],
+		
+		[ //Neegi
+			
+		],
+		
+		[ //Cloee
+			
+		],
+		
+		[ //Akira
+			
+		],
+		
+		[ //Taylor
+			
+		],
+		
+		[ //Ayana
+			
+		],
+		
+		[ //Roxxane
+			
+		],
+		
+		[ //Lucifer
+			
+		],
+		
+		[ //Rush
+			"DOUBLE-JUMP: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (MID-AIR)",
+			"WALL-KICK: PRESS " + string(obj_CustomJumpKeySpeed.keyText) + " (ON WALL, MID-AIR)", 
+			"SPINDASH: HOLD " + string(obj_CustomDownKeySpeed.keyText) + " & SPAM " + string(obj_CustomJumpKeySpeed.keyText) + " AND/OR " + string(obj_CustomAct1KeySpeed.keyText),
+			"PEELOUT: HOLD " + string(obj_CustomUpKeySpeed.keyText) + " & SPAM " + string(obj_CustomJumpKeySpeed.keyText) + " AND/OR " + string(obj_CustomAct1KeySpeed.keyText),
+			"DROPDASH: HOLD " + string(obj_CustomAct1KeySpeed.keyText) + " (MID-AIR TO GROUND)",
+			"HOMING-ATTACK: PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, RETICLE)",
+		],
+		
+		[ //Edge
+			
+		],
+		
+		[ //Ivy
+			"REVOLVER (GROUND): PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (CHARGABLE)",
+			"REVOLVER (JUMP): HOLD " + string(obj_CustomJumpKeySpeed.keyText) + " OR " + string(obj_CustomUpKeySpeed.keyText) + " AND PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, CHARGEABLE)",
+			"REVOLVER (AIR-DASH): PRESS " + string(obj_CustomAct3KeySpeed.keyText) + " (MID-AIR, CHARGEABLE)",
+			"REVOLVER (RELOAD): PRESS " + string(obj_CustomAct5KeySpeed.keyText) + " (GROUND & MID-AIR)",
+		],
+	]
+#endregion
+
 if !global.SimplifyVFX {
 	image_speed = 1;
 } else {
@@ -282,26 +363,14 @@ if !finished {
 			}
 		
 			if action1_Key {
-				obj_SFXManager.funkinFav = true;
+				/*obj_SFXManager.funkinFav = true;
 			
 				if !checkMoves {
 					checkMoves = true;
 					checkStats = false;
 				} else {
 					checkMoves = false;
-				}
-			}
-			
-			if checkMoves {
-				if action2_Key {
-					obj_SFXManager.funkinFav = true;
-					
-					if !checkUniversalMoves {
-						checkUniversalMoves = true;
-					} else {
-						checkUniversalMoves = false;
-					}
-				}
+				}*/
 			}
 		}
 		
@@ -339,7 +408,9 @@ if !finished {
 		iconAngle = lerp(iconAngle, 0, 0.1);
 		charBoxY = lerp(charBoxY, 20, 0.1);
 		
-		charNameX -= 1;
+		if !global.SimplifyVFX {
+			charNameX -= 1;
+		}
 		
 		if charNameX <= -384 {
 			charNameX = 384;

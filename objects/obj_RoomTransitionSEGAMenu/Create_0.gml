@@ -16,3 +16,6 @@ target_rm = 0;
 if instance_exists(obj_Player) {
 	obj_Player.can_Move = false;
 }
+
+waitType = true;
+type = "dawg...";
