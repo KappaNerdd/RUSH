@@ -76,5 +76,6 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 - [GravityShift Games](https://www.youtube.com/@SlasherXGAMES) - Stopwatch Timer YouTube Tutorial
 - [nkrapivin](https://github.com/nkrapivin) - NekoPresence Extension
 - [Alejandro Hitti](https://developer.amazon.com/docs/gamemaker/input-replay-system.html) - Replay Inputs System Article Tutorial
+- [DragoniteSpam](https://github.com/DragoniteSpam) - Easing Functions
 
 
