@@ -38,7 +38,7 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 # CREDITS 'N' SPECIAL THANKS
 
 ## THE NERDS
-- [Nerd](https://bsky.app/profile/kappanerd.bsky.social) - Yo. I do everything lol. Call me an amalgamation the way I have everything. (Except hand-drawn animation and 3d modeling.)
+- [Nerd.](https://bsky.app/profile/kappanerd.bsky.social) - Yo. I do everything lol. Call me an amalgamation the way I have everything. (Except hand-drawn animation and 3d modeling.)
 - Saiyan - My first cat that kept me in this world and gave me motivation
 
 ## THE CREW
@@ -76,6 +76,6 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 - [GravityShift Games](https://www.youtube.com/@SlasherXGAMES) - Stopwatch Timer YouTube Tutorial
 - [nkrapivin](https://github.com/nkrapivin) - NekoPresence Extension
 - [Alejandro Hitti](https://developer.amazon.com/docs/gamemaker/input-replay-system.html) - Replay Inputs System Article Tutorial
-- [DragoniteSpam](https://github.com/DragoniteSpam) - Easing Functions
+- [DragoniteSpam](https://github.com/DragoniteSpam) - Easing Functions & Hue Shader Tutorial
 
 
