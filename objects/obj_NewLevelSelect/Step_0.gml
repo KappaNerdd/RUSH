@@ -56,7 +56,7 @@ getCharacterControls();
 #endregion
 
 if !confirm {
-	if !instance_exists(obj_Jukebox) {
+	if !instance_exists(obj_Boombox) {
 		if !yes {
 			#region //Choices
 				if !down_Key && !up_Key && !right_Key && !left_Key {
@@ -183,11 +183,19 @@ if !confirm {
 					var _chooseSpeed = global.speedStageData[chosenSpeed];
 					
 					if _chooseSpeed.complete {
-						if array_length(global.CustomJukeboxPlaylist) > 0 or (array_length(global.CustomJukeShuffled) > 0 && global.JukeboxShuffle) {
-							jukeCheck = !jukeCheck;
+						if jukeCheck == 0 {
+							jukeCheck++;
 							obj_SFXManager.homingLockOn = true;
+						} else if jukeCheck == 1 {
+							if array_length(global.CustomJukeboxPlaylist) > 0  {
+								jukeCheck++;
+								obj_SFXManager.homingLockOn = true;
+							} else {
+								scr_ULTRATEXT("freeplay_MTJuke");
+								jukeCheck = 0;
+							}
 						} else {
-							scr_ULTRATEXT("freeplay_MTJuke");
+							jukeCheck = 0;
 						}
 					} else {
 						obj_SFXManager.menuCancel = true;
@@ -198,7 +206,7 @@ if !confirm {
 			#region //Replay Button
 				if !speedStage && !actionStage {
 					if action1_Key {
-						instance_create_depth(x, y, depth, obj_Jukebox);
+						instance_create_depth(x, y, depth, obj_Boombox);
 						obj_SFXManager.clench = true;
 					}
 				} else if speedStage && chosen {
@@ -369,9 +377,9 @@ if !confirm {
 
 
 #region //Extra Bullshit
-	if !global.speedStageData[global.SpeedSelected].complete {
-		global.Jukebox = false;
-		jukeCheck = false;
+	if !global.speedStageData[global.SpeedSelected].complete && speedStage {
+		global.Jukebox = 0;
+		jukeCheck = 0;
 	}
 
 	global.SpeedSelected = chosenSpeed;

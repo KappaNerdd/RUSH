@@ -1,4 +1,4 @@
-if global.Jukebox {
+/*if global.Jukebox {
 	var _stopMus = async_load[? "sound_id"];
 
 	if _stopMus == obj_MusicManager.songInstance {

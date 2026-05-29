@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_KappaHeadPreRank",
-    "path":"sprites/spr_KappaHeadPreRank/spr_KappaHeadPreRank.yy",
+    "name":"spr_UnKapHeadPreRank",
+    "path":"sprites/spr_UnKapHeadPreRank/spr_UnKapHeadPreRank.yy",
   },
   "spriteMaskId":null,
   "visible":true,

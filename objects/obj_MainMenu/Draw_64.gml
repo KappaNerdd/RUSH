@@ -73,6 +73,10 @@ display_set_gui_size(768, 432);
 			draw_sprite_ext(_menu[c][1], nerd, _moveX - 15 - (extraScale * 15), -menuY + 235 + (extraScale * 10), _otherScale, _otherScale, 0, c_white, 1);
 		gpu_set_fog(false, c_black, 0, 1);
 		
+		gpu_set_fog(true, charShit[nerd][2], 0, 1);
+			draw_sprite_ext(_menu[c][1], nerd, _moveX + 15 + (extraScale * 15), -menuY + 205 - (extraScale * 10), _otherScale, _otherScale, 0, c_white, 1);
+		gpu_set_fog(false, c_black, 0, 1);
+		
 		draw_sprite_ext(_menu[c][1], nerd, _moveX, -menuY + 220 + (extraScale * 5), _otherScale, _otherScale, 0, c_white, 1);
 	}
 #endregion

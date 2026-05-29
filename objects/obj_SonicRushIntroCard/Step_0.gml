@@ -61,7 +61,7 @@ if kysTimer > 0 {
 	whiteAlpha = mainAlpha;
 	
 	if otheralpha <= 0 {
-		if !global.Jukebox && !finishedCreate {
+		if global.Jukebox != 2 && !finishedCreate {
 			scr_MusicTag();
 		}
 		

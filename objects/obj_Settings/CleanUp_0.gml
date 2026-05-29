@@ -6,3 +6,4 @@ font_delete(global.CheckpointTimerFontHead);
 font_delete(global.LifeFont);
 font_delete(global.EnemyComboFont);
 font_delete(global.EnemyComboFontHead);
+font_delete(global.BoomboxFont);

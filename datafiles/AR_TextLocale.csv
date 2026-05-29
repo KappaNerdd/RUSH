@@ -125,6 +125,12 @@ title_Continue,CONTINUE,CONTINUAR
 title_Bios,CHARACTER BIOS,
 title_Gallery,GALLERY,
 title_Boombox,BOOMBOX,
+title_Credits,CREDITS,
+title_Socials,SOCIALS,
+title_Bluesky,BLUESKY,
+title_Insta,INSTAGRAM,
+title_YT,YOUTUBE,
+title_Discord,DISCORD,
 ,,
 freeplay_Speed,SPEED STAGES,ETAPA DE VELOCIDAD
 freeplay_Action,ACTION STAGES,ETAPA DE ACCIÓN
@@ -236,6 +242,12 @@ mus_Cest,C'est La Vie,C'est La Vie
 mus_MindBody,MIND 'N' BODY,
 mus_MINDWAVE,MINDWAVE,
 mus_MINDWAVE2,MINDWAVE (Allegro),
+mus_Wrap,Wrap It Up,
+mus_WrapK,Wrap It Up (Kappa Mvt.),
+mus_WrapL,Wrap It Up (Lucifer Mvt.),
+mus_Funk,Funk 'n' Rush,Funk 'n' Rush
+mus_Unwind,"Unwind a Lil' Bit, Yeah?",
+mus_Backstreet,Backstreet Newgrounds,
 ,,
 mus_FKap,Waitin',Waitin'
 mus_FSar,No Rush,No Rush
@@ -252,8 +264,6 @@ mus_FRox,Perra-Culo,Bitch-Ass
 mus_FLuc,Waiting,Waiting
 mus_FIvy,Holster,Holster
 ,,
-mus_Funk,Funk 'n' Rush,Funk 'n' Rush
-,,
 mus_Dis,DISCONNECTED,DESCONECTADO
 mus_Lost,LOST REASON,SIN RAZÓN
 mus_Mind,MY MIND,MI MENTE
@@ -262,11 +272,11 @@ mus_Dist,DISTURBING THE MIND,DESASTRE MENTAL
 mus_DistG,DISTURBING THE MIND (Girly Mix),DESASTRE MENTAL (Girly Mix)
 ,,
 mus_NewDay,"New Night, New Day","Nueva Noche, Nuevo Día"
-mus_Sunlight,Clair De Soleil,Clair De Soleil
-mus_SunlightG,Clair De Soleil (Girly Mix),Clair De Soleil (Girly Mix)
+mus_Sunlight,Soleil,Soleil
+mus_SunlightG,Soleil (Girly Mix),Soleil (Girly Mix)
 mus_NewNight,"New Day, New Night","Nuevo Día, Nueva Noche"
-mus_Moonlight,Clair De Lune,Clair De Lune
-mus_MoonlightG,Clair De Lune (Girly Mix),Clair De Lune (Girly Mix)
+mus_Moonlight,Lune,Lune
+mus_MoonlightG,Lune (Girly Mix),Lune (Girly Mix)
 ,,
 mus_NextTime,You'll Get 'em Next Time,Quizás A La Próxima
 mus_Stand,Stand Proud,Que Orgullo
@@ -404,11 +414,14 @@ freeplay_StopTrack,STOP TRACK,DETENER TEMA
 freeplay_Refresh,REFRESH,
 freeplay_Juke,BOOMBOX,BOOMBOX
 freeplay_ChooseJuke,TO OPEN THE BOOMBOX,ABRIR LA BOOMBOX
-freeplay_NormJuke,NORMAL PLAYLIST,PLAYLIST NORMAL
-freeplay_CustJuke,CUSTOM PLAYLIST,PLAYLIST PERSONALIZADA
-freeplay_JukeOn,BOOMBOX ON,BOOMBOX ENCENDIDA
+freeplay_NormJuke,OFFICIAL SOUNDTRACK,NORMAL
+freeplay_CustJuke,CUSTOM MUSIC,PERSONALIZADA MÚSICA
 freeplay_JukeOff,BOOMBOX OFF,BOOMBOX APAGADA
-freeplay_MTJuke,No Playlist Selected,
+freeplay_JukeOn,BOOMBOX OST,BOOMBOX OST
+freeplay_JukeCust,BOOMBOX CUSTOM,BOOMBOX
+freeplay_MTJuke,No Custom Track Selected,
+juke_NoFolders,NO FOLDERS DETECTED,
+juke_NoTracks,NO TRACKS DETECTED,
 ,,
 results_Cont,CONTINUE,CONTINUAR
 results_Retry,RETRY LEVEL,REINTENTAR
@@ -437,12 +450,12 @@ col_Navy,NAVY-BLUE,AZUL MARINO
 col_Purple,PURPLE,PÚRPURA
 col_Magenta,MAGENTA,MAGENTA
 ,,
-life_Sil,COLORED SILHOUETTE,
-life_Color,FULLY COLORED,
+life_Sil,SILHOUETTE,
+life_Color,COLORED,
 life_Old,OLD,
 ,,
-inv_Level,LEVEL-BASED,
-inv_Char,CHARACTER-BASED,
+inv_Level,LEVEL,
+inv_Char,CHARACTER,
 inv_None,NONE,
 ,,
 level_Markiplier,ON YOUR MARK,EN SUS MARCAS
@@ -487,3 +500,104 @@ new_Warning,WARNING!,
 new_WarnDisc,This will delete your current save file and it will be unrecoverable. Do you wish to continue?,
 ,,
 comp_Nerd,Nerd.,
+,,
+gall_Art,MAIN ART,
+gall_FanArt,FAN-ART,
+gall_Concept,CONCEPTS/SKETCHES,
+gall_Unused,UNUSED,
+gall_Cats,CATS,
+,,
+art_RenTJ,TAYLOR RENDER,
+art_RenTJDesc,Initial render of Taylor's design.,
+art_RenTJB,TAYLOR RENDER (BLACK),
+art_RenTJBDesc,"Ditto, but dark elements are fully black.",
+art_RenAA,AYANA RENDER,
+art_RenAADesc,Initial render of Ayana's design.,
+art_RenAAB,AYANA RENDER (BLACK),
+art_RenAABDesc,"Ditto, but dark elements are fully black.",
+art_RenRG,ROXXANE RENDER,
+art_RenRGDesc,Initial render of Roxxane's redesign.,
+art_RenRG2,ROXXANE RENDER 2,
+art_RenRG2Desc,A random piece of Roxxane with a more updated design.,
+art_RenLC,LUCIFER RENDER,
+art_RenLCDesc,Initial render of Lucifer's design before her final version.,
+art_GradKap,GRADIENT KAPPA,
+art_GradKapDesc,A random render of Kappa in a gradient style.,
+art_RidersK,RIDERS KAPPA,
+art_RidersKDesc,"A quick, flat piece of Kappa for SAGE 2025's theme.",
+art_RidersS,RIDERS SARAH,
+art_RidersSDesc,"A quick, flat piece of Sarah for SAGE 2025's theme.",
+art_RidersR,RIDERS RUSH,
+art_RidersRDesc,"A quick, flat piece of Rush for SAGE 2025's theme.",
+art_RidersI,RIDERS IVY,
+art_RidersIDesc,"A quick, flat piece of Ivy for SAGE 2025's theme.",
+art_Splash010,V0.1.0 PROTOTYPE SPLASH,
+art_Splash010Desc,The 1st splash screen for the game when it initially released as a prototype.,
+art_Splash020,V0.2.0 PROTOTYPE SPLASH,
+art_Splash020Desc,The 2nd splash screen for the game when the Sarah & Ivy update released.,
+art_Splash025,V0.2.5 PROTOTYPE SPLASH,
+art_Splash025Desc,The 3rd splash screen for the game when the Rush update released.,
+art_SplashSAGE25030,V0.3.0 SAGE DEMO SPLASH,
+art_SplashSAGE25030Desc,The 4th splash screen for the game when the SAGE '25 update released.,
+art_AlbumV1P1,OLD OST VOL. 1 PT. 1,
+art_AlbumV1P1Desc,"The old album cover art for the game's Volume 1, Part 1 soundtrack. (With the game's old name.)",
+art_AlbumV1P2,OLD OST VOL. 1 PT. 2,
+art_AlbumV1P2Desc,"The old album cover art for the game's Volume 1, Part 2 soundtrack. (With the game's old name.)",
+art_AlbumV1P2Old,OLDER OST VOL. 1 PT. 2,
+art_AlbumV1P2OldDesc,An even older version of the previous album cover art.,
+art_AlbumV2P1,OLD OST VOL. 2 PT. 1,
+art_AlbumV2P1Desc,"The old album cover art for the game's Volume 2, Part 1 soundtrack. (With the game's old name.)",
+art_AlbumV2P2,OLD OST VOL. 2 PT. 2,
+art_AlbumV2P2Desc,"The old album cover art for the game's Volume 2, Part 2 soundtrack. (With the game's old name.)",
+,,
+fan_Sarah,SARAH FAN-ART,
+fan_SarahDesc,One of the first ever fan-arts for the game of Sarah around when the Sarah & Ivy update released.,
+fan_PeaSar,PEANUT SARAH,
+fan_PeaSarDesc,"Another Sarah fan-art that I dubbed ""Peanut Sarah.""",
+fan_SkelKap,SKELETON KAPPA,
+fan_SkelKapDesc,Another one of the first ever fan-arts for the game of a skeleton of Kappa in the MIND color scheme.,
+fan_SkelSar,SKELETON SARAH,
+fan_SkelSarDesc,"Ditto for Kappa, but in Sarah's color scheme. (And using the game's old name.)",
+fan_Rush,RUSH FAN-ART,
+fan_RushDesc,The first fan-art of Rush.,
+fan_SonicRush,RUSH HEDGEHOG,
+fan_SonicRushDesc,Rush in a hedgehog suit.,
+fan_Hedge,HEDGEHOGS,
+fan_HedgeDesc,2 characters based off hedgehogs.,
+fan_Cats,CATS,
+fan_CatsDesc,Cats.,
+fan_MINDExit,MIND EXIT,
+fan_MINDExitDesc,"Piece of Kappa in MIND that I dubbed ""MIND Exit.""",
+fan_MIND,MIND EXPLORATION,
+fan_MINDDesc,"Piece where Kappa, Sarah, Ivy, & Lucifer (with her old design) in MIND.",
+fan_KapReels,KAPPA DOOMSCROLL,
+fan_KapReelsDesc,Caught this mf doomscrollin'.,
+fan_Title,CAT TITLE,
+fan_TitleDesc,A drawn version of the ADRENALINE RUSH title.,
+fan_SarFish,FISH SARAH,
+fan_SarFishDesc,"Shrimply, Fish Sarah based on one of Sarah's smear frames making her look like a fish.",
+fan_KapPussy,KAT-PA,
+fan_KapPussyDesc,Kappa as a cat.,
+fan_DSCase,ADRENALINE RUSH HANDHELD,
+fan_DSCaseDesc,A case-like render to look like art for a handheld's game case.,
+,,
+con_Results,RESULTS SCREEN MOCK-UP,
+con_ResultsDesc,The only mock-up of the results screen.,
+,,
+un_KapPre,KAPPA (MIND) PRE-RANK,
+un_KapPreDesc,Old results screen animation before a rank appeared.,
+un_KapShit,KAPPA (MIND) SHIT RANK,
+un_KapShitDesc,Old results screen animation if you got a SHIT rank. (F or D.),
+un_KapGood,KAPPA (MIND) GOOD RANK,
+un_KapGoodDesc,"Old results screen animation if you got a GOOD rank. (C, B, or A.)",
+un_KapSICK,KAPPA (MIND) SICK RANK,
+un_KapSICKDesc,Old results screen animation if you got a SICK rank. (S.) (There weren't P-Ranks yet.),
+un_V1AK,INITIAL AKIRA DESIGN,
+un_V1AKDesc,The Level Card render of Akira with his previous design.,
+un_V1AK2,INITIAL AKIRA DESIGN 2,
+un_V1AK2Desc,The Freeplay render of Akira with his first design.,
+,,
+cat_Saiyan,SAIYAN (SAY-IN),
+cat_SaiyanDesc,"A picture of my cat, Saiyan. (Real name ""Kobe"".)",
+cat_Solar,SOLAR,
+cat_SolarDesc,"A picture of my cat, Solar. (Real name ""Mikasa"".)",

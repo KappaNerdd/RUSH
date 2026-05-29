@@ -1121,6 +1121,37 @@
 	]
 	
 	global.JukeboxPlaylist = [
+		[mus_MindnBody, "mus_MindBody", [spr_AlbumPlaceholder, "alb_Bullshitttttttt tttttttt ttttt tttt tttt ttttttttt"], false],
+		[mus_MINDWAVE, "mus_MINDWAVE", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_MINDWAVE_A, "mus_MINDWAVE2", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_DISCONNECTED, "mus_Dis", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_MyMind, "mus_Mind", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_MyMindGirly, "mus_MindG", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_DisturbingMind, "mus_Dist", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_DisturbingMindGirly, "mus_DistG", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_LostReason, "mus_Lost", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		
+		[mus_CestLaVie, "mus_Cest", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_WrapItUpK, "mus_WrapK", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_WrapItUpL, "mus_WrapL", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_UnwindaBit, "mus_Unwind", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_Backstreet, "mus_Backstreet", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		
+		[mus_FreeplayKMvt, "mus_FKap", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplaySMvt, "mus_FSar", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayLMvt, "mus_FLon", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayBMvt, "mus_FBro", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayNMvt, "mus_FNee", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayCMvt, "mus_FClo", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayAMvt, "mus_FAki", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayTMvt, "mus_FTay", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayAYMvt, "mus_FAya", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayRXMvt, "mus_FRox", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayLuMvt, "mus_FLuc", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayRMvt, "mus_FRus", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayEMvt, "mus_FEdg", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		[mus_FreeplayIMvt, "mus_FIvy", [spr_AlbumPlaceholder, "alb_Bullshit"], false],
+		
 		
 	]
 	

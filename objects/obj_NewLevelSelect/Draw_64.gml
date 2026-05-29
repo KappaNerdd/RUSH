@@ -20,7 +20,7 @@ display_set_gui_size(768, 432);
 	_charY2 = lerp(_charY2, _charY, 0.01);
 	
 	gpu_set_fog(true, c_white, 0, 1);
-		draw_sprite_ext(_charSprite, global.PlayerCostume, _charX2, _charY2, 0.5, 0.5, charAngle, c_black, 1);
+		//draw_sprite_ext(_charSprite, global.PlayerCostume, _charX2, _charY2, 0.5, 0.5, charAngle, c_black, 1);
 	gpu_set_fog(false, c_black, 0, 1);
 		
 	draw_sprite_ext(_charSprite, global.PlayerCostume, _charX, _charY, 0.5, 0.5, charAngle, c_white, 1);
@@ -265,8 +265,6 @@ display_set_gui_size(768, 432);
 			draw_sprite_ext(_cassSprite, mindFrames, 337 + _levelWidth, 105, 1, 1, 0, _cassCol, chosenTextAlpha);
 		gpu_set_fog(false, c_black, 0, 1);
 		
-		
-		
 		#region //Overall Rank
 			var _rankOA = _levelDesc.rank;
 			var _rankChar = _levelDesc.player_Sprite;
@@ -465,8 +463,10 @@ display_set_gui_size(768, 432);
 				var _custCol = c_grey;
 				var _custText = "freeplay_JukeOff";
 				
-				if jukeCheck {
+				if jukeCheck == 1 {
 					_custText = "freeplay_JukeOn";
+				} else if jukeCheck == 2 {
+					_custText = "freeplay_JukeCust";
 				}
 				
 				if _levelDesc.complete {

@@ -51,14 +51,20 @@ if instance_exists(obj_GhostRecorder) {
 	obj_GhostRecorder.ghostRecordFrames = 0;
 }
 
-if !global.Jukebox {
+if global.Jukebox == 0 {
 	if !global.Girly {
 		playTrack = global.speedStageData[global.SpeedSelected].musicTrack;
 	} else {
 		playTrack = global.speedStageData[global.SpeedSelected].musicTrackGirly;
 	}
 	
-	set_song_ingame(playTrack, 0, 0);
+	set_song_ingame(playTrack);
+} else if global.Jukebox == 1 {
+	set_song_ingame(global.JukeboxPlaylist[global.JukeBoxChoice][0]);
+} else {
+	var _newJuke = audio_create_stream(global.CustomJukeboxPlaylist[global.CustomJukeChoice]);
+	
+	set_song_ingame(_newJuke);
 }
 
 instance_create_depth(-10000, y, -9, obj_PlayerExtraLives);

@@ -12,7 +12,10 @@
     "name":"Regardless",
     "path":"folders/Objects/Debug/Collision/Solids/Full Solid/Regardless.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_Terrain",
+    "path":"objects/obj_Terrain/obj_Terrain.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -1,15 +1,35 @@
 depth = -2;
 
 randomize();
-set_song_ingame(mus_FunknRushNew);
-
-beats = 140;
-conBPM = 1000000 * (60 / beats);
-realBPM = 0;
 
 global.Freeplay = false;
+global.Girly = false;
+
+scr_MusicTag();
 
 nerd = round(random(1));
+
+if nerd == 0 {
+	if !audio_is_playing(mus_WrapItUpK) && !audio_is_playing(mus_WrapItUpL) {
+		set_song_ingame(mus_WrapItUpK);
+	} else {
+		var _trackPos = audio_sound_get_track_position(obj_MusicManager.songInstance);
+
+		set_song_ingame(mus_WrapItUpK, 0, 0, 1, _trackPos);
+	}
+} else {
+	if !audio_is_playing(mus_WrapItUpK) && !audio_is_playing(mus_WrapItUpL) {
+		set_song_ingame(mus_WrapItUpL);
+	} else {
+		var _trackPos = audio_sound_get_track_position(obj_MusicManager.songInstance);
+
+		set_song_ingame(mus_WrapItUpL, 0, 0, 1, _trackPos);
+	}
+}
+
+beats = 165;
+conBPM = 1000000 * (60 / beats);
+realBPM = 0;
 
 charShit = [
 	[spr_MenuButtonSonic, spr_CharSelectKappaIcon, c_blue],
@@ -21,6 +41,9 @@ menu = [
 	["fs_FileSelect", spr_GameplayRender],
 	["title_Extras", spr_GameplayRender],
 	["title_Options", spr_GameplayRender],
+	["title_Credits", spr_GameplayRender],
+	["title_Discord", spr_GameplayRender],
+	["title_Socials", spr_GameplayRender],
 	["title_QuitGame", spr_GameplayRender],
 ]
 
@@ -61,7 +84,7 @@ subMenuChoice = 0;
 storyMenuChoice = 0;
 
 menuMoveTimer = 1;
-menuMoveFrames = 9;
+menuMoveFrames = 10;
 
 menuChosen = false;
 cancelMenu = false;

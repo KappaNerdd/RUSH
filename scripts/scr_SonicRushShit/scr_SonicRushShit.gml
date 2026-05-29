@@ -1442,7 +1442,7 @@ function scr_RushModeColorDraw() {
         draw_sprite_ext(mask_index, 0, floor(x), floor(y), visXScale, image_yscale, 0, c_white, 0.5);
 		
         //Draw sensor masks
-        draw_sprite_ext(maskBig, 0, floor(x + angleSin * sensorBottomDistance), floor(y + angleCos * sensorBottomDistance), image_xscale, image_yscale, 0, c_white, 0.8);
+        draw_sprite_ext(maskBig, 0, floor(x + angleSin * sensorBottomDistance), floor(y + angleCos * sensorBottomDistance), image_xscale, image_yscale, 0, c_white, 0.5);
         draw_sprite_ext(maskMid, 0, floor(x + sensorSin * 22), floor(y + sensorCos * 22), image_xscale, image_yscale, 0, c_white, 0.8);
         draw_sprite_ext(maskBig, 0, floor(x - angleSin * sensorTopDistance), floor(y - angleCos * sensorTopDistance), image_xscale, image_yscale, 0, c_white, 0.8);
         draw_sprite_ext(maskBig, 0, floor(x - angleCos * sensorLeftDistance), floor((y - 2) + angleSin * (sensorLeftDistance)), image_xscale, image_yscale, 0, c_white, 0.8);

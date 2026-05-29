@@ -179,6 +179,8 @@ function scr_GameReset() {
 	}
 }
 
+
+
 //Saving Files (TRASH)
 function scr_SaveFiles() {
 	var _saveArray = array_create(0);

@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"mus_UnwindaBit",
   "parent":{
-    "name":"Misc",
-    "path":"folders/Sounds/Music/Misc.yy",
+    "name":"Menus",
+    "path":"folders/Sounds/Music/Menus.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"English",
-    "path":"folders/Sprites/Title/Old/Head/Splash/English.yy",
+    "name":"Head",
+    "path":"folders/Sprites/Title/New/Head.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

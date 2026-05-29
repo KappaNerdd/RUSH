@@ -18,9 +18,7 @@ if uncollectable {
 
 if kysTimer > 0 {
 	kysTimer--;
-}
-
-if kysTimer <= 0 {
+} else {
 	if dyingTimer > 0 {
 		dyingTimer--;
 		
@@ -28,12 +26,7 @@ if kysTimer <= 0 {
 			visibleTimer--;
 		} else {
 			visibleTimer = 2;
-			
-			if visible {
-				visible = false;
-			} else {
-				visible = true;
-			}
+			visible = !visible;
 		}
 	} else {
 		instance_destroy();
@@ -44,10 +37,10 @@ x += ringXSpeed;
 y += ringYSpeed;
 ringYSpeed += grav;
 
-if place_meeting(x + ringXSpeed, y, obj_Solid) {
+if place_meeting(x + ringXSpeed, y, obj_Solid) or place_meeting(x + ringXSpeed, y, obj_SolidA) or place_meeting(x + ringXSpeed, y, obj_SolidB) {
 	ringXSpeed = -ringXSpeed;
 }
 
-if place_meeting(x, y + ringYSpeed, obj_Solid) {
+if place_meeting(x, y + ringYSpeed, obj_Solid) or place_meeting(x, y + ringYSpeed, obj_SolidA) or place_meeting(x, y + ringYSpeed, obj_SolidB) {
 	ringYSpeed = -(ringYSpeed - 0.25);
 }

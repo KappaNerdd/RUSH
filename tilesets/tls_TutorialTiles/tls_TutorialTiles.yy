@@ -23,8 +23,8 @@
   },
   "spriteNoExport":false,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"General_Environment",
+    "path":"texturegroups/General_Environment",
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,

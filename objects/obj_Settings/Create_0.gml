@@ -6,6 +6,7 @@ global.CheckpointTimerFontHead = font_add_sprite_ext(spr_CheckpointTimerHead, "0
 global.LifeFont = font_add_sprite_ext(spr_LifeFont, "/x-+0123456789", true, 0);
 global.EnemyComboFont = font_add_sprite_ext(spr_EnemyComboFont, "0123456789.:,", true, -3);
 global.EnemyComboFontHead = font_add_sprite_ext(spr_EnemyComboFontHead, "0123456789:.,", true, 0);
+global.BoomboxFont = font_add_sprite_ext(spr_BoomboxNum, "0123456789CU", true, -2);
 
 global.ColTime = 0;
 

@@ -60,6 +60,39 @@ if !global.SongTag {
 #endregion
 
 
+#region /////--------Menus--------/////
+	///-----Wrap It Up (Kappa Mvt.)-----///
+	if audio_is_playing(mus_WrapItUpK) {
+		songName = scr_LocalText("mus_WrapK");
+		songCredits = scr_LocalText("comp_Nerd");
+	}
+	
+	///-----Wrap It Up (Lucifer Mvt.)-----///
+	if audio_is_playing(mus_WrapItUpL) {
+		songName = scr_LocalText("mus_WrapL");
+		songCredits = scr_LocalText("comp_Nerd");
+	}
+	
+	///-----Unwind a Lil' Bit, Yeah?-----///
+	if audio_is_playing(mus_UnwindaBit) {
+		songName = scr_LocalText("mus_Unwind");
+		songCredits = scr_LocalText("comp_Nerd");
+	}
+	
+	///-----Backstreet Newgrounds-----///
+	if audio_is_playing(mus_Backstreet) {
+		songName = scr_LocalText("mus_Backstreet");
+		songCredits = scr_LocalText("comp_Nerd");
+	}
+	
+	///-----Funk 'n' Rush-----///
+	if audio_is_playing(mus_FunknRushNew) {
+		songName = scr_LocalText("mus_Funk");
+		songCredits = scr_LocalText("comp_Nerd");
+	}
+#endregion
+
+
 #region /////--------Freeplay / Pause--------/////
 	///-----Waitin' (Kappa Mvt.)-----///
 	if audio_is_playing(mus_FreeplayKMvt) or audio_is_playing(mus_Waitin) {
@@ -142,15 +175,6 @@ if !global.SongTag {
 	///-----Holster (Ivy Mvt.)-----///
 	if audio_is_playing(mus_FreeplayIMvt) or audio_is_playing(mus_Holster) {
 		songName = scr_LocalText("mus_FIvy");
-		songCredits = scr_LocalText("comp_Nerd");
-	}
-#endregion
-
-
-#region /////--------Character Select--------/////
-	///-----Funk 'n' Rush-----///
-	if audio_is_playing(mus_FunknRushNew) {
-		songName = scr_LocalText("mus_Funk");
 		songCredits = scr_LocalText("comp_Nerd");
 	}
 #endregion

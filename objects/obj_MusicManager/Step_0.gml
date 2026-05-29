@@ -27,19 +27,7 @@ if is_string(targetSongAsset) {
 		if array_length(fadeOutInstance) == 0 {
 			if audio_exists(targetSongAsset) {
 				//Play song and store instance in variable
-				if global.Freeplay {
-					if !global.Jukebox {
-						songInstance = audio_play_sound(targetSongAsset, 1, true, 0, targetPos);
-					} else {
-						if global.JukeboxLoop {
-							songInstance = audio_play_sound(targetSongAsset, 1, true);
-						} else {
-							songInstance = audio_play_sound(targetSongAsset, 1, false);
-						}
-					}
-				} else {
-					songInstance = audio_play_sound(targetSongAsset, 1, true, 0, targetPos);
-				}
+				songInstance = audio_play_sound(targetSongAsset, 1, true, 0, targetPos);
 
 				//Start song's volume at 0
 				audio_sound_gain(songInstance, 0, 0);

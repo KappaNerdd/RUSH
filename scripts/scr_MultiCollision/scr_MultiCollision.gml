@@ -1627,14 +1627,14 @@ function scr_YCollision() { //Didn't feel like renaming this shit
 					}
 
 					if vel > 0 {
-						while (PlayerCollisionRight(x, y, angle, maskMid)) {
+						while (PlayerCollisionRight(x, y - 1, angle, maskMid)) {
 							x -= angleCos;
 							y += angleSin;
 						}
 					}
 
 					if vel < 0 {
-						while (PlayerCollisionLeft(x, y, angle, maskMid)) {
+						while (PlayerCollisionLeft(x, y - 1, angle, maskMid)) {
 							x += angleCos;
 							y -= angleSin;
 						}
@@ -1791,19 +1791,18 @@ function scr_YCollision() { //Didn't feel like renaming this shit
 						}
 
 						PlayerCollisionCache();
-					
+						
 						//Land
 						if yspd >= 0 && bottomCollision {
 							if edgeCollision {
 								PlayerSetAngle(PlayerGetAngle(x, y, angle));
-								drawAngle = angle;
 								PlayerCollisionCache();
-								scr_Landing();
 							}
     
 							vel -= angleSin * (yspd * 1);
 							yspd = 0;
 							PlayerSetGround(true);
+							scr_Landing();
 						}
     
 						//Check if we're in the air but we collided with the ceiling
@@ -1873,10 +1872,9 @@ function scr_YCollision() { //Didn't feel like renaming this shit
 				
 					if ground {
 						//Rotate while moving on the ground
-						drawAngle = ApproachAngle(drawAngle, angle, 6 + abs(vel));
+						drawAngle = ApproachAngle(drawAngle, angle, 5 + abs(vel));
 					} else {
-						drawAngle = ApproachAngle(drawAngle, 0, 6);
-						angle = ApproachAngle(angle, 0, 4);
+						drawAngle = ApproachAngle(drawAngle, 0, 5);
 					}
 				#endregion
 			#endregion
@@ -1898,6 +1896,8 @@ function scr_Landing(_type = "hard") {
 		}
 	}
 	
+	drawAngle = angle;
+	
 	if playerHurt {
 		playerHurt = false;
 	}
@@ -1908,6 +1908,7 @@ function scr_Landing(_type = "hard") {
 		}
 		
 		instance_create_depth(x - scr_CharSensX(4, 10), y + scr_CharSensY(4, 10), depth, obj_SlideDustVFX);
+		instance_create_depth(x + scr_CharSensX(4, 10), y + scr_CharSensY(4, 10), depth, obj_SlideDustVFX);
 	}
 }
 

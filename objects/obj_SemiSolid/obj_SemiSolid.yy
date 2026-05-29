@@ -13,7 +13,10 @@
     "name":"Semi Solids",
     "path":"folders/Objects/Debug/Collision/Solids/Semi Solids.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_Terrain",
+    "path":"objects/obj_Terrain/obj_Terrain.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -107,8 +107,8 @@ draw_sprite_ext(spr_TextboxTrans, image_index, setX, setY, 26, 12.5, 0, c_white,
 					_invCheck = "inv_None";
 				}
 				
-				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 14, setY + 67 + (_gapY * a), "-  " + string(_invCheck), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
-				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 17, setY + 64 + (_gapY * a), "-  " + string(_invCheck), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 14, setY + 67 + (_gapY * a), "-  " + scr_LocalText(_invCheck), 1, 1, 0, c_black, c_black, c_black, c_black, 1);
+				draw_text_transformed_color(setX + _gapX + string_width(scr_LocalText(_choice8)) + 17, setY + 64 + (_gapY * a), "-  " + scr_LocalText(_invCheck), 1, 1, 0, c_white, c_white, _chosenCol, _chosenCol, 1);
 			}
 		
 			draw_text_transformed_color(setX + _gapX - 3, setY + 67 + (_gapY * a), scr_LocalText(_choice), 1, 1, 0, c_black, c_black, c_black, c_black, 1);

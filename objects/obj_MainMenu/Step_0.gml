@@ -159,6 +159,21 @@ if !confirm {
 						obj_SFXManager.menuPop = true;
 						instance_create_depth(0, 0, 0, obj_NewOptions);
 					break;
+					
+					case "title_Credits":
+						obj_SFXManager.funkinCheckpoint = true;
+						set_song_ingame(noone, 60);
+					break;
+					
+					case "title_Discord":
+						obj_SFXManager.menuPop = true;
+						url_open("https://discord.gg/pmtGwgdVrp");
+					break;
+					
+					case "title_Socials":
+						obj_SFXManager.menuPop = true;
+						instance_create_depth(-1000, 0, depth - 3, obj_MainMenuSocials);
+					break;
 				
 					case "title_QuitGame":
 						obj_SFXManager.menuPop = true;
@@ -205,26 +220,27 @@ if !confirm {
 							obj_SFXManager.menuCancel = true;
 						}
 					break;
-					
-					#region //Extras
-						case "title_Boombox":
-							
-						break;
+				#endregion
+				
+				#region //Extras
+					case "title_Boombox":
+						obj_SFXManager.menuPop = true;
+						instance_create_depth(-1000, 0, depth - 3, obj_Boombox);
+					break;
 						
-						case "title_Gallery":
-							goGallery = true;
-							menuChosen = true;
-							obj_SFXManager.funkinCheckpoint = true;
-							set_song_ingame(noone, 60);
-						break;
+					case "title_Gallery":
+						goGallery = true;
+						menuChosen = true;
+						obj_SFXManager.funkinCheckpoint = true;
+						set_song_ingame(noone, 60);
+					break;
 						
-						case "title_Bios":
-							goBio = true;
-							menuChosen = true;
-							obj_SFXManager.funkinCheckpoint = true;
-							set_song_ingame(noone, 60);
-						break;
-					#endregion
+					case "title_Bios":
+						goBio = true;
+						menuChosen = true;
+						obj_SFXManager.funkinCheckpoint = true;
+						set_song_ingame(noone, 60);
+					break;
 				#endregion
 			}
 		}
@@ -305,7 +321,7 @@ if !confirm {
 				}
 				
 				if goGallery {
-					
+					scr_RoomTrans(obj_RoomTransitionSEGAMenu, rm_Gallery);
 				}
 			}
 		} else if cancelMenu {
@@ -357,6 +373,4 @@ if !confirm {
 			newGameWait = newGameFrame;
 		}
 	#endregion
-} else {
-	
 }

@@ -530,7 +530,19 @@ if !done {
 		obj_SFXManager.menuConfirm = true;
 		
 		if room == rm_MainMenuNew {
+			var _trackPos = audio_sound_get_track_position(obj_MusicManager.songInstance);
+			
 			obj_MainMenu.nerd = !obj_MainMenu.nerd;
+			
+			if obj_MusicManager.songAsset == mus_WrapItUpL or obj_MusicManager.songAsset == mus_WrapItUpK {
+				scr_MusicTag();
+				
+				if obj_MainMenu.nerd == 1 {
+					set_song_ingame(mus_WrapItUpL, 0, 0, 1, _trackPos);
+				} else {
+					set_song_ingame(mus_WrapItUpK, 0, 0, 1, _trackPos);
+				}
+			}
 		}
 	}
 	
