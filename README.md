@@ -52,7 +52,7 @@ SPEED Stages are the Sonic Rush trilogy part of the game. Boost through the leve
 - [Huisti](https://x.com/Huisti785) - Spanish (Español) Translation
 
 ## SPECIAL GUESTS
-- [Brandon](https://x.com/notokaay19) - Creator of Akira, Taylor, & Ayana
+- [Notokay](https://x.com/notokaay19) - Creator of Akira, Taylor, & Ayana
 - Ness - Creator of Ivy
 
 ## NERD CONTRIBUTORS
