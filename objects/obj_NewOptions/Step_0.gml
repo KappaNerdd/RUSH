@@ -482,11 +482,11 @@ if !done {
 			global.RightKeySpeed = vk_right;
 			global.UpKeySpeed = vk_up;
 			global.DownKeySpeed = vk_down;
-			global.JumpKeySpeed = "Z";
-			global.ActionKeySpeed = "X";
-			global.Action1KeySpeed = "C";
+			global.JumpKeySpeed = ord("Z");
+			global.ActionKeySpeed = ord("X");
+			global.Action1KeySpeed = ord("C");
 			global.Action2KeySpeed = vk_space;
-			global.Action3KeySpeed = "V";
+			global.Action3KeySpeed = ord("V");
 			global.Action4KeySpeed = vk_lshift;
 			global.PauseKeySpeed = vk_enter;
 			global.SelectKeySpeed = vk_lcontrol;
@@ -514,14 +514,14 @@ if !done {
 			global.RightKeyAction = vk_right;
 			global.UpKeyAction = vk_up;
 			global.DownKeyAction = vk_down;
-			global.LightKeyAction = "X";
-			global.MediumKeyAction = "C";
-			global.HeavyKeyAction = "V";
-			global.SpecialKeyAction = "Z";
+			global.LightKeyAction = ord("X");
+			global.MediumKeyAction = ord("C");
+			global.HeavyKeyAction = ord("V");
+			global.SpecialKeyAction = ord("Z");
 			global.DashKeyAction = vk_space;
 			global.SuperDashKeyAction = vk_lshift;
-			global.ParryKeyAction = "G";
-			global.ChargeKeyAction = "B";
+			global.ParryKeyAction = ord("G");
+			global.ChargeKeyAction = ord("B");
 
 
 			//Controls Controller

@@ -1,8 +1,6 @@
 if p1Timer > 0 {
-	p1Timer -= 1;
-}
-
-if p1Timer <= 0 {
+	p1Timer--;
+} else {
 	p1Timer = 0;
 	
 	if textAlphaP1 > 0 {
@@ -10,13 +8,9 @@ if p1Timer <= 0 {
 	}
 }
 
-
-
 if p2Timer > 0 {
-	p2Timer -= 1;
-}
-
-if p2Timer <= 0 {
+	p2Timer--;
+} else {
 	p2Timer = 0;
 	
 	if textAlphaP2 > 0 {
@@ -24,12 +18,9 @@ if p2Timer <= 0 {
 	}
 }
 
-
 if p3Timer > 0 {
-	p3Timer -= 1;
-}
-
-if p3Timer <= 0 {
+	p3Timer--;
+} else {
 	p3Timer = 0;
 	
 	if textAlphaP3 > 0 {
